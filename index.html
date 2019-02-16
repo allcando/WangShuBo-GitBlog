@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/16/hexo指令/">hexo指令</a>
+      <a class="article-title" href="/2019/02/16/hexo指令/">hexo常用指令</a>
     </h1>
   
 
@@ -85,28 +85,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><br></p>
-<h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><p><code>$ hexo init [folder]</code></p>
-<h3 id="新建一个网站。如果没有设置-folder-，Hexo-默认在目前的文件夹建立网站。"><a href="#新建一个网站。如果没有设置-folder-，Hexo-默认在目前的文件夹建立网站。" class="headerlink" title="新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。"></a>新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。</h3><h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><p><code>$ hexo new [layout] &lt;title&gt;</code></p>
-<h3 id="新建一篇文章。如果没有设置-layout-的话，默认使用-config-yml-中的-default-layout-参数代替。如果标题包含空格的话，请使用引号括起来。"><a href="#新建一篇文章。如果没有设置-layout-的话，默认使用-config-yml-中的-default-layout-参数代替。如果标题包含空格的话，请使用引号括起来。" class="headerlink" title="新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。"></a>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</h3><h2 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h2><p><code>$ hexo generate</code></p>
-<h3 id="生成静态文件。"><a href="#生成静态文件。" class="headerlink" title="生成静态文件。"></a>生成静态文件。</h3><h3 id="选项-描述"><a href="#选项-描述" class="headerlink" title="选项    描述"></a>选项    描述</h3><h3 id="d-–deploy-文件生成后立即部署网站"><a href="#d-–deploy-文件生成后立即部署网站" class="headerlink" title="-d, –deploy    文件生成后立即部署网站"></a>-d, –deploy    文件生成后立即部署网站</h3><h3 id="w-–watch-监视文件变动"><a href="#w-–watch-监视文件变动" class="headerlink" title="-w, –watch    监视文件变动"></a>-w, –watch    监视文件变动</h3><h3 id="该命令可以简写为"><a href="#该命令可以简写为" class="headerlink" title="该命令可以简写为"></a>该命令可以简写为</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">publish</span><br><span class="line">$ hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="发表草稿。"><a href="#发表草稿。" class="headerlink" title="发表草稿。"></a>发表草稿。</h3><h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><p><code>$ hexo server</code></p>
-<h3 id="启动服务器。默认情况下，访问网址为：-http-localhost-4000-。"><a href="#启动服务器。默认情况下，访问网址为：-http-localhost-4000-。" class="headerlink" title="启动服务器。默认情况下，访问网址为： http://localhost:4000/。"></a>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="noopener">http://localhost:4000/。</a></h3><h3 id="选项-描述-1"><a href="#选项-描述-1" class="headerlink" title="选项    描述"></a>选项    描述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-p, --port	重设端口</span><br><span class="line">-s, --static	只使用静态文件</span><br><span class="line">-l, --log	启动日记记录，使用覆盖记录格式</span><br><span class="line">deploy</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<h3 id="部署网站。"><a href="#部署网站。" class="headerlink" title="部署网站。"></a>部署网站。</h3><h3 id="参数-描述"><a href="#参数-描述" class="headerlink" title="参数    描述"></a>参数    描述</h3><h3 id="g-–generate-部署之前预先生成静态文件"><a href="#g-–generate-部署之前预先生成静态文件" class="headerlink" title="-g, –generate    部署之前预先生成静态文件"></a>-g, –generate    部署之前预先生成静态文件</h3><h3 id="该命令可以简写为："><a href="#该命令可以简写为：" class="headerlink" title="该命令可以简写为："></a>该命令可以简写为：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br><span class="line">render</span><br><span class="line">$ hexo render &lt;file1&gt; [file2] ...</span><br></pre></td></tr></table></figure>
-<h3 id="渲染文件。"><a href="#渲染文件。" class="headerlink" title="渲染文件。"></a>渲染文件。</h3><h3 id="参数-描述-1"><a href="#参数-描述-1" class="headerlink" title="参数    描述"></a>参数    描述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-o, --output	设置输出路径</span><br><span class="line">migrate</span><br><span class="line">$ hexo migrate &lt;type&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="从其他博客系统-迁移内容。"><a href="#从其他博客系统-迁移内容。" class="headerlink" title="从其他博客系统 迁移内容。"></a>从其他博客系统 迁移内容。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clean</span><br><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-<h3 id="清除缓存文件-db-json-和已生成的静态文件-public-。"><a href="#清除缓存文件-db-json-和已生成的静态文件-public-。" class="headerlink" title="清除缓存文件 (db.json) 和已生成的静态文件 (public)。"></a>清除缓存文件 (db.json) 和已生成的静态文件 (public)。</h3><h3 id="在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。"><a href="#在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。" class="headerlink" title="在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。"></a>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list</span><br><span class="line">$ hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="列出网站资料。"><a href="#列出网站资料。" class="headerlink" title="列出网站资料。"></a>列出网站资料。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">version</span><br><span class="line">$ hexo version</span><br></pre></td></tr></table></figure>
-<h3 id="显示-Hexo-版本。"><a href="#显示-Hexo-版本。" class="headerlink" title="显示 Hexo 版本。"></a>显示 Hexo 版本。</h3><h3 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h3><p><code>$ hexo --safe</code></p>
-<h3 id="在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。"><a href="#在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。" class="headerlink" title="在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。"></a>在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。</h3><h3 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h3><p><code>$ hexo --debug</code></p>
-<h3 id="在终端中显示调试信息并记录到-debug-log。当您碰到问题时，可以尝试用调试模式重新执行一次，并-提交调试信息到-GitHub。"><a href="#在终端中显示调试信息并记录到-debug-log。当您碰到问题时，可以尝试用调试模式重新执行一次，并-提交调试信息到-GitHub。" class="headerlink" title="在终端中显示调试信息并记录到 debug.log。当您碰到问题时，可以尝试用调试模式重新执行一次，并 提交调试信息到 GitHub。"></a>在终端中显示调试信息并记录到 debug.log。当您碰到问题时，可以尝试用调试模式重新执行一次，并 提交调试信息到 GitHub。</h3><h3 id="简洁模式"><a href="#简洁模式" class="headerlink" title="简洁模式"></a>简洁模式</h3><p><code>$ hexo --silent</code></p>
-<h3 id="隐藏终端信息。"><a href="#隐藏终端信息。" class="headerlink" title="隐藏终端信息。"></a>隐藏终端信息。</h3><h3 id="自定义配置文件的路径"><a href="#自定义配置文件的路径" class="headerlink" title="自定义配置文件的路径"></a>自定义配置文件的路径</h3><p><code>$ hexo --config custom.yml</code></p>
-<h3 id="自定义配置文件的路径，执行后将不再使用-config-yml。"><a href="#自定义配置文件的路径，执行后将不再使用-config-yml。" class="headerlink" title="自定义配置文件的路径，执行后将不再使用 _config.yml。"></a>自定义配置文件的路径，执行后将不再使用 _config.yml。</h3><h3 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h3><p><code>$ hexo --draft</code> </p>
-<h3 id="显示-source-drafts-文件夹中的草稿文章。"><a href="#显示-source-drafts-文件夹中的草稿文章。" class="headerlink" title="显示 source/_drafts 文件夹中的草稿文章。"></a>显示 source/_drafts 文件夹中的草稿文章。</h3><h3 id="自定义-CWD"><a href="#自定义-CWD" class="headerlink" title="自定义 CWD"></a>自定义 CWD</h3><p><code>$ hexo --cwd /path/to/cwd</code></p>
-<h3 id="自定义当前工作目录（Current-working-directory）的路径。"><a href="#自定义当前工作目录（Current-working-directory）的路径。" class="headerlink" title="自定义当前工作目录（Current working directory）的路径。"></a>自定义当前工作目录（Current working directory）的路径。</h3>
+<h2 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1.初始化"></a>1.初始化</h2><h3 id="hexo-init-folder"><a href="#hexo-init-folder" class="headerlink" title="$ hexo init [folder]"></a><code>$ hexo init [folder]</code></h3><h2 id="2-新建一篇文章。"><a href="#2-新建一篇文章。" class="headerlink" title="2.新建一篇文章。"></a>2.新建一篇文章。</h2><h3 id="hexo-new-layout-lt-title-gt"><a href="#hexo-new-layout-lt-title-gt" class="headerlink" title="$ hexo new [layout] &lt;title&gt;"></a><code>$ hexo new [layout] &lt;title&gt;</code></h3><h2 id="3-生成静态文件。"><a href="#3-生成静态文件。" class="headerlink" title="3.生成静态文件。"></a>3.生成静态文件。</h2><h3 id="hexo-generate该命令可以简写为-hexo-g"><a href="#hexo-generate该命令可以简写为-hexo-g" class="headerlink" title="$ hexo generate该命令可以简写为$ hexo g"></a><code>$ hexo generate</code>该命令可以简写为<code>$ hexo g</code></h3><h2 id="4-部署网站"><a href="#4-部署网站" class="headerlink" title="4.部署网站"></a>4.部署网站</h2><h3 id="hexo-deploy该命令可以简写为-hexo-d"><a href="#hexo-deploy该命令可以简写为-hexo-d" class="headerlink" title="$ hexo deploy该命令可以简写为$ hexo d"></a><code>$ hexo deploy</code>该命令可以简写为<code>$ hexo d</code></h3><h2 id="5-监视文件变动"><a href="#5-监视文件变动" class="headerlink" title="5.监视文件变动"></a>5.监视文件变动</h2><h3 id="hexo-w-watch"><a href="#hexo-w-watch" class="headerlink" title="$ hexo -w, --watch"></a><code>$ hexo -w, --watch</code></h3><h2 id="6-server"><a href="#6-server" class="headerlink" title="6.server"></a>6.server</h2><h3 id="hexo-server"><a href="#hexo-server" class="headerlink" title="$ hexo server"></a><code>$ hexo server</code></h3><h3 id="启动本地服务器。默认情况下，访问网址为：-http-localhost-4000-。"><a href="#启动本地服务器。默认情况下，访问网址为：-http-localhost-4000-。" class="headerlink" title="启动本地服务器。默认情况下，访问网址为： http://localhost:4000/。"></a>启动本地服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="noopener">http://localhost:4000/。</a></h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/16/hexo指令/" data-id="cjs7dpncl0000j4v67nkes71d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/16/hexo指令/" data-id="cjs7eahd100002sv6bc2uo2h7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -148,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/09/我的第一篇博客/" data-id="cjs7dpnd60003j4v6la6caae4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/09/我的第一篇博客/" data-id="cjs7eahd600012sv6bjoz8bq5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -205,7 +188,7 @@
       <ul>
         
           <li>
-            <a href="/2019/02/16/hexo指令/">hexo指令</a>
+            <a href="/2019/02/16/hexo指令/">hexo常用指令</a>
           </li>
         
           <li>
