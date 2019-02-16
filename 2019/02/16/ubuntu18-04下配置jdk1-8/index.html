@@ -7,14 +7,22 @@
   
   <title>ubuntu18.04下配置jdk1.8 | 王树波的静态博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="ubuntu下配置jdk第一步与win10下相同  首先来到 官网下载jdk：https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html  在这里下载 压缩包的版本。 1.下载完成后，解压文件 使用命令：1tar -zxvf jdk-8u191-linux-x64.tar.gz 2.解压">
+<meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu18.04下配置jdk1.8">
 <meta property="og:url" content="http://yoursite.com/2019/02/16/ubuntu18-04下配置jdk1-8/index.html">
 <meta property="og:site_name" content="王树波的静态博客">
+<meta property="og:description" content="ubuntu下配置jdk第一步与win10下相同  首先来到 官网下载jdk：https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html  在这里下载 压缩包的版本。 1.下载完成后，解压文件 使用命令：1tar -zxvf jdk-8u191-linux-x64.tar.gz 2.解压">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-16T12:05:11.587Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/ubuntu18-04下配置jdk1-8/Ubuntu18.04logo.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/ubuntu18-04下配置jdk1-8/p1.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/ubuntu18-04下配置jdk1-8/p3.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/ubuntu18-04下配置jdk1-8/p2.png">
+<meta property="og:updated_time" content="2019-02-16T23:41:18.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu18.04下配置jdk1.8">
+<meta name="twitter:description" content="ubuntu下配置jdk第一步与win10下相同  首先来到 官网下载jdk：https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html  在这里下载 压缩包的版本。 1.下载完成后，解压文件 使用命令：1tar -zxvf jdk-8u191-linux-x64.tar.gz 2.解压">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/16/ubuntu18-04下配置jdk1-8/Ubuntu18.04logo.png">
   
     <link rel="alternate" href="/atom.xml" title="王树波的静态博客" type="application/atom+xml">
   
@@ -64,7 +72,7 @@
         <section id="main"><article id="post-ubuntu18-04下配置jdk1-8" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/02/16/ubuntu18-04下配置jdk1-8/" class="article-date">
-  <time datetime="2019-02-16T12:05:11.000Z" itemprop="datePublished">2019-02-16</time>
+  <time datetime="2019-02-16T12:32:26.000Z" itemprop="datePublished">2019-02-16</time>
 </a>
     
   </div>
@@ -83,11 +91,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <img src="/2019/02/16/ubuntu18-04下配置jdk1-8/Ubuntu18.04logo.png" title="ubuntu logo">
+<h1 id="ubuntu下配置jdk第一步与win10下相同-首先来到-官网下载jdk："><a href="#ubuntu下配置jdk第一步与win10下相同-首先来到-官网下载jdk：" class="headerlink" title="ubuntu下配置jdk第一步与win10下相同  首先来到 官网下载jdk："></a>ubuntu下配置jdk第一步与win10下相同  首先来到 <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">官网下载jdk</a>：</h1><p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+<img src="/2019/02/16/ubuntu18-04下配置jdk1-8/p1.png" title="p1">
+<h3 id="在这里下载-压缩包的版本。"><a href="#在这里下载-压缩包的版本。" class="headerlink" title="在这里下载 压缩包的版本。"></a>在这里下载 压缩包的版本。</h3><img src="/2019/02/16/ubuntu18-04下配置jdk1-8/p3.png" title="p3">
+<h2 id="1-下载完成后，解压文件-使用命令："><a href="#1-下载完成后，解压文件-使用命令：" class="headerlink" title="1.下载完成后，解压文件 使用命令："></a>1.下载完成后，解压文件 使用命令：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u191-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+<h2 id="2-解压完成后-将文件移动到-usr-lib"><a href="#2-解压完成后-将文件移动到-usr-lib" class="headerlink" title="2.解压完成后 将文件移动到 /usr/lib"></a>2.解压完成后 将文件移动到 /usr/lib</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv jdk1.8.0_191 /usr/lib/jdk1.8</span><br></pre></td></tr></table></figure>
+<h2 id="3-修改环境变量"><a href="#3-修改环境变量" class="headerlink" title="3.修改环境变量"></a>3.修改环境变量</h2><h3 id="（1）使用全局设置方法，它是所有用户的共用的环境变量"><a href="#（1）使用全局设置方法，它是所有用户的共用的环境变量" class="headerlink" title="（1）使用全局设置方法，它是所有用户的共用的环境变量"></a>（1）使用全局设置方法，它是所有用户的共用的环境变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit ~/.bashrc</span><br></pre></td></tr></table></figure>
+<h3 id="（2）在文件末尾追加路径"><a href="#（2）在文件末尾追加路径" class="headerlink" title="（2）在文件末尾追加路径"></a>（2）在文件末尾追加路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/jdk1.8</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=.:$&#123;JAVA_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
+<img src="/2019/02/16/ubuntu18-04下配置jdk1-8/p2.png" title="p2">
+<h3 id="（3）生效-bashrc文件"><a href="#（3）生效-bashrc文件" class="headerlink" title="（3）生效~/.bashrc文件"></a>（3）生效~/.bashrc文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~./bashrc</span><br></pre></td></tr></table></figure>
+<h3 id="（4）最后执行这几条命令"><a href="#（4）最后执行这几条命令" class="headerlink" title="（4）最后执行这几条命令"></a>（4）最后执行这几条命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/java java /usr/lib/jdk1.8/bin/java 300</span><br><span class="line">sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jdk1.8/bin/javac 300</span><br><span class="line">sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jdk1.8/bin/jar 300</span><br><span class="line">sudo update-alternatives --install /usr/bin/javah javah /usr/lib/jdk1.8/bin/javah 300</span><br><span class="line">sudo update-alternatives --install /usr/bin/javap javap /usr/lib/jdk1.8/bin/javap 300</span><br></pre></td></tr></table></figure>
+<h2 id="4-测试是否成功："><a href="#4-测试是否成功：" class="headerlink" title="4.测试是否成功："></a>4.测试是否成功：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java javac java -version</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/16/ubuntu18-04下配置jdk1-8/" data-id="cjs7gn8to00047kv617sjtqbb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/16/ubuntu18-04下配置jdk1-8/" data-id="cjs84mgzh00002ov6ic7eeq0c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -95,15 +115,6 @@
   
     
 <nav id="article-nav">
-  
-    <a href="/2019/02/16/test/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          test
-        
-      </div>
-    </a>
   
   
     <a href="/2019/02/16/hexo指令/" id="article-nav-older" class="article-nav-link-wrap">
@@ -157,10 +168,6 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2019/02/16/test/">test</a>
-          </li>
         
           <li>
             <a href="/2019/02/16/ubuntu18-04下配置jdk1-8/">ubuntu18.04下配置jdk1.8</a>
