@@ -62,6 +62,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ubuntu18-04下安装eclipse-jee" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/17/ubuntu18-04下安装eclipse-jee/" class="article-date">
+  <time datetime="2019-02-17T00:05:13.000Z" itemprop="datePublished">2019-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/17/ubuntu18-04下安装eclipse-jee/">ubuntu18.04下安装eclipse-jee</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><br></p>
+<img src="/2019/02/17/ubuntu18-04下安装eclipse-jee/Ubuntu18.04logo.png" title="ubuntu logo">
+<p>1.要使用eclipse首先配置jdk以及jre的java环境变量。前边已经写过了这里就不写了详情点击</p>
+<p>2.到eclipse官网下载eclipse jee。</p>
+<img src="/2019/02/17/ubuntu18-04下安装eclipse-jee/p1.png" title="p1">
+<p>在这里我下载了linux64位压缩包版本的</p>
+<p>3.下载完成后将文件移动到 /opt/eclipse-jee文件夹</p>
+<img src="/2019/02/17/ubuntu18-04下安装eclipse-jee/p2.png" title="p2">
+<p>4.解压压缩包</p>
+<p>tar xzvf eclipse-jee-2018-09-linux-gtk-x86_64.tar.gz<br>5.创建eclipse桌面快捷图标</p>
+<p>（1）编辑eclipse.desktop</p>
+<p>cd /usr/share/applications<br>vim eclipse.desktop<br>（2）在文件中写入(其中“Exec=”后面为eclipse安装目录下的eclipse程序的位置路径，“Icon=”后面为eclipse安装目录下的图标图片的路径)</p>
+<p>复制代码<br>[Desktop Entry]<br>Encoding=UTF-8<br>Name=Eclipse<br>Comment=Eclipse<br>Exec=/opt/eclipse-jee/eclipse/eclipse<br>Icon=/opt/eclipse-jee/eclipse/icon.xpm<br>Terminal=false<br>StartupNotify=true<br>Type=Application<br>Categories=Application;Development;<br>复制代码<br><img src="/2019/02/17/ubuntu18-04下安装eclipse-jee/p3.png" title="p3"></p>
+<p>6.将eclipse变为可执行文件</p>
+<p>chmod u+x eclipse.desktop<br>7.在/usr/share/applications目录下即可打开eclipse（也可以复制到桌面打开）<br><img src="/2019/02/17/ubuntu18-04下安装eclipse-jee/p4.png" title="p4"><br><img src="/2019/02/17/ubuntu18-04下安装eclipse-jee/p5.png" title="p5"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/17/ubuntu18-04下安装eclipse-jee/" data-id="cjs85slm10005ikv60m93ggzm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-ubuntu18-04下安装mariaDB" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/02/17/ubuntu18-04下安装mariaDB/" class="article-date">
@@ -96,9 +149,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/17/ubuntu18-04下安装mariaDB/" data-id="cjs85cqmx0003jkv6k3apr2fv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/17/ubuntu18-04下安装mariaDB/" data-id="cjs85sllt0003ikv6rwmip1g3" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+
     </footer>
   </div>
   
@@ -145,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/17/ubuntu18-04下配置jdk1-8/" data-id="cjs85cqmz0004jkv63byysgf0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/17/ubuntu18-04下配置jdk1-8/" data-id="cjs85sllw0004ikv6ygvkmuhs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
@@ -184,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/16/hexo指令/" data-id="cjs85cqms0001jkv64lq4my3a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/16/hexo指令/" data-id="cjs85slli0000ikv6z4l9cmso" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -225,7 +280,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/09/我的第一篇博客/" data-id="cjs85cqmn0000jkv6jcdbbdbl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/09/我的第一篇博客/" data-id="cjs85sllo0001ikv6d20w2ans" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -260,7 +315,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+      <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
     </div>
   </div>
 
@@ -280,6 +335,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/02/17/ubuntu18-04下安装eclipse-jee/">ubuntu18.04下安装eclipse-jee</a>
+          </li>
         
           <li>
             <a href="/2019/02/17/ubuntu18-04下安装mariaDB/">ubuntu18.04下安装mariaDB</a>
