@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Linux,">
+  <meta name="keywords" content="Python,">
 
 
 
@@ -79,23 +79,26 @@
 
 
 
-<meta name="description" content="今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。 下图是我的 /etc/profile文件中的环境变量配置 可以看到 图中PATH=$JAVA_HOME/bin:$JRE_HOME/bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。解决方法：1.使用export 手动导入以下目录后手动将path纠正。 1export P">
-<meta name="keywords" content="Linux">
+<meta name="description" content="问题今天第一次使用pycharm时添加第三方库时，遇见了一个错误：ModuleNotFoundError: No module named &amp;#39;setuptools&amp;#39;该问题是由于Python默认是没有安装setuptools这个模块的，这也是一个第三方模块。使用pip install setuptools即可解决。然鹅。。。pip命令无法使用 首先排除环境变量的问题，安装过程中勾选">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux下环境变量PATH设置错误，导致命令无法使用">
-<meta property="og:url" content="http://yoursite.com/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/index.html">
+<meta property="og:title" content="第一次使用Pycharm遇见的问题">
+<meta property="og:url" content="http://yoursite.com/2019/03/19/第一次使用Pycharm遇见的问题/index.html">
 <meta property="og:site_name" content="王树波的博客">
-<meta property="og:description" content="今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。 下图是我的 /etc/profile文件中的环境变量配置 可以看到 图中PATH=$JAVA_HOME/bin:$JRE_HOME/bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。解决方法：1.使用export 手动导入以下目录后手动将path纠正。 1export P">
+<meta property="og:description" content="问题今天第一次使用pycharm时添加第三方库时，遇见了一个错误：ModuleNotFoundError: No module named &amp;#39;setuptools&amp;#39;该问题是由于Python默认是没有安装setuptools这个模块的，这也是一个第三方模块。使用pip install setuptools即可解决。然鹅。。。pip命令无法使用 首先排除环境变量的问题，安装过程中勾选">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p2.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p3.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p4.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p1.png">
-<meta property="og:updated_time" content="2019-03-05T10:45:28.252Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/第一次使用Pycharm遇见的问题/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/第一次使用Pycharm遇见的问题/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/第一次使用Pycharm遇见的问题/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/第一次使用Pycharm遇见的问题/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/第一次使用Pycharm遇见的问题/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/第一次使用Pycharm遇见的问题/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/第一次使用Pycharm遇见的问题/7.png">
+<meta property="og:updated_time" content="2019-03-18T16:37:30.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux下环境变量PATH设置错误，导致命令无法使用">
-<meta name="twitter:description" content="今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。 下图是我的 /etc/profile文件中的环境变量配置 可以看到 图中PATH=$JAVA_HOME/bin:$JRE_HOME/bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。解决方法：1.使用export 手动导入以下目录后手动将path纠正。 1export P">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p2.png">
+<meta name="twitter:title" content="第一次使用Pycharm遇见的问题">
+<meta name="twitter:description" content="问题今天第一次使用pycharm时添加第三方库时，遇见了一个错误：ModuleNotFoundError: No module named &amp;#39;setuptools&amp;#39;该问题是由于Python默认是没有安装setuptools这个模块的，这也是一个第三方模块。使用pip install setuptools即可解决。然鹅。。。pip命令无法使用 首先排除环境变量的问题，安装过程中勾选">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/19/第一次使用Pycharm遇见的问题/2.png">
 
 
 
@@ -125,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/19/第一次使用Pycharm遇见的问题/">
 
 
 
 
 
-  <title>Linux下环境变量PATH设置错误，导致命令无法使用 | 王树波的博客</title>
+  <title>第一次使用Pycharm遇见的问题 | 王树波的博客</title>
   
 
 
@@ -258,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/19/第一次使用Pycharm遇见的问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王树波">
@@ -275,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux下环境变量PATH设置错误，导致命令无法使用</h1>
+          <h1 class="post-title" itemprop="name headline">第一次使用Pycharm遇见的问题</h1>
         
 
         <div class="post-meta">
@@ -287,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T18:20:23+08:00">
-                2019-03-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T00:31:26+08:00">
+                2019-03-19
               </time>
             
 
@@ -306,8 +309,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/" itemprop="commentsCount"></span>
+                <a href="/2019/03/19/第一次使用Pycharm遇见的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/19/第一次使用Pycharm遇见的问题/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -336,21 +339,13 @@
 
       
         <p><br></p>
-<h3 id="今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。"><a href="#今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。" class="headerlink" title="今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。"></a>今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。</h3><img src="/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p2.png" title="p2">
-<h3 id="下图是我的-etc-profile文件中的环境变量配置"><a href="#下图是我的-etc-profile文件中的环境变量配置" class="headerlink" title="下图是我的 /etc/profile文件中的环境变量配置"></a>下图是我的 /etc/profile文件中的环境变量配置</h3><img src="/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p3.png" title="p3">
-<h3 id="可以看到-图中PATH-JAVA-HOME-bin-JRE-HOME-bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。"><a href="#可以看到-图中PATH-JAVA-HOME-bin-JRE-HOME-bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。" class="headerlink" title="可以看到 图中PATH=$JAVA_HOME/bin:$JRE_HOME/bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。"></a>可以看到 图中<code>PATH=$JAVA_HOME/bin:$JRE_HOME/bin</code>中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。</h3><h1 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h1><h3 id="1-使用export-手动导入以下目录后手动将path纠正。"><a href="#1-使用export-手动导入以下目录后手动将path纠正。" class="headerlink" title="1.使用export 手动导入以下目录后手动将path纠正。"></a>1.使用export 手动导入以下目录后手动将path纠正。</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</span><br></pre></td></tr></table></figure>
-<h3 id="2-进入vi或vim的安装目录，再使用命令，手动将path中的-path添加进去。"><a href="#2-进入vi或vim的安装目录，再使用命令，手动将path中的-path添加进去。" class="headerlink" title="2.进入vi或vim的安装目录，再使用命令，手动将path中的$path添加进去。"></a>2.进入vi或vim的安装目录，再使用命令，手动将path中的$path添加进去。</h3><pre><code> [root@master bin]# pwd
-/usr/bin
-[root@master bin]# ./vim
-vim       vimdiff   vimtutor  
-[root@master bin]# ./vi
-vi        view      vim       vimdiff   vimtutor  
-[root@master bin]# ./vi /etc/profile
-或者
-[root@master bin]# ./vim /etc/profile
-</code></pre> <img src="/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p4.png" title="p4">
-<h3 id="3-正确的PATH填写方式"><a href="#3-正确的PATH填写方式" class="headerlink" title="3.正确的PATH填写方式"></a>3.正确的PATH填写方式</h3>  <img src="/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p1.png" title="p1">
-<h3 id="4-使用source-命令更新配置文件。"><a href="#4-使用source-命令更新配置文件。" class="headerlink" title="4.使用source 命令更新配置文件。"></a>4.使用<code>source</code> 命令更新配置文件。</h3><h2 id=""><a href="#" class="headerlink" title=""></a><br></h2><h5 id="开学第二天。"><a href="#开学第二天。" class="headerlink" title="开学第二天。"></a>开学第二天。</h5>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="今天第一次使用pycharm时添加第三方库时，遇见了一个错误：ModuleNotFoundError-No-module-named-39-setuptools-39"><a href="#今天第一次使用pycharm时添加第三方库时，遇见了一个错误：ModuleNotFoundError-No-module-named-39-setuptools-39" class="headerlink" title="今天第一次使用pycharm时添加第三方库时，遇见了一个错误：ModuleNotFoundError: No module named &#39;setuptools&#39;"></a>今天第一次使用pycharm时添加第三方库时，遇见了一个错误：<code>ModuleNotFoundError: No module named &#39;setuptools&#39;</code></h2><h2 id="该问题是由于Python默认是没有安装setuptools这个模块的，这也是一个第三方模块。"><a href="#该问题是由于Python默认是没有安装setuptools这个模块的，这也是一个第三方模块。" class="headerlink" title="该问题是由于Python默认是没有安装setuptools这个模块的，这也是一个第三方模块。"></a>该问题是由于Python默认是没有安装setuptools这个模块的，这也是一个第三方模块。</h2><h2 id="使用pip-install-setuptools即可解决。"><a href="#使用pip-install-setuptools即可解决。" class="headerlink" title="使用pip install setuptools即可解决。"></a>使用<code>pip install setuptools</code>即可解决。</h2><h2 id="然鹅。。。"><a href="#然鹅。。。" class="headerlink" title="然鹅。。。"></a>然鹅。。。</h2><h2 id="pip命令无法使用"><a href="#pip命令无法使用" class="headerlink" title="pip命令无法使用"></a>pip命令无法使用</h2><img src="/2019/03/19/第一次使用Pycharm遇见的问题/2.png">
+<h2 id="首先排除环境变量的问题，安装过程中勾选了add-to-path。故环境变量是没有问题的。"><a href="#首先排除环境变量的问题，安装过程中勾选了add-to-path。故环境变量是没有问题的。" class="headerlink" title="首先排除环境变量的问题，安装过程中勾选了add to path。故环境变量是没有问题的。"></a>首先排除环境变量的问题，安装过程中勾选了add to path。故环境变量是没有问题的。</h2><h3 id="环境变量如图："><a href="#环境变量如图：" class="headerlink" title="环境变量如图："></a>环境变量如图：</h3><img src="/2019/03/19/第一次使用Pycharm遇见的问题/1.png">
+<h2 id="此时打开script文件夹发现文件夹是空的，所以pip肯定是无法使用的"><a href="#此时打开script文件夹发现文件夹是空的，所以pip肯定是无法使用的" class="headerlink" title="此时打开script文件夹发现文件夹是空的，所以pip肯定是无法使用的"></a>此时打开script文件夹发现文件夹是空的，所以pip肯定是无法使用的</h2><img src="/2019/03/19/第一次使用Pycharm遇见的问题/3.png">
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><h2 id="使用-python-m-ensurepip-命令"><a href="#使用-python-m-ensurepip-命令" class="headerlink" title="使用 python -m ensurepip 命令"></a>使用 <code>python -m ensurepip</code> 命令</h2><img src="/2019/03/19/第一次使用Pycharm遇见的问题/4.png">
+<h2 id="可以看到此时已经出现了pip3的可执行exe文件"><a href="#可以看到此时已经出现了pip3的可执行exe文件" class="headerlink" title="可以看到此时已经出现了pip3的可执行exe文件"></a>可以看到此时已经出现了pip3的可执行exe文件</h2><img src="/2019/03/19/第一次使用Pycharm遇见的问题/6.png">
+<h2 id="如果提示版本更新如下图"><a href="#如果提示版本更新如下图" class="headerlink" title="如果提示版本更新如下图"></a>如果提示版本更新如下图</h2><img src="/2019/03/19/第一次使用Pycharm遇见的问题/5.png">
+<h2 id="则执行-python-m-pip-install-upgrade-pip即可"><a href="#则执行-python-m-pip-install-upgrade-pip即可" class="headerlink" title="则执行 python -m pip install --upgrade pip即可"></a>则执行 <code>python -m pip install --upgrade pip</code>即可</h2><img src="/2019/03/19/第一次使用Pycharm遇见的问题/7.png">
       
     </div>
     
@@ -367,7 +362,7 @@ vi        view      vim       vimdiff   vimtutor
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
       
@@ -380,8 +375,8 @@ vi        view      vim       vimdiff   vimtutor
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/21/使用宝塔搭建一键搭建集成环境/" rel="next" title="使用宝塔搭建一键搭建集成环境">
-                <i class="fa fa-chevron-left"></i> 使用宝塔搭建一键搭建集成环境
+              <a href="/2019/03/17/使用树莓派打造局域网音响/" rel="next" title="使用树莓派打造局域网音响">
+                <i class="fa fa-chevron-left"></i> 使用树莓派打造局域网音响
               </a>
             
           </div>
@@ -389,10 +384,6 @@ vi        view      vim       vimdiff   vimtutor
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/06/hadoop分布式集群搭建/" rel="prev" title="hadoop分布式集群搭建">
-                hadoop分布式集群搭建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -528,7 +519,7 @@ vi        view      vim       vimdiff   vimtutor
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。"><span class="nav-number">1.</span> <span class="nav-text">今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下图是我的-etc-profile文件中的环境变量配置"><span class="nav-number">2.</span> <span class="nav-text">下图是我的 /etc/profile文件中的环境变量配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以看到-图中PATH-JAVA-HOME-bin-JRE-HOME-bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。"><span class="nav-number">3.</span> <span class="nav-text">可以看到 图中PATH=$JAVA_HOME/bin:$JRE_HOME/bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法："><span class="nav-number"></span> <span class="nav-text">解决方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用export-手动导入以下目录后手动将path纠正。"><span class="nav-number">1.</span> <span class="nav-text">1.使用export 手动导入以下目录后手动将path纠正。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-进入vi或vim的安装目录，再使用命令，手动将path中的-path添加进去。"><span class="nav-number">2.</span> <span class="nav-text">2.进入vi或vim的安装目录，再使用命令，手动将path中的$path添加进去。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-正确的PATH填写方式"><span class="nav-number">3.</span> <span class="nav-text">3.正确的PATH填写方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用source-命令更新配置文件。"><span class="nav-number">4.</span> <span class="nav-text">4.使用source 命令更新配置文件。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#开学第二天。"><span class="nav-number">0.0.1.</span> <span class="nav-text">开学第二天。</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天第一次使用pycharm时添加第三方库时，遇见了一个错误：ModuleNotFoundError-No-module-named-39-setuptools-39"><span class="nav-number">1.1.</span> <span class="nav-text">今天第一次使用pycharm时添加第三方库时，遇见了一个错误：ModuleNotFoundError: No module named &#39;setuptools&#39;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#该问题是由于Python默认是没有安装setuptools这个模块的，这也是一个第三方模块。"><span class="nav-number">1.2.</span> <span class="nav-text">该问题是由于Python默认是没有安装setuptools这个模块的，这也是一个第三方模块。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用pip-install-setuptools即可解决。"><span class="nav-number">1.3.</span> <span class="nav-text">使用pip install setuptools即可解决。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#然鹅。。。"><span class="nav-number">1.4.</span> <span class="nav-text">然鹅。。。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pip命令无法使用"><span class="nav-number">1.5.</span> <span class="nav-text">pip命令无法使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首先排除环境变量的问题，安装过程中勾选了add-to-path。故环境变量是没有问题的。"><span class="nav-number">1.6.</span> <span class="nav-text">首先排除环境变量的问题，安装过程中勾选了add to path。故环境变量是没有问题的。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量如图："><span class="nav-number">1.6.1.</span> <span class="nav-text">环境变量如图：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#此时打开script文件夹发现文件夹是空的，所以pip肯定是无法使用的"><span class="nav-number">1.7.</span> <span class="nav-text">此时打开script文件夹发现文件夹是空的，所以pip肯定是无法使用的</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-python-m-ensurepip-命令"><span class="nav-number">2.1.</span> <span class="nav-text">使用 python -m ensurepip 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可以看到此时已经出现了pip3的可执行exe文件"><span class="nav-number">2.2.</span> <span class="nav-text">可以看到此时已经出现了pip3的可执行exe文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果提示版本更新如下图"><span class="nav-number">2.3.</span> <span class="nav-text">如果提示版本更新如下图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#则执行-python-m-pip-install-upgrade-pip即可"><span class="nav-number">2.4.</span> <span class="nav-text">则执行 python -m pip install --upgrade pip即可</span></a></li></ol></li></ol></div>
             
 
           </div>
