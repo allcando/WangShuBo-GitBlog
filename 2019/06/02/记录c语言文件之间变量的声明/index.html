@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/06/02/记录c语言文件之间变量的声明/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/02/记录c语言文件之间变量的声明/2.png">
-<meta property="og:updated_time" content="2019-06-02T05:44:10.682Z">
+<meta property="og:updated_time" content="2019-06-02T05:46:09.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c语言文件之间变量的定义和声明">
 <meta name="twitter:description" content="最近review了大一时候的期末实训学籍管理系统的代码。发现自己并不明白多文件之间的变量定义和声明，在这里做个记录。建议使用codeblocks 让我们来看看程序是咋写的文件目录结构 123456789主菜单   menu.c成绩输入 stu1.c ：在文件stu.dat中增加一个或多个新的学生和相应的成绩；成绩修改 stu2.c ：对已有学生的成绩进行修改；查询成绩 stu3.c ：根据学号或者">
@@ -338,63 +338,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">主菜单   menu.c</span><br><span class="line">成绩输入 stu1.c ：在文件stu.dat中增加一个或多个新的学生和相应的成绩；</span><br><span class="line">成绩修改 stu2.c ：对已有学生的成绩进行修改；</span><br><span class="line">查询成绩 stu3.c ：根据学号或者姓名查询成绩；</span><br><span class="line">显示成绩 stu4.c ：显示所有学生的成绩（每页10个）；</span><br><span class="line">统计成绩 stu5.c ：对所有学生的成绩，可以按照某一科进行升序排序；</span><br><span class="line">注销学生 stu6.c ：注销某学生及其相关记录；</span><br><span class="line">成绩导入 stu7.c ：将已经在其他文件里的学生成绩，导入到学生成绩数据文件； </span><br><span class="line">整个系统  mscore.c</span><br></pre></td></tr></table></figure>
 <h2 id="mscore-c-main"><a href="#mscore-c-main" class="headerlink" title="mscore.c (main)"></a>mscore.c (main)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;windows.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#include &quot;my.h&quot;</span><br><span class="line">int BFUN=0;/* 定义全局变量，用来显示学籍信息个数 */</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">	system(&quot;color 3f&quot;);</span><br><span class="line">	OI();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="my-h"><a href="#my-h" class="headerlink" title="my.h"></a>my.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">#ifndef MY_H_INCLUDED</span><br><span class="line">#define MY_H_INCLUDED</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;windows.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#define NUMBER 200</span><br><span class="line">extern  int BFUN;</span><br><span class="line">struct stu</span><br><span class="line">&#123;</span><br><span class="line">	char name[50];/* 姓名 */</span><br><span class="line">	unsigned long num;/* 学号 */</span><br><span class="line">	int math;/* 数学 */</span><br><span class="line">	int physical;/* 物理 */</span><br><span class="line">	int english;/* 英语 */</span><br><span class="line">	int count; /* 总分 */</span><br><span class="line"></span><br><span class="line">&#125;boy[NUMBER],Temp;</span><br><span class="line"></span><br><span class="line">/* 定义函数说明（全局说明） */</span><br><span class="line">void INPUT();/* 1.输入学生信息 */</span><br><span class="line"></span><br><span class="line">int QUERY(int q);/* 2 查询学生信息 */</span><br><span class="line"></span><br><span class="line">void CHANGE();/* 3 修改学生信息 */</span><br><span class="line"></span><br><span class="line">void DELETION();/* 4 删除学生信息 */</span><br><span class="line"></span><br><span class="line">void SEQUENCE();/* 5 排列学生信息 */</span><br><span class="line"></span><br><span class="line">void SHOW();/* 6 显示学生信息 */</span><br><span class="line"></span><br><span class="line">void SAVE();/* 7 保存学生信息 */</span><br><span class="line"></span><br><span class="line">void LAYIN();/* 9 导入信息 */</span><br><span class="line"></span><br><span class="line">void LOGOUT();/* 退出程序界面 */</span><br><span class="line"></span><br><span class="line">void OI();/* 操作选项 */</span><br><span class="line"></span><br><span class="line">void OUTPUT(int i);/* 输出信息 */</span><br><span class="line"></span><br><span class="line">void XG(int k);/* 修改信息调用 */</span><br><span class="line">#endif // MY_H_INCLUDED</span><br></pre></td></tr></table></figure>
-<h2 id="stu1-c"><a href="#stu1-c" class="headerlink" title="stu1.c"></a>stu1.c</h2><blockquote>
-<p>#include “my.h”<br>void INPUT()/<em> 1.输入学生全部信息 </em>/<br>{<br>   int i;<br>   int x;<br>   printf(“\n\t\t<em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> &gt;<em> </em> <em> </em> <em>\n”);<br>   printf(“\n\t\t</em>      你已进入学生信息录入模块    &gt;     <em>\n”);<br>   printf(“\n\t\t</em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> &gt;</em> <em> </em> <em> </em>\n”);<br>   x=BFUN;<br>   while(1)/<em> 把全局变量BFUN的值赋给x </em>/<br>   {</p>
-<pre><code>printf(&quot;\t请输入第%d个学生的信息（键入‘0’退出&gt;录入）\n&quot;,++x);
-printf(&quot;\n\t录入信息包含项【学号，姓名，数学，&gt;物理，外语，总成绩】“回车键入下一项”\n&quot;);
-printf(&quot;\n学号：&quot;);
-scanf(&quot;%d&quot;,&amp;Temp.num);
-if(Temp.num==0)
-{
-    system(&quot;cls&quot;);
-    break;
-}
-for(i=0;i&lt;=BFUN;i++)
-    if(Temp.num==boy[i].num)
-    {
-        system(&quot;cls&quot;);
-        printf(&quot;\n\n\t该学籍已被注册！\n\n&quot;)&gt;;INPUT();
-    }
-getchar();
-printf(&quot;\n姓名：&quot;);
-scanf(&quot;%s&quot;,&amp;Temp.name);
-if(strlen(Temp.name)&gt;20)/* 限制姓名字符长度&gt;为20 */
-{
-    system(&quot;cls&quot;);
-    printf(&quot;\n\n\t姓名输入有误，超出限度。&gt;\n\n&quot;);INPUT();
-}
-printf(&quot;\n数学成绩：&quot;);
-scanf(&quot;%d&quot;,&amp;Temp.math);
-if(Temp.math&lt;=0||Temp.math&gt;=150)
-{
-    system(&quot;cls&quot;);
-    printf(&quot;\t成绩输入有误！\n\n\n&quot;);
-    INPUT();
-}
-printf(&quot;\n物理成绩：&quot;);
-scanf(&quot;%d&quot;,&amp;Temp.physical);
-
-if(Temp.physical&lt;=0||Temp.physical&gt;=100)
-{
-    system(&quot;cls&quot;);
-    printf(&quot;\t成绩输入有误！\n\n\n&quot;);
-    INPUT();
-}
-printf(&quot;\n外语成绩：&quot;);
-scanf(&quot;%d&quot;,&amp;Temp.english);
-if(Temp.english&lt;=0||Temp.english&gt;=150)
-{
-    system(&quot;cls&quot;);
-    printf(&quot;\t成绩输入有误！\n\n\n&quot;);
-    INPUT();
-}
-getchar();
-BFUN=x;/* 上面函数完全正确执行后，才会把现在的&gt;x值赋给BFUN */
-printf(&quot;\n\n\n&quot;);
-
-boy[BFUN-1]=Temp;
-</code></pre><p>   }<br>}</p>
-</blockquote>
+<h2 id="stu1-c"><a href="#stu1-c" class="headerlink" title="stu1.c"></a>stu1.c</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;my.h&quot;</span><br><span class="line">void INPUT()/* 1.输入学生全部信息 */</span><br><span class="line">&#123;</span><br><span class="line">	int i;</span><br><span class="line">	int x;</span><br><span class="line">	printf(&quot;\n\t\t* * * * * * * * * * * * * * * * &gt;* * * * *\n&quot;);</span><br><span class="line">	printf(&quot;\n\t\t*      你已进入学生信息录入模块    &gt;     *\n&quot;);</span><br><span class="line">	printf(&quot;\n\t\t* * * * * * * * * * * * * * * * &gt;* * * * *\n&quot;);</span><br><span class="line">	x=BFUN;</span><br><span class="line">	while(1)/* 把全局变量BFUN的值赋给x */</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		printf(&quot;\t请输入第%d个学生的信息（键入‘0’退出&gt;录入）\n&quot;,++x);</span><br><span class="line">		printf(&quot;\n\t录入信息包含项【学号，姓名，数学，&gt;物理，外语，总成绩】回车键入下一项”\n&quot;);</span><br><span class="line">		printf(&quot;\n学号：&quot;);</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;Temp.num);</span><br><span class="line">		if(Temp.num==0)</span><br><span class="line">		&#123;</span><br><span class="line">			system(&quot;cls&quot;);</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		for(i=0;i&lt;=BFUN;i++)</span><br><span class="line">			if(Temp.num==boy[i].num)</span><br><span class="line">			&#123;</span><br><span class="line">				system(&quot;cls&quot;);</span><br><span class="line">				printf(&quot;\n\n\t该学籍已被注册！\n\n&quot;)&gt;;INPUT();</span><br><span class="line">			&#125;</span><br><span class="line">		getchar();</span><br><span class="line">		printf(&quot;\n姓名：&quot;);</span><br><span class="line">		scanf(&quot;%s&quot;,&amp;Temp.name);</span><br><span class="line">		if(strlen(Temp.name)&gt;20)/* 限制姓名字符长度&gt;为20 */</span><br><span class="line">		&#123;</span><br><span class="line">			system(&quot;cls&quot;);</span><br><span class="line">			printf(&quot;\n\n\t姓名输入有误，超出限度。&gt;\n\n&quot;);INPUT();</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;\n数学成绩：&quot;);</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;Temp.math);</span><br><span class="line">		if(Temp.math&lt;=0||Temp.math&gt;=150)</span><br><span class="line">		&#123;</span><br><span class="line">			system(&quot;cls&quot;);</span><br><span class="line">			printf(&quot;\t成绩输入有误！\n\n\n&quot;);</span><br><span class="line">			INPUT();</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;\n物理成绩：&quot;);</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;Temp.physical);</span><br><span class="line"></span><br><span class="line">		if(Temp.physical&lt;=0||Temp.physical&gt;=100)</span><br><span class="line">		&#123;</span><br><span class="line">			system(&quot;cls&quot;);</span><br><span class="line">			printf(&quot;\t成绩输入有误！\n\n\n&quot;);</span><br><span class="line">			INPUT();</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;\n外语成绩：&quot;);</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;Temp.english);</span><br><span class="line">		if(Temp.english&lt;=0||Temp.english&gt;=150)</span><br><span class="line">		&#123;</span><br><span class="line">			system(&quot;cls&quot;);</span><br><span class="line">			printf(&quot;\t成绩输入有误！\n\n\n&quot;);</span><br><span class="line">			INPUT();</span><br><span class="line">		&#125;</span><br><span class="line">		getchar();</span><br><span class="line">		BFUN=x;/* 上面函数完全正确执行后，才会把现在的&gt;x值赋给BFUN */</span><br><span class="line">		printf(&quot;\n\n\n&quot;);</span><br><span class="line"></span><br><span class="line">		boy[BFUN-1]=Temp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>到这里就能直观的看出来 多个文件之间的调用关系：将结构体声明，函数声明，常量定义都写在一个自定义头文件里；然后在每一个文件中都<code>include</code>这个头文件就可以将功能模块化的分成多个文件啦。</p>
 </blockquote>
