@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="PHP,">
+  <meta name="keywords" content="C,">
 
 
 
@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="整理一下今天遇见的坑。故事是这样的，今天因为要使用阿里的短信接口api，所以后台的php版本需要升级到5.5以上，原先是5.4.6。所以肯定果断 yum  remove php*，然后 yum install #￥%……&amp;amp;，然后 php -v，哎，然后就发现 更换版本完成了，就觉得不可能这么顺利。然后运行了一下phpinfo，哎还真行。然后把之前就服务器上的php代码搬过来。故事就开始了">
-<meta name="keywords" content="PHP">
+<meta name="description" content="最近review了大一时候的期末实训学籍管理系统的代码。发现自己并不明白多文件之间的变量定义和声明，在这里做个记录。建议使用codeblocks 让我们来看看程序是咋写的文件目录结构 123456789主菜单   menu.c成绩输入 stu1.c ：在文件stu.dat中增加一个或多个新的学生和相应的成绩；成绩修改 stu2.c ：对已有学生的成绩进行修改；查询成绩 stu3.c ：根据学号或者">
+<meta name="keywords" content="C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="踩坑:PHP json_encode()的版本变动">
-<meta property="og:url" content="http://yoursite.com/2019/04/25/踩坑-PHP-json-encode-的版本变动/index.html">
+<meta property="og:title" content="c语言文件之间变量的定义和声明">
+<meta property="og:url" content="http://yoursite.com/2019/06/02/记录c语言文件之间变量的声明/index.html">
 <meta property="og:site_name" content="王树波的博客">
-<meta property="og:description" content="整理一下今天遇见的坑。故事是这样的，今天因为要使用阿里的短信接口api，所以后台的php版本需要升级到5.5以上，原先是5.4.6。所以肯定果断 yum  remove php*，然后 yum install #￥%……&amp;amp;，然后 php -v，哎，然后就发现 更换版本完成了，就觉得不可能这么顺利。然后运行了一下phpinfo，哎还真行。然后把之前就服务器上的php代码搬过来。故事就开始了">
+<meta property="og:description" content="最近review了大一时候的期末实训学籍管理系统的代码。发现自己并不明白多文件之间的变量定义和声明，在这里做个记录。建议使用codeblocks 让我们来看看程序是咋写的文件目录结构 123456789主菜单   menu.c成绩输入 stu1.c ：在文件stu.dat中增加一个或多个新的学生和相应的成绩；成绩修改 stu2.c ：对已有学生的成绩进行修改；查询成绩 stu3.c ：根据学号或者">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/04/25/踩坑-PHP-json-encode-的版本变动/1.png">
-<meta property="og:updated_time" content="2019-04-25T06:25:25.360Z">
+<meta property="og:image" content="http://yoursite.com/2019/06/02/记录c语言文件之间变量的声明/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/02/记录c语言文件之间变量的声明/2.png">
+<meta property="og:updated_time" content="2019-06-02T05:44:10.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="踩坑:PHP json_encode()的版本变动">
-<meta name="twitter:description" content="整理一下今天遇见的坑。故事是这样的，今天因为要使用阿里的短信接口api，所以后台的php版本需要升级到5.5以上，原先是5.4.6。所以肯定果断 yum  remove php*，然后 yum install #￥%……&amp;amp;，然后 php -v，哎，然后就发现 更换版本完成了，就觉得不可能这么顺利。然后运行了一下phpinfo，哎还真行。然后把之前就服务器上的php代码搬过来。故事就开始了">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/25/踩坑-PHP-json-encode-的版本变动/1.png">
+<meta name="twitter:title" content="c语言文件之间变量的定义和声明">
+<meta name="twitter:description" content="最近review了大一时候的期末实训学籍管理系统的代码。发现自己并不明白多文件之间的变量定义和声明，在这里做个记录。建议使用codeblocks 让我们来看看程序是咋写的文件目录结构 123456789主菜单   menu.c成绩输入 stu1.c ：在文件stu.dat中增加一个或多个新的学生和相应的成绩；成绩修改 stu2.c ：对已有学生的成绩进行修改；查询成绩 stu3.c ：根据学号或者">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/02/记录c语言文件之间变量的声明/1.png">
 
 
 
@@ -122,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/25/踩坑-PHP-json-encode-的版本变动/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/02/记录c语言文件之间变量的声明/">
 
 
 
 
 
-  <title>踩坑:PHP json_encode()的版本变动 | 王树波的博客</title>
+  <title>c语言文件之间变量的定义和声明 | 王树波的博客</title>
   
 
 
@@ -255,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/25/踩坑-PHP-json-encode-的版本变动/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/记录c语言文件之间变量的声明/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王树波">
@@ -272,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">踩坑:PHP json_encode()的版本变动</h1>
+          <h1 class="post-title" itemprop="name headline">c语言文件之间变量的定义和声明</h1>
         
 
         <div class="post-meta">
@@ -284,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-25T13:40:46+08:00">
-                2019-04-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T12:41:56+08:00">
+                2019-06-02
               </time>
             
 
@@ -303,8 +304,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/04/25/踩坑-PHP-json-encode-的版本变动/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/04/25/踩坑-PHP-json-encode-的版本变动/" itemprop="commentsCount"></span>
+                <a href="/2019/06/02/记录c语言文件之间变量的声明/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/06/02/记录c语言文件之间变量的声明/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -332,12 +333,75 @@
       
 
       
-        <p><br></p>
-<p>整理一下今天遇见的坑。<br>故事是这样的，今天因为要使用阿里的短信接口api，所以后台的php版本需要升级到5.5以上，原先是5.4.6。<br>所以肯定果断 <code>yum  remove php*</code>，<br>然后 <code>yum install #￥%……&amp;</code>，<br>然后 <code>php -v</code>，<br>哎，然后就发现 更换版本完成了，就觉得不可能这么顺利。<br>然后运行了一下phpinfo，哎还真行。<br>然后把之前就服务器上的php代码搬过来。<br>故事就开始了。。。<br>原先5.4.6能运行的 到了php7就完蛋了？<br>然后我换成了5.6然而还是不行<br>这时候我意识到了严重性</p>
-<h2 id="在网上查到了官方文档："><a href="#在网上查到了官方文档：" class="headerlink" title="在网上查到了官方文档："></a>在网上查到了官方文档：</h2><img src="/2019/04/25/踩坑-PHP-json-encode-的版本变动/1.png">
-<h3 id="可以看到在5-5版本增加了：失败时返回的值从-null-字符串改成-FALSE。"><a href="#可以看到在5-5版本增加了：失败时返回的值从-null-字符串改成-FALSE。" class="headerlink" title="可以看到在5.5版本增加了：失败时返回的值从 null 字符串改成 FALSE。"></a>可以看到在5.5版本增加了：失败时返回的值从 null 字符串改成 FALSE。</h3><h2 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h2><p>php从mysql数据库中取出数据如果不指定编码方式为utf8那么中文将会变成”?”。因此返回值会变成false。</p>
-<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>首先要保证从mysql数据库中取出的数据编码方式是正确的，<br>所以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$conn = new mysqli($servername, $username, $password,$DBname,$port);</span><br><span class="line">下边紧跟着执行一句</span><br><span class="line">mysqli_query($conn,&quot;SET NAMES utf8&quot;);</span><br></pre></td></tr></table></figure></p>
-<p>就可以解决中文乱码的问题<br>此时解决了中文乱码之后，问题其实就已经解决了。</p>
+        <p><br><br>最近review了大一时候的期末实训学籍管理系统的代码。<br>发现自己并不明白多文件之间的变量定义和声明，在这里做个记录。<br><img src="/2019/06/02/记录c语言文件之间变量的声明/1.png"><br>建议使用codeblocks</p>
+<h2 id="让我们来看看程序是咋写的"><a href="#让我们来看看程序是咋写的" class="headerlink" title="让我们来看看程序是咋写的"></a>让我们来看看程序是咋写的</h2><h3 id="文件目录结构"><a href="#文件目录结构" class="headerlink" title="文件目录结构"></a>文件目录结构</h3><img src="/2019/06/02/记录c语言文件之间变量的声明/2.png">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">主菜单   menu.c</span><br><span class="line">成绩输入 stu1.c ：在文件stu.dat中增加一个或多个新的学生和相应的成绩；</span><br><span class="line">成绩修改 stu2.c ：对已有学生的成绩进行修改；</span><br><span class="line">查询成绩 stu3.c ：根据学号或者姓名查询成绩；</span><br><span class="line">显示成绩 stu4.c ：显示所有学生的成绩（每页10个）；</span><br><span class="line">统计成绩 stu5.c ：对所有学生的成绩，可以按照某一科进行升序排序；</span><br><span class="line">注销学生 stu6.c ：注销某学生及其相关记录；</span><br><span class="line">成绩导入 stu7.c ：将已经在其他文件里的学生成绩，导入到学生成绩数据文件； </span><br><span class="line">整个系统  mscore.c</span><br></pre></td></tr></table></figure>
+<h2 id="mscore-c-main"><a href="#mscore-c-main" class="headerlink" title="mscore.c (main)"></a>mscore.c (main)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;windows.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#include &quot;my.h&quot;</span><br><span class="line">int BFUN=0;/* 定义全局变量，用来显示学籍信息个数 */</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">	system(&quot;color 3f&quot;);</span><br><span class="line">	OI();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="my-h"><a href="#my-h" class="headerlink" title="my.h"></a>my.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">#ifndef MY_H_INCLUDED</span><br><span class="line">#define MY_H_INCLUDED</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;windows.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#define NUMBER 200</span><br><span class="line">extern  int BFUN;</span><br><span class="line">struct stu</span><br><span class="line">&#123;</span><br><span class="line">	char name[50];/* 姓名 */</span><br><span class="line">	unsigned long num;/* 学号 */</span><br><span class="line">	int math;/* 数学 */</span><br><span class="line">	int physical;/* 物理 */</span><br><span class="line">	int english;/* 英语 */</span><br><span class="line">	int count; /* 总分 */</span><br><span class="line"></span><br><span class="line">&#125;boy[NUMBER],Temp;</span><br><span class="line"></span><br><span class="line">/* 定义函数说明（全局说明） */</span><br><span class="line">void INPUT();/* 1.输入学生信息 */</span><br><span class="line"></span><br><span class="line">int QUERY(int q);/* 2 查询学生信息 */</span><br><span class="line"></span><br><span class="line">void CHANGE();/* 3 修改学生信息 */</span><br><span class="line"></span><br><span class="line">void DELETION();/* 4 删除学生信息 */</span><br><span class="line"></span><br><span class="line">void SEQUENCE();/* 5 排列学生信息 */</span><br><span class="line"></span><br><span class="line">void SHOW();/* 6 显示学生信息 */</span><br><span class="line"></span><br><span class="line">void SAVE();/* 7 保存学生信息 */</span><br><span class="line"></span><br><span class="line">void LAYIN();/* 9 导入信息 */</span><br><span class="line"></span><br><span class="line">void LOGOUT();/* 退出程序界面 */</span><br><span class="line"></span><br><span class="line">void OI();/* 操作选项 */</span><br><span class="line"></span><br><span class="line">void OUTPUT(int i);/* 输出信息 */</span><br><span class="line"></span><br><span class="line">void XG(int k);/* 修改信息调用 */</span><br><span class="line">#endif // MY_H_INCLUDED</span><br></pre></td></tr></table></figure>
+<h2 id="stu1-c"><a href="#stu1-c" class="headerlink" title="stu1.c"></a>stu1.c</h2><blockquote>
+<p>#include “my.h”<br>void INPUT()/<em> 1.输入学生全部信息 </em>/<br>{<br>   int i;<br>   int x;<br>   printf(“\n\t\t<em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> &gt;<em> </em> <em> </em> <em>\n”);<br>   printf(“\n\t\t</em>      你已进入学生信息录入模块    &gt;     <em>\n”);<br>   printf(“\n\t\t</em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> &gt;</em> <em> </em> <em> </em>\n”);<br>   x=BFUN;<br>   while(1)/<em> 把全局变量BFUN的值赋给x </em>/<br>   {</p>
+<pre><code>printf(&quot;\t请输入第%d个学生的信息（键入‘0’退出&gt;录入）\n&quot;,++x);
+printf(&quot;\n\t录入信息包含项【学号，姓名，数学，&gt;物理，外语，总成绩】“回车键入下一项”\n&quot;);
+printf(&quot;\n学号：&quot;);
+scanf(&quot;%d&quot;,&amp;Temp.num);
+if(Temp.num==0)
+{
+    system(&quot;cls&quot;);
+    break;
+}
+for(i=0;i&lt;=BFUN;i++)
+    if(Temp.num==boy[i].num)
+    {
+        system(&quot;cls&quot;);
+        printf(&quot;\n\n\t该学籍已被注册！\n\n&quot;)&gt;;INPUT();
+    }
+getchar();
+printf(&quot;\n姓名：&quot;);
+scanf(&quot;%s&quot;,&amp;Temp.name);
+if(strlen(Temp.name)&gt;20)/* 限制姓名字符长度&gt;为20 */
+{
+    system(&quot;cls&quot;);
+    printf(&quot;\n\n\t姓名输入有误，超出限度。&gt;\n\n&quot;);INPUT();
+}
+printf(&quot;\n数学成绩：&quot;);
+scanf(&quot;%d&quot;,&amp;Temp.math);
+if(Temp.math&lt;=0||Temp.math&gt;=150)
+{
+    system(&quot;cls&quot;);
+    printf(&quot;\t成绩输入有误！\n\n\n&quot;);
+    INPUT();
+}
+printf(&quot;\n物理成绩：&quot;);
+scanf(&quot;%d&quot;,&amp;Temp.physical);
+
+if(Temp.physical&lt;=0||Temp.physical&gt;=100)
+{
+    system(&quot;cls&quot;);
+    printf(&quot;\t成绩输入有误！\n\n\n&quot;);
+    INPUT();
+}
+printf(&quot;\n外语成绩：&quot;);
+scanf(&quot;%d&quot;,&amp;Temp.english);
+if(Temp.english&lt;=0||Temp.english&gt;=150)
+{
+    system(&quot;cls&quot;);
+    printf(&quot;\t成绩输入有误！\n\n\n&quot;);
+    INPUT();
+}
+getchar();
+BFUN=x;/* 上面函数完全正确执行后，才会把现在的&gt;x值赋给BFUN */
+printf(&quot;\n\n\n&quot;);
+
+boy[BFUN-1]=Temp;
+</code></pre><p>   }<br>}</p>
+</blockquote>
+<blockquote>
+<p>到这里就能直观的看出来 多个文件之间的调用关系：将结构体声明，函数声明，常量定义都写在一个自定义头文件里；然后在每一个文件中都<code>include</code>这个头文件就可以将功能模块化的分成多个文件啦。</p>
+</blockquote>
+<h4 id="还有一个问题就是extern的用法"><a href="#还有一个问题就是extern的用法" class="headerlink" title="还有一个问题就是extern的用法:"></a>还有一个问题就是<code>extern</code>的用法:</h4><blockquote>
+<p>在主文件中定义了一个BFUN的全局变量，用来计算系统中学生的数量。<br>而在当头文件，或者其他文件中想要访问这个变量就不需要再次定义了。这时候在别的地方需要声明的时候，只需要使用<code>extern</code>就ok了</p>
+</blockquote>
+<p><a href="https://github.com/allcando/StudentManagementSystem" target="_blank" rel="noopener">项目源码下载</a></p>
 
       
     </div>
@@ -355,7 +419,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PHP/" rel="tag"># PHP</a>
+            <a href="/tags/C/" rel="tag"># C</a>
           
         </div>
       
@@ -368,8 +432,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/23/记录Bootstrap栅格系统的使用/" rel="next" title="记录Bootstrap栅格系统的使用">
-                <i class="fa fa-chevron-left"></i> 记录Bootstrap栅格系统的使用
+              <a href="/2019/05/24/MongoDB的使用记录-windows环境下的配置/" rel="next" title="MongoDB的使用记录(windows环境下的配置)">
+                <i class="fa fa-chevron-left"></i> MongoDB的使用记录(windows环境下的配置)
               </a>
             
           </div>
@@ -377,10 +441,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/03/jquery-星级评价插件jquery-Raty的使用/" rel="prev" title="jquery 星级评价插件jquery Raty的使用">
-                jquery 星级评价插件jquery Raty的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -516,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在网上查到了官方文档："><span class="nav-number">1.</span> <span class="nav-text">在网上查到了官方文档：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可以看到在5-5版本增加了：失败时返回的值从-null-字符串改成-FALSE。"><span class="nav-number">1.1.</span> <span class="nav-text">可以看到在5.5版本增加了：失败时返回的值从 null 字符串改成 FALSE。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因："><span class="nav-number">2.</span> <span class="nav-text">原因：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法："><span class="nav-number">3.</span> <span class="nav-text">解决方法：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#让我们来看看程序是咋写的"><span class="nav-number">1.</span> <span class="nav-text">让我们来看看程序是咋写的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件目录结构"><span class="nav-number">1.1.</span> <span class="nav-text">文件目录结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mscore-c-main"><span class="nav-number">2.</span> <span class="nav-text">mscore.c (main)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#my-h"><span class="nav-number">3.</span> <span class="nav-text">my.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stu1-c"><span class="nav-number">4.</span> <span class="nav-text">stu1.c</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#还有一个问题就是extern的用法"><span class="nav-number">4.0.1.</span> <span class="nav-text">还有一个问题就是extern的用法:</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -252,6 +252,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/记录c语言文件之间变量的声明/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王树波">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王树波的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/02/记录c语言文件之间变量的声明/" itemprop="url">c语言文件之间变量的定义和声明</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T12:41:56+08:00">
+                2019-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><br><br>最近review了大一时候的期末实训学籍管理系统的代码。<br>发现自己并不明白多文件之间的变量定义和声明，在这里做个记录。<br><img src="/2019/06/02/记录c语言文件之间变量的声明/1.png"><br>建议使用codeblocks</p>
+<h2 id="让我们来看看程序是咋写的"><a href="#让我们来看看程序是咋写的" class="headerlink" title="让我们来看看程序是咋写的"></a>让我们来看看程序是咋写的</h2><h3 id="文件目录结构"><a href="#文件目录结构" class="headerlink" title="文件目录结构"></a>文件目录结构</h3><img src="/2019/06/02/记录c语言文件之间变量的声明/2.png">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">主菜单   menu.c</span><br><span class="line">成绩输入 stu1.c ：在文件stu.dat中增加一个或多个新的学生和相应的成绩；</span><br><span class="line">成绩修改 stu2.c ：对已有学生的成绩进行修改；</span><br><span class="line">查询成绩 stu3.c ：根据学号或者姓名查询成绩；</span><br><span class="line">显示成绩 stu4.c ：显示所有学生的成绩（每页10个）；</span><br><span class="line">统计成绩 stu5.c ：对所有学生的成绩，可以按照某一科进行升序排序；</span><br><span class="line">注销学生 stu6.c ：注销某学生及其相关记录；</span><br><span class="line">成绩导入 stu7.c ：将已经在其他文件里的学生成绩，导入到学生成绩数据文件； </span><br><span class="line">整个系统  mscore.c</span><br></pre></td></tr></table></figure>
+<h2 id="mscore-c-main"><a href="#mscore-c-main" class="headerlink" title="mscore.c (main)"></a>mscore.c (main)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;windows.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#include &quot;my.h&quot;</span><br><span class="line">int BFUN=0;/* 定义全局变量，用来显示学籍信息个数 */</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">	system(&quot;color 3f&quot;);</span><br><span class="line">	OI();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="my-h"><a href="#my-h" class="headerlink" title="my.h"></a>my.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">#ifndef MY_H_INCLUDED</span><br><span class="line">#define MY_H_INCLUDED</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;windows.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#define NUMBER 200</span><br><span class="line">extern  int BFUN;</span><br><span class="line">struct stu</span><br><span class="line">&#123;</span><br><span class="line">	char name[50];/* 姓名 */</span><br><span class="line">	unsigned long num;/* 学号 */</span><br><span class="line">	int math;/* 数学 */</span><br><span class="line">	int physical;/* 物理 */</span><br><span class="line">	int english;/* 英语 */</span><br><span class="line">	int count; /* 总分 */</span><br><span class="line"></span><br><span class="line">&#125;boy[NUMBER],Temp;</span><br><span class="line"></span><br><span class="line">/* 定义函数说明（全局说明） */</span><br><span class="line">void INPUT();/* 1.输入学生信息 */</span><br><span class="line"></span><br><span class="line">int QUERY(int q);/* 2 查询学生信息 */</span><br><span class="line"></span><br><span class="line">void CHANGE();/* 3 修改学生信息 */</span><br><span class="line"></span><br><span class="line">void DELETION();/* 4 删除学生信息 */</span><br><span class="line"></span><br><span class="line">void SEQUENCE();/* 5 排列学生信息 */</span><br><span class="line"></span><br><span class="line">void SHOW();/* 6 显示学生信息 */</span><br><span class="line"></span><br><span class="line">void SAVE();/* 7 保存学生信息 */</span><br><span class="line"></span><br><span class="line">void LAYIN();/* 9 导入信息 */</span><br><span class="line"></span><br><span class="line">void LOGOUT();/* 退出程序界面 */</span><br><span class="line"></span><br><span class="line">void OI();/* 操作选项 */</span><br><span class="line"></span><br><span class="line">void OUTPUT(int i);/* 输出信息 */</span><br><span class="line"></span><br><span class="line">void XG(int k);/* 修改信息调用 */</span><br><span class="line">#endif // MY_H_INCLUDED</span><br></pre></td></tr></table></figure>
+<h2 id="stu1-c"><a href="#stu1-c" class="headerlink" title="stu1.c"></a>stu1.c</h2><blockquote>
+<p>#include “my.h”<br>void INPUT()/<em> 1.输入学生全部信息 </em>/<br>{<br>   int i;<br>   int x;<br>   printf(“\n\t\t<em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> &gt;<em> </em> <em> </em> <em>\n”);<br>   printf(“\n\t\t</em>      你已进入学生信息录入模块    &gt;     <em>\n”);<br>   printf(“\n\t\t</em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> </em> <em> &gt;</em> <em> </em> <em> </em>\n”);<br>   x=BFUN;<br>   while(1)/<em> 把全局变量BFUN的值赋给x </em>/<br>   {</p>
+<pre><code>printf(&quot;\t请输入第%d个学生的信息（键入‘0’退出&gt;录入）\n&quot;,++x);
+printf(&quot;\n\t录入信息包含项【学号，姓名，数学，&gt;物理，外语，总成绩】“回车键入下一项”\n&quot;);
+printf(&quot;\n学号：&quot;);
+scanf(&quot;%d&quot;,&amp;Temp.num);
+if(Temp.num==0)
+{
+    system(&quot;cls&quot;);
+    break;
+}
+for(i=0;i&lt;=BFUN;i++)
+    if(Temp.num==boy[i].num)
+    {
+        system(&quot;cls&quot;);
+        printf(&quot;\n\n\t该学籍已被注册！\n\n&quot;)&gt;;INPUT();
+    }
+getchar();
+printf(&quot;\n姓名：&quot;);
+scanf(&quot;%s&quot;,&amp;Temp.name);
+if(strlen(Temp.name)&gt;20)/* 限制姓名字符长度&gt;为20 */
+{
+    system(&quot;cls&quot;);
+    printf(&quot;\n\n\t姓名输入有误，超出限度。&gt;\n\n&quot;);INPUT();
+}
+printf(&quot;\n数学成绩：&quot;);
+scanf(&quot;%d&quot;,&amp;Temp.math);
+if(Temp.math&lt;=0||Temp.math&gt;=150)
+{
+    system(&quot;cls&quot;);
+    printf(&quot;\t成绩输入有误！\n\n\n&quot;);
+    INPUT();
+}
+printf(&quot;\n物理成绩：&quot;);
+scanf(&quot;%d&quot;,&amp;Temp.physical);
+
+if(Temp.physical&lt;=0||Temp.physical&gt;=100)
+{
+    system(&quot;cls&quot;);
+    printf(&quot;\t成绩输入有误！\n\n\n&quot;);
+    INPUT();
+}
+printf(&quot;\n外语成绩：&quot;);
+scanf(&quot;%d&quot;,&amp;Temp.english);
+if(Temp.english&lt;=0||Temp.english&gt;=150)
+{
+    system(&quot;cls&quot;);
+    printf(&quot;\t成绩输入有误！\n\n\n&quot;);
+    INPUT();
+}
+getchar();
+BFUN=x;/* 上面函数完全正确执行后，才会把现在的&gt;x值赋给BFUN */
+printf(&quot;\n\n\n&quot;);
+
+boy[BFUN-1]=Temp;
+</code></pre><p>   }<br>}</p>
+</blockquote>
+<blockquote>
+<p>到这里就能直观的看出来 多个文件之间的调用关系：将结构体声明，函数声明，常量定义都写在一个自定义头文件里；然后在每一个文件中都<code>include</code>这个头文件就可以将功能模块化的分成多个文件啦。</p>
+</blockquote>
+<h4 id="还有一个问题就是extern的用法"><a href="#还有一个问题就是extern的用法" class="headerlink" title="还有一个问题就是extern的用法:"></a>还有一个问题就是<code>extern</code>的用法:</h4><blockquote>
+<p>在主文件中定义了一个BFUN的全局变量，用来计算系统中学生的数量。<br>而在当头文件，或者其他文件中想要访问这个变量就不需要再次定义了。这时候在别的地方需要声明的时候，只需要使用<code>extern</code>就ok了</p>
+</blockquote>
+<p><a href="https://github.com/allcando/StudentManagementSystem" target="_blank" rel="noopener">项目源码下载</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/MongoDB的使用记录-windows环境下的配置/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1376,135 +1564,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/hive安装与配置/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王树波">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王树波的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/23/hive安装与配置/" itemprop="url">Hive安装与配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-23T16:28:21+08:00">
-                2019-03-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><br></p>
-<h2 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h2><p>Hive是基于Hadoop构建的一套数据仓库分析系统，它提供了丰富的SQL查询方式来分析存储在Hadoop 分布式文件系统中的数据。其在Hadoop的架构体系中承担了一个SQL解析的过程，它提供了对外的入口来获取用户的指令然后对指令进行分析，解析出一个MapReduce程序组成可执行计划，并按照该计划生成对应的MapReduce任务提交给Hadoop集群处理，获取最终的结果。元数据——如表模式——存储在名为metastore的数据库中。</p>
-<h2 id="Metastore"><a href="#Metastore" class="headerlink" title="Metastore"></a>Metastore</h2><p>metastore是Hive元数据集中存放地。它包括两部分：服务和后台数据存储。有三种方式配置metastore：内嵌metastore、本地metastore以及远程metastore。<br>本次搭建中采用MySQL作为远程仓库，部署在master节点上，hive服务端也安装在master上，hive客户端即hadoop-slave访问hive服务器。</p>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><h3 id="hive：可以选择国内apache镜像站下载hive"><a href="#hive：可以选择国内apache镜像站下载hive" class="headerlink" title="hive：可以选择国内apache镜像站下载hive"></a>hive：可以选择国内apache镜像站下载hive</h3><h3 id="mysql数据库java驱动：mysql官网下载"><a href="#mysql数据库java驱动：mysql官网下载" class="headerlink" title="mysql数据库java驱动：mysql官网下载"></a>mysql数据库java驱动：<a href="https://dev.mysql.com/downloads/connector/j/" target="_blank" rel="noopener">mysql官网下载</a></h3><h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h3 id="1-安装mysql-mariadb数据库，启动并建立hive数据库。"><a href="#1-安装mysql-mariadb数据库，启动并建立hive数据库。" class="headerlink" title="1.安装mysql/mariadb数据库，启动并建立hive数据库。"></a>1.安装mysql/mariadb数据库，启动并建立hive数据库。</h3><h3 id="2-开启远程连接权限"><a href="#2-开启远程连接权限" class="headerlink" title="2.开启远程连接权限"></a>2.开启远程连接权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos;IDENTIFIED BY &apos;000000&apos; WITH GRANT OPTION;</span><br><span class="line">&gt; flush privileges;</span><br></pre></td></tr></table></figure>
-<h3 id="3-复制hive目录下的conf-hive-default-xml-template改名为conf-hive-site-xml"><a href="#3-复制hive目录下的conf-hive-default-xml-template改名为conf-hive-site-xml" class="headerlink" title="3.复制hive目录下的conf/hive-default.xml.template改名为conf/hive-site.xml"></a>3.复制hive目录下的<code>conf/hive-default.xml.template</code>改名为<code>conf/hive-site.xml</code></h3><h3 id="4-编辑conf-hive-site-xml文件"><a href="#4-编辑conf-hive-site-xml文件" class="headerlink" title="4.编辑conf/hive-site.xml文件"></a>4.编辑<code>conf/hive-site.xml</code>文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;hive.metastore.local&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;jdbc:mysql://master:3306/hive?characterEncoding=UTF-8&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;hive&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionPassword&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;000000&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;hive.server2.authentication&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;NONE&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;hive.server2.thrift.client.user&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;root&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;hive.server2.thrift.client.password&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;000000&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="5-配置环境变量"><a href="#5-配置环境变量" class="headerlink" title="5.配置环境变量"></a>5.配置环境变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/share/jdk</span><br><span class="line">JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">HADOOP_HOME=/usr/share/hadoop</span><br><span class="line">HIVE_HOME=$HADOOP_HOME/apache-hive-2.3.4-bin</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin:$HADOOP_HOME/bin:$HIVE_HOME/bin</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">export JAVA_HOME JRE_HOME PATH CLASSPATH HADOOP_HOME HIVE_HOME</span><br></pre></td></tr></table></figure>
-<h3 id="6-格式化数据库（如果漏掉这一步，hive启动会报错）"><a href="#6-格式化数据库（如果漏掉这一步，hive启动会报错）" class="headerlink" title="6.格式化数据库（如果漏掉这一步，hive启动会报错）"></a>6.格式化数据库（如果漏掉这一步，hive启动会报错）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./schematool --dbType mysql --initSchema</span><br></pre></td></tr></table></figure>
-<h3 id="7-启动Hive-CLI"><a href="#7-启动Hive-CLI" class="headerlink" title="7.启动Hive CLI"></a>7.启动Hive CLI</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hive</span><br></pre></td></tr></table></figure>
-<h3 id="8-将hive传输到slave节点"><a href="#8-将hive传输到slave节点" class="headerlink" title="8.将hive传输到slave节点"></a>8.将hive传输到slave节点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r /usr/share/hadoop/apache-hive-2.3.4-bin/ slave:/usr/share/hadoop</span><br></pre></td></tr></table></figure>
-<h3 id="9-修改slave节点的conf-hive-site-xml文件"><a href="#9-修改slave节点的conf-hive-site-xml文件" class="headerlink" title="9.修改slave节点的conf/hive-site.xml文件"></a>9.修改slave节点的<code>conf/hive-site.xml</code>文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;hive.metastore.uris&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;thrift://master:9083&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1557,7 +1616,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1570,7 +1629,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
