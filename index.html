@@ -252,6 +252,146 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/Android踩坑——使用Fragment导包问题/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王树波">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王树波的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/19/Android踩坑——使用Fragment导包问题/" itemprop="url">Android踩坑——使用Fragment导包问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-19T11:37:44+08:00">
+                2019-06-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> hexo new “Android踩坑——使用Fragment导包问题”</p>
+<blockquote>
+<p>今天使用fragment时，抛出了ClassCastException异常。顺手记录下解决方法。<br><img src="/2019/06/19/Android踩坑——使用Fragment导包问题/1.png"></p>
+</blockquote>
+<h2 id="android-support-v4-app-Fragment和android-app-Fragment区别-原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。"><a href="#android-support-v4-app-Fragment和android-app-Fragment区别-原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。" class="headerlink" title="android.support.v4.app.Fragment和android.app.Fragment区别,原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。"></a><code>android.support.v4.app.Fragment</code>和<code>android.app.Fragment</code>区别,原因是因为使用的<code>module</code>中的<code>Fragment</code>与我自己创建的<code>Fragment</code>导入的包不一致。</h2><h2 id="解决方法是导入相同的包。"><a href="#解决方法是导入相同的包。" class="headerlink" title="解决方法是导入相同的包。"></a>解决方法是导入相同的包。</h2><p>以下摘自CSDN博客作者：巨大蟹<br>原文：<a href="https://blog.csdn.net/lin353809836/article/details/53717153" target="_blank" rel="noopener">https://blog.csdn.net/lin353809836/article/details/53717153</a> </p>
+<h3 id="1-最低支持版本不同"><a href="#1-最低支持版本不同" class="headerlink" title="1.最低支持版本不同"></a>1.最低支持版本不同</h3><p><code>android.app.Fragment</code> 兼容的最低版本是<code>android:minSdkVersion=&quot;11&quot;</code> 即3.0版</p>
+<p><code>android.support.v4.app.Fragment</code> 兼容的最低版本是<code>android:minSdkVersion=&quot;4&quot;</code> 即1.6版</p>
+<h3 id="2-需要导jar包"><a href="#2-需要导jar包" class="headerlink" title="2.需要导jar包"></a>2.需要导jar包</h3><p>fragment 在定义的时候，要导入的包不同</p>
+<p><code>android.support.v4.app.Fragment</code> 需要引入包<code>android-support-v4.jar</code></p>
+<p><code>android.app.Fragment</code> 需要导入的是<code>android-app.jar</code></p>
+<h3 id="3-继承的父类不同，在fragmentManager和在Activity中取的方法不同"><a href="#3-继承的父类不同，在fragmentManager和在Activity中取的方法不同" class="headerlink" title="3.继承的父类不同，在fragmentManager和在Activity中取的方法不同"></a>3.继承的父类不同，在<code>fragmentManager</code>和在<code>Activity</code>中取的方法不同</h3><p><code>android.support.v4.app.Fragment</code>使用  <code>fragmentManager=getSupportFragmentManager()</code>获得 ，并且当前的类必须继<code>FragmentActivity</code></p>
+<p><code>android.app.Fragment</code>使用 <code>fragmentManager=getFragmentManager()</code> 获得  ，继承<code>Activity</code>即可。</p>
+<h3 id="4-标签的使用情况（这点最重要了，也是决定你到底使用v4包中的Fragment还是app包的fragment）"><a href="#4-标签的使用情况（这点最重要了，也是决定你到底使用v4包中的Fragment还是app包的fragment）" class="headerlink" title="4.标签的使用情况（这点最重要了，也是决定你到底使用v4包中的Fragment还是app包的fragment）"></a>4.<fragment>标签的使用情况（这点最重要了，也是决定你到底使用<code>v4</code>包中的<code>Fragment</code>还是<code>app</code>包的<code>fragment</code>）</fragment></h3><p><code>v4</code>包中的<code>Fragment</code>在<code>Activity</code>的布局中是可以使用<code>&lt;fragment&gt;</code>标签的，有些博客中也叫静态地载入<code>fragment</code>。</p>
+<p>android.app.Fragment在<code>Activity</code>布局中是不可以使用<code>&lt;fragment&gt;</code>标签的，需要在程序中通过<code>add</code>或者<code>replace</code>的方式添加。</p>
+<p>总结起来就是：当这个<code>Activity</code>的布局中有<code>fragment</code>标签的时候，这个<code>Activity</code>必须继承<code>FragmentActivity</code>，也就是使用<code>V4</code>包的<code>fragment</code>，否则就会抛出<code>android.view.InflateException: Binary XML file line #69: Error inflating class fragment</code>异常。</p>
+<p>题外话：</p>
+<p>我们使用<code>Fragment</code>的时候，选择哪个包下的<code>Fragment</code>呢？</p>
+<p>到底是用<code>Android.app</code>下的<code>Fragment</code>还是用的<code>android.support.v4.app</code>包下的<code>Fragment</code>?</p>
+<p>我们都知道<code>Fragment</code>是<code>3.0(API 11)</code>后引入的，那么如果开发的app需要在3.0以下的版本运行呢?比如还有一点点市场份额的2.3!</p>
+<p>于是乎,v4包就这样应运而生了,而最低可以兼容到1.6版本!</p>
+<p>至于使用哪个包看你的需求了,现在3.0下手机市场份额其实已经不多了,随街都是4.0以上的,所以这个时候,你可以直接使用<code>app</code>包下的<code>Fragment</code>,然后调用相关的方法<br>通常都是不会有什么问题的;如果你<code>Fragment</code>用了<code>app</code>包的,FragmentManager和<code>FragmentTransaction</code>都必须是app包的</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/记录c语言文件之间变量的声明/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1379,135 +1519,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/Jquery-JSONstr和JSONobj之间的转换和判断/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王树波">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王树波的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/Jquery-JSONstr和JSONobj之间的转换和判断/" itemprop="url">Jquery JSONstr和JSONobj之间的转换和判断</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-02T22:13:52+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><br><br>转自：<a href="http://bjlhx.cnblogs.com" target="_blank" rel="noopener">http://bjlhx.cnblogs.com</a></p>
-<h1 id="1：jQuery插件支持的转换方式"><a href="#1：jQuery插件支持的转换方式" class="headerlink" title="1：jQuery插件支持的转换方式"></a>1：jQuery插件支持的转换方式</h1><p>代码如下:</p>
-<h3 id="String→Object"><a href="#String→Object" class="headerlink" title="String→Object"></a>String→Object</h3><p><code>$.parseJSON( jsonstr );                     //jQuery.parseJSON(jsonstr),可以将json字符串转换成json对象</code></p>
-<p>反过来，使用 serialize 系列方法：如：<code>var fields = $(&quot;select, :radio&quot;).serializeArray();</code> 序列化表单</p>
-<h1 id="2：浏览器支持的转换方式-Firefox，chrome，opera，safari，ie9，ie8-等浏览器"><a href="#2：浏览器支持的转换方式-Firefox，chrome，opera，safari，ie9，ie8-等浏览器" class="headerlink" title="2：浏览器支持的转换方式(Firefox，chrome，opera，safari，ie9，ie8)等浏览器"></a>2：浏览器支持的转换方式(Firefox，chrome，opera，safari，ie9，ie8)等浏览器</h1><p>代码如下:</p>
-<h3 id="String→Object-1"><a href="#String→Object-1" class="headerlink" title="String→Object"></a>String→Object</h3><p><code>JSON.parse(jsonstr); //可以将json字符串转换成json对象</code></p>
-<h3 id="Object→String"><a href="#Object→String" class="headerlink" title="Object→String"></a>Object→String</h3><p><code>JSON.stringify(jsonobj); //可以将json对象转换成json对符串</code></p>
-<p>注：ie8(兼容模式),ie7和ie6没有JSON对象，需要引入 json.js 或 json2.js。</p>
-<h1 id="3：Javascript支持的转换方式"><a href="#3：Javascript支持的转换方式" class="headerlink" title="3：Javascript支持的转换方式"></a>3：Javascript支持的转换方式</h1><h3 id="String→Object-2"><a href="#String→Object-2" class="headerlink" title="String→Object"></a>String→Object</h3><p><code>eval(&#39;(&#39; + jsonstr + &#39;)&#39;); //可以将json字符串转换成json对象,注意需要在json字符外包裹一对小括号</code></p>
-<p>注：ie8(兼容模式),ie7和ie6也可以使用eval()将字符串转为JSON对象</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1560,7 +1571,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
