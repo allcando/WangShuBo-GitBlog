@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android,Java,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="转自 https://www.cnblogs.com/r-decade/p/5827841.html  ListView　　显示大量相同格式数据 常用属性:   方法 说明      listSelector listView每项在选中、按下等不同状态时的Drawable    divider ListView每项间的间隔Drawable    dividerHeight ListView每项间">
+<meta name="keywords" content="Android,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓爬坑（三）——listView的使用">
+<meta property="og:url" content="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/index.html">
+<meta property="og:site_name" content="王树波的博客">
+<meta property="og:description" content="转自 https://www.cnblogs.com/r-decade/p/5827841.html  ListView　　显示大量相同格式数据 常用属性:   方法 说明      listSelector listView每项在选中、按下等不同状态时的Drawable    divider ListView每项间的间隔Drawable    dividerHeight ListView每项间">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/7.png">
+<meta property="og:updated_time" content="2019-07-07T14:17:53.974Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安卓爬坑（三）——listView的使用">
+<meta name="twitter:description" content="转自 https://www.cnblogs.com/r-decade/p/5827841.html  ListView　　显示大量相同格式数据 常用属性:   方法 说明      listSelector listView每项在选中、按下等不同状态时的Drawable    divider ListView每项间的间隔Drawable    dividerHeight ListView每项间">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/">
+
+
+
+
+
+  <title>安卓爬坑（三）——listView的使用 | 王树波的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/allcando" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王树波的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">在记录中见证自己的成长。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王树波">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王树波的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">安卓爬坑（三）——listView的使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-07T22:16:23+08:00">
+                2019-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/07/安卓爬坑（三）——listView的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/07/安卓爬坑（三）——listView的使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><br></p>
+<p>转自 <a href="https://www.cnblogs.com/r-decade/p/5827841.html" target="_blank" rel="noopener">https://www.cnblogs.com/r-decade/p/5827841.html</a> </p>
+<h1 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h1><p>　　显示大量相同格式数据</p>
+<h2 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性:"></a>常用属性:</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>listSelector</code></td>
+<td>listView每项在选中、按下等不同状态时的Drawable</td>
+<td></td>
+</tr>
+<tr>
+<td><code>divider</code></td>
+<td>ListView每项间的间隔Drawable </td>
+</tr>
+<tr>
+<td><code>dividerHeight</code></td>
+<td>ListView每项间间隔的间隔高度 </td>
+</tr>
+</tbody>
+</table>
+<img src="/2019/07/07/安卓爬坑（三）——listView的使用/1.png">
+<h2 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>setAdapter()</code></td>
+<td>设置数据适配器</td>
+</tr>
+<tr>
+<td><code>setOnItemClickListener()</code></td>
+<td>设置每项点击事件监听</td>
+</tr>
+<tr>
+<td><code>addHeaderView()</code></td>
+<td>添加头视图</td>
+</tr>
+<tr>
+<td><code>addFooterView()</code></td>
+<td>添加脚视图</td>
+</tr>
+<tr>
+<td><code>setEmptyView()</code></td>
+<td>设置数据项为0时的空数据视图</td>
+</tr>
+</tbody>
+</table>
+<h2 id="监听事件"><a href="#监听事件" class="headerlink" title="监听事件"></a>监听事件</h2><p>　　　　　　这个监听的例子是设置了一个头视图    项的下标改变    所以用 <code>position-listview.getHeaderViewsCount()</code>   计算项的下标位置 获取正确的对象<br><img src="/2019/07/07/安卓爬坑（三）——listView的使用/2.png"></p>
+<h2 id="Adapter数据适配器"><a href="#Adapter数据适配器" class="headerlink" title="Adapter数据适配器"></a>Adapter数据适配器</h2><p>将各种数据以合适的形式绑定到控件上   像<code>listview</code>, <code>gridview</code>, <code>spinner</code> 等等等控件 都会用到<code>Adapter</code>绑定数据</p>
+<h2 id="介绍三种Adapter"><a href="#介绍三种Adapter" class="headerlink" title="介绍三种Adapter"></a>介绍三种Adapter</h2><p><code>ArrayAdapter</code>：支持泛型操作，最简单的一个Adapter，只能展现一行文字</p>
+<p><code>SimpleAdapter</code>：同样具有良好扩展性的一个Adapter，可以自定义多种效果</p>
+<p><code>BaseAdapter</code>：抽象类，实际开发中我们会继承这个类并且重写相关方法，用得最多的一个Adapter</p>
+<p>先从简单的介绍</p>
+<h3 id="1-ArrayAdapter"><a href="#1-ArrayAdapter" class="headerlink" title="1.ArrayAdapter"></a>1.ArrayAdapter</h3><img src="/2019/07/07/安卓爬坑（三）——listView的使用/3.png">
+<h3 id="显示效果-绑定了listview"><a href="#显示效果-绑定了listview" class="headerlink" title="显示效果   绑定了listview"></a>显示效果   绑定了listview</h3><img src="/2019/07/07/安卓爬坑（三）——listView的使用/4.png">
+<h3 id="2-SimpleAdapter"><a href="#2-SimpleAdapter" class="headerlink" title="2.SimpleAdapter"></a>2.SimpleAdapter</h3><p>　　<code>simpleAdapter</code>的扩展性最好，可以定义各种各样的布局出来，可以放上ImageView（图片），还可以放上Button（按钮），CheckBox（复选框）等等</p>
+<img src="/2019/07/07/安卓爬坑（三）——listView的使用/5.png">
+<h3 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h3><img src="/2019/07/07/安卓爬坑（三）——listView的使用/6.png">
+<h3 id="3-BaseAdapter"><a href="#3-BaseAdapter" class="headerlink" title="3.BaseAdapter"></a>3.BaseAdapter</h3><p><code>BaseAdapter</code>是开发中最常用的适配器<code>ArrayAdapter</code>, <code>SimpleAdapter</code> 都继承于<code>BaseAdapter</code>。<code>BaseAdapter</code>可以完成自己定义的<code>Adapter</code>，可以将任何复杂组合的数据和资源，以任何你想要的显示效果展示给大家。</p>
+<p>继承<code>BaseAdapter</code>之后，需要重写以下四个方法：<code>getCount，getItem，getItemId，getView。</code></p>
+<p>系统在绘制ListView之前，将会先调用getCount方法来获取Item的个数。每绘制一个Item就会调用一次getView方法，在getView中引用事先定义好的layout布局确定显示的效果并返回一个View对象作为一个Item显示出来。</p>
+<p>这两个方法是自定ListView显示效果中最为重要的，同时只要重写好了这两个方法，ListView就能完全按开发者的要求显示。而getItem和getItemId方法将会在调用ListView的响应方法的时候被调用到。</p>
+<h4 id="自定义布局文件（listview的项的显示效果）"><a href="#自定义布局文件（listview的项的显示效果）" class="headerlink" title="自定义布局文件（listview的项的显示效果）"></a>自定义布局文件（listview的项的显示效果）</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/image_photo"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"70dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"70dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:padding</span>=<span class="string">"10dp"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/name"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"20dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_toRightOf</span>=<span class="string">"@id/image_photo"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/age"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"20dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_toRightOf</span>=<span class="string">"@id/image_photo"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_below</span>=<span class="string">"@id/name"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginTop</span>=<span class="string">"10dp"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="student学生类"><a href="#student学生类" class="headerlink" title="student学生类"></a>student学生类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> photo;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPhoto</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> photo;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPhoto</span><span class="params">(<span class="keyword">int</span> photo)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.photo = photo;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="MainActivity"><a href="#MainActivity" class="headerlink" title="MainActivity"></a>MainActivity</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ListView listView;</span><br><span class="line">　　<span class="comment">//自定义BaseAdapter</span></span><br><span class="line">    <span class="keyword">private</span> MyAdapter adapter;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        listView= (ListView) findViewById(R.id.listview);</span><br><span class="line">        List&lt;Student&gt; stuList=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            Student stu=<span class="keyword">new</span> Student();</span><br><span class="line">            stu.setAge(<span class="number">10</span>+i);</span><br><span class="line">            stu.setName(<span class="string">"name"</span>+i);</span><br><span class="line">            stu.setPhoto(R.mipmap.ic_launcher);</span><br><span class="line">            stuList.add(stu);</span><br><span class="line">        &#125;</span><br><span class="line">　　　　　　</span><br><span class="line">        adapter=<span class="keyword">new</span> MyAdapter(stuList,MainActivity.<span class="keyword">this</span>);</span><br><span class="line">        listView.setAdapter(adapter);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="MyAdapter"><a href="#MyAdapter" class="headerlink" title="MyAdapter"></a>MyAdapter</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> List&lt;Student&gt; stuList;</span><br><span class="line"><span class="keyword">private</span> LayoutInflater inflater;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MyAdapter</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MyAdapter</span><span class="params">(List&lt;Student&gt; stuList,Context context)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.stuList = stuList;</span><br><span class="line">    <span class="keyword">this</span>.inflater=LayoutInflater.from(context);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> stuList==<span class="keyword">null</span>?<span class="number">0</span>:stuList.size();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Student <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> stuList.get(position);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getItemId</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> position;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//加载布局为一个视图</span></span><br><span class="line">    View view=inflater.inflate(R.layout.layout_student_item,<span class="keyword">null</span>);</span><br><span class="line">    Student student=getItem(position);</span><br><span class="line">    <span class="comment">//在view视图中查找id为image_photo的控件</span></span><br><span class="line">    ImageView image_photo= (ImageView) view.findViewById(R.id.image_photo);</span><br><span class="line">    TextView tv_name= (TextView) view.findViewById(R.id.name);</span><br><span class="line">    TextView tv_age= (TextView) view.findViewById(R.id.age);</span><br><span class="line">    image_photo.setImageResource(student.getPhoto());</span><br><span class="line">    tv_name.setText(student.getName());</span><br><span class="line">    tv_age.setText(String.valueOf(student.getAge()));</span><br><span class="line">    <span class="keyword">return</span> view;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="显示结果-1"><a href="#显示结果-1" class="headerlink" title="显示结果"></a>显示结果</h4><img src="/2019/07/07/安卓爬坑（三）——listView的使用/7.png">
+<p>jizhi生活要结束了，，加油。。。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/" rel="next" title="安卓爬坑（二）——Toolbar使用事项">
+                <i class="fa fa-chevron-left"></i> 安卓爬坑（二）——Toolbar使用事项
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="王树波">
+            
+              <p class="site-author-name" itemprop="name">王树波</p>
+              <p class="site-description motion-element" itemprop="description">庆幸我还年轻，我要记录我的成长之路。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+          
+          <div id="music163player">
+   <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=5041667&auto=1&height=66"></iframe>
+          
+          </div>
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ListView"><span class="nav-number">1.</span> <span class="nav-text">ListView</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用属性"><span class="nav-number">1.1.</span> <span class="nav-text">常用属性:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用方法："><span class="nav-number">1.2.</span> <span class="nav-text">常用方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监听事件"><span class="nav-number">1.3.</span> <span class="nav-text">监听事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adapter数据适配器"><span class="nav-number">1.4.</span> <span class="nav-text">Adapter数据适配器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍三种Adapter"><span class="nav-number">1.5.</span> <span class="nav-text">介绍三种Adapter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-ArrayAdapter"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.ArrayAdapter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示效果-绑定了listview"><span class="nav-number">1.5.2.</span> <span class="nav-text">显示效果   绑定了listview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SimpleAdapter"><span class="nav-number">1.5.3.</span> <span class="nav-text">2.SimpleAdapter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示结果"><span class="nav-number">1.5.4.</span> <span class="nav-text">显示结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-BaseAdapter"><span class="nav-number">1.5.5.</span> <span class="nav-text">3.BaseAdapter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义布局文件（listview的项的显示效果）"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">自定义布局文件（listview的项的显示效果）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#student学生类"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">student学生类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MainActivity"><span class="nav-number">1.5.5.3.</span> <span class="nav-text">MainActivity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyAdapter"><span class="nav-number">1.5.5.4.</span> <span class="nav-text">MyAdapter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示结果-1"><span class="nav-number">1.5.5.5.</span> <span class="nav-text">显示结果</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王树波</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v="></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'allcando',
+            repo: 'gitment-comments',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'b6a8ccffb9cf74aa459bf7a980132923fb4e2ad7',
+            
+                client_id: 'eea76e053864bf2fa614'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+</html>

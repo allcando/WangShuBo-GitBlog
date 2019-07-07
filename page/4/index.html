@@ -252,6 +252,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/ubuntu18-04下安装mariaDB/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王树波">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王树波的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/18/ubuntu18-04下安装mariaDB/" itemprop="url">ubuntu18.04下安装mariaDB</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T15:09:37+08:00">
+                2018-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><br></p>
+<img src="/2018/11/18/ubuntu18-04下安装mariaDB/Ubuntu18.04logo.png" title="ubuntu logo">
+<h2 id="1-安装服务"><a href="#1-安装服务" class="headerlink" title="1.安装服务"></a>1.安装服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install mariadb-server</span><br></pre></td></tr></table></figure>
+<h2 id="2-启用启动服务"><a href="#2-启用启动服务" class="headerlink" title="2.启用启动服务"></a>2.启用启动服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start mariadb</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> mariad</span><br></pre></td></tr></table></figure>
+<h2 id="3-后续设置命令"><a href="#3-后续设置命令" class="headerlink" title="3.后续设置命令"></a>3.后续设置命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<h2 id="4-登入数据库后，设置所有用户使用root连接，并更新设置。"><a href="#4-登入数据库后，设置所有用户使用root连接，并更新设置。" class="headerlink" title="4.登入数据库后，设置所有用户使用root连接，并更新设置。"></a>4.登入数据库后，设置所有用户使用root连接，并更新设置。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'000000'</span> WITH GRANT OPTION;</span><br><span class="line">Query OK, 0 rows affected, 1 warning (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+<h2 id="5-使用navicate远程连接时出现-“10061error”"><a href="#5-使用navicate远程连接时出现-“10061error”" class="headerlink" title="5.使用navicate远程连接时出现 “10061error”"></a>5.使用navicate远程连接时出现 “10061error”</h2><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法:"></a>解决方法:</h3><h4 id="1）-修改-etc-mysql-my-cnf文件。打开文件，找到下面内容："><a href="#1）-修改-etc-mysql-my-cnf文件。打开文件，找到下面内容：" class="headerlink" title="(1）    修改/etc/mysql/my.cnf文件。打开文件，找到下面内容："></a>(1）    修改/etc/mysql/my.cnf文件。打开文件，找到下面内容：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Instead of skip-networking the default is now to listen only on</span><br><span class="line">localhost <span class="built_in">which</span> is more compatible and is not less secure.</span><br><span class="line"><span class="built_in">bind</span>-address  = 127.0.0.1</span><br></pre></td></tr></table></figure>
+<h4 id="把上面这一行注释掉或者把127-0-0-1换成合适的IP，建议注释掉。"><a href="#把上面这一行注释掉或者把127-0-0-1换成合适的IP，建议注释掉。" class="headerlink" title="把上面这一行注释掉或者把127.0.0.1换成合适的IP，建议注释掉。"></a>把上面这一行注释掉或者把127.0.0.1换成合适的IP，建议注释掉。</h4><h4 id="2）但现在最新版的mariaDB-已将配置文件拆分此时my-cnf文件里面显示如下"><a href="#2）但现在最新版的mariaDB-已将配置文件拆分此时my-cnf文件里面显示如下" class="headerlink" title="(2）但现在最新版的mariaDB 已将配置文件拆分此时my.cnf文件里面显示如下"></a>(2）但现在最新版的mariaDB 已将配置文件拆分此时my.cnf文件里面显示如下</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!includedir /etc/mysqql/conf.d/</span><br><span class="line">!includedir /etc/mysql/mariadb.conf.d/</span><br></pre></td></tr></table></figure>
+<h4 id="这两句话的意思是配置文件包含了上面两个文件夹所有的文件，那么现在一一查找-bind-address-127-0-0-1这句话写在哪了。"><a href="#这两句话的意思是配置文件包含了上面两个文件夹所有的文件，那么现在一一查找-bind-address-127-0-0-1这句话写在哪了。" class="headerlink" title="这两句话的意思是配置文件包含了上面两个文件夹所有的文件，那么现在一一查找 bind-address  = 127.0.0.1这句话写在哪了。"></a>这两句话的意思是配置文件包含了上面两个文件夹所有的文件，那么现在一一查找 bind-address  = 127.0.0.1这句话写在哪了。</h4><h4 id="之后在-etc-mysql-mariadb-conf-d-50-server-cnf"><a href="#之后在-etc-mysql-mariadb-conf-d-50-server-cnf" class="headerlink" title="之后在/etc/mysql/mariadb.conf.d/50-server.cnf"></a>之后在/etc/mysql/mariadb.conf.d/50-server.cnf</h4><h4 id="此文件下找到bind-address-127-0-0-1这句话，注释掉就行了。"><a href="#此文件下找到bind-address-127-0-0-1这句话，注释掉就行了。" class="headerlink" title="此文件下找到bind-address = 127.0.0.1这句话，注释掉就行了。"></a>此文件下找到bind-address = 127.0.0.1这句话，注释掉就行了。</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/18/ubuntu18-04下配置jdk1-8/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -556,7 +683,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -252,6 +252,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/安卓爬坑（三）——listView的使用/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王树波">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王树波的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/07/安卓爬坑（三）——listView的使用/" itemprop="url">安卓爬坑（三）——listView的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-07T22:16:23+08:00">
+                2019-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><br></p>
+<p>转自 <a href="https://www.cnblogs.com/r-decade/p/5827841.html" target="_blank" rel="noopener">https://www.cnblogs.com/r-decade/p/5827841.html</a> </p>
+<h1 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h1><p>　　显示大量相同格式数据</p>
+<h2 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性:"></a>常用属性:</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>listSelector</code></td>
+<td>listView每项在选中、按下等不同状态时的Drawable</td>
+<td></td>
+</tr>
+<tr>
+<td><code>divider</code></td>
+<td>ListView每项间的间隔Drawable </td>
+</tr>
+<tr>
+<td><code>dividerHeight</code></td>
+<td>ListView每项间间隔的间隔高度 </td>
+</tr>
+</tbody>
+</table>
+<img src="/2019/07/07/安卓爬坑（三）——listView的使用/1.png">
+<h2 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>setAdapter()</code></td>
+<td>设置数据适配器</td>
+</tr>
+<tr>
+<td><code>setOnItemClickListener()</code></td>
+<td>设置每项点击事件监听</td>
+</tr>
+<tr>
+<td><code>addHeaderView()</code></td>
+<td>添加头视图</td>
+</tr>
+<tr>
+<td><code>addFooterView()</code></td>
+<td>添加脚视图</td>
+</tr>
+<tr>
+<td><code>setEmptyView()</code></td>
+<td>设置数据项为0时的空数据视图</td>
+</tr>
+</tbody>
+</table>
+<h2 id="监听事件"><a href="#监听事件" class="headerlink" title="监听事件"></a>监听事件</h2><p>　　　　　　这个监听的例子是设置了一个头视图    项的下标改变    所以用 <code>position-listview.getHeaderViewsCount()</code>   计算项的下标位置 获取正确的对象<br><img src="/2019/07/07/安卓爬坑（三）——listView的使用/2.png"></p>
+<h2 id="Adapter数据适配器"><a href="#Adapter数据适配器" class="headerlink" title="Adapter数据适配器"></a>Adapter数据适配器</h2><p>将各种数据以合适的形式绑定到控件上   像<code>listview</code>, <code>gridview</code>, <code>spinner</code> 等等等控件 都会用到<code>Adapter</code>绑定数据</p>
+<h2 id="介绍三种Adapter"><a href="#介绍三种Adapter" class="headerlink" title="介绍三种Adapter"></a>介绍三种Adapter</h2><p><code>ArrayAdapter</code>：支持泛型操作，最简单的一个Adapter，只能展现一行文字</p>
+<p><code>SimpleAdapter</code>：同样具有良好扩展性的一个Adapter，可以自定义多种效果</p>
+<p><code>BaseAdapter</code>：抽象类，实际开发中我们会继承这个类并且重写相关方法，用得最多的一个Adapter</p>
+<p>先从简单的介绍</p>
+<h3 id="1-ArrayAdapter"><a href="#1-ArrayAdapter" class="headerlink" title="1.ArrayAdapter"></a>1.ArrayAdapter</h3><img src="/2019/07/07/安卓爬坑（三）——listView的使用/3.png">
+<h3 id="显示效果-绑定了listview"><a href="#显示效果-绑定了listview" class="headerlink" title="显示效果   绑定了listview"></a>显示效果   绑定了listview</h3><img src="/2019/07/07/安卓爬坑（三）——listView的使用/4.png">
+<h3 id="2-SimpleAdapter"><a href="#2-SimpleAdapter" class="headerlink" title="2.SimpleAdapter"></a>2.SimpleAdapter</h3><p>　　<code>simpleAdapter</code>的扩展性最好，可以定义各种各样的布局出来，可以放上ImageView（图片），还可以放上Button（按钮），CheckBox（复选框）等等</p>
+<img src="/2019/07/07/安卓爬坑（三）——listView的使用/5.png">
+<h3 id="显示结果"><a href="#显示结果" class="headerlink" title="显示结果"></a>显示结果</h3><img src="/2019/07/07/安卓爬坑（三）——listView的使用/6.png">
+<h3 id="3-BaseAdapter"><a href="#3-BaseAdapter" class="headerlink" title="3.BaseAdapter"></a>3.BaseAdapter</h3><p><code>BaseAdapter</code>是开发中最常用的适配器<code>ArrayAdapter</code>, <code>SimpleAdapter</code> 都继承于<code>BaseAdapter</code>。<code>BaseAdapter</code>可以完成自己定义的<code>Adapter</code>，可以将任何复杂组合的数据和资源，以任何你想要的显示效果展示给大家。</p>
+<p>继承<code>BaseAdapter</code>之后，需要重写以下四个方法：<code>getCount，getItem，getItemId，getView。</code></p>
+<p>系统在绘制ListView之前，将会先调用getCount方法来获取Item的个数。每绘制一个Item就会调用一次getView方法，在getView中引用事先定义好的layout布局确定显示的效果并返回一个View对象作为一个Item显示出来。</p>
+<p>这两个方法是自定ListView显示效果中最为重要的，同时只要重写好了这两个方法，ListView就能完全按开发者的要求显示。而getItem和getItemId方法将会在调用ListView的响应方法的时候被调用到。</p>
+<h4 id="自定义布局文件（listview的项的显示效果）"><a href="#自定义布局文件（listview的项的显示效果）" class="headerlink" title="自定义布局文件（listview的项的显示效果）"></a>自定义布局文件（listview的项的显示效果）</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/image_photo"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"70dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"70dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:padding</span>=<span class="string">"10dp"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/name"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"20dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_toRightOf</span>=<span class="string">"@id/image_photo"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/age"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"20dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_toRightOf</span>=<span class="string">"@id/image_photo"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_below</span>=<span class="string">"@id/name"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginTop</span>=<span class="string">"10dp"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="student学生类"><a href="#student学生类" class="headerlink" title="student学生类"></a>student学生类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> photo;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPhoto</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> photo;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPhoto</span><span class="params">(<span class="keyword">int</span> photo)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.photo = photo;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="MainActivity"><a href="#MainActivity" class="headerlink" title="MainActivity"></a>MainActivity</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ListView listView;</span><br><span class="line">　　<span class="comment">//自定义BaseAdapter</span></span><br><span class="line">    <span class="keyword">private</span> MyAdapter adapter;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        listView= (ListView) findViewById(R.id.listview);</span><br><span class="line">        List&lt;Student&gt; stuList=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            Student stu=<span class="keyword">new</span> Student();</span><br><span class="line">            stu.setAge(<span class="number">10</span>+i);</span><br><span class="line">            stu.setName(<span class="string">"name"</span>+i);</span><br><span class="line">            stu.setPhoto(R.mipmap.ic_launcher);</span><br><span class="line">            stuList.add(stu);</span><br><span class="line">        &#125;</span><br><span class="line">　　　　　　</span><br><span class="line">        adapter=<span class="keyword">new</span> MyAdapter(stuList,MainActivity.<span class="keyword">this</span>);</span><br><span class="line">        listView.setAdapter(adapter);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="MyAdapter"><a href="#MyAdapter" class="headerlink" title="MyAdapter"></a>MyAdapter</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> List&lt;Student&gt; stuList;</span><br><span class="line"><span class="keyword">private</span> LayoutInflater inflater;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MyAdapter</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MyAdapter</span><span class="params">(List&lt;Student&gt; stuList,Context context)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.stuList = stuList;</span><br><span class="line">    <span class="keyword">this</span>.inflater=LayoutInflater.from(context);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> stuList==<span class="keyword">null</span>?<span class="number">0</span>:stuList.size();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Student <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> stuList.get(position);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getItemId</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> position;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//加载布局为一个视图</span></span><br><span class="line">    View view=inflater.inflate(R.layout.layout_student_item,<span class="keyword">null</span>);</span><br><span class="line">    Student student=getItem(position);</span><br><span class="line">    <span class="comment">//在view视图中查找id为image_photo的控件</span></span><br><span class="line">    ImageView image_photo= (ImageView) view.findViewById(R.id.image_photo);</span><br><span class="line">    TextView tv_name= (TextView) view.findViewById(R.id.name);</span><br><span class="line">    TextView tv_age= (TextView) view.findViewById(R.id.age);</span><br><span class="line">    image_photo.setImageResource(student.getPhoto());</span><br><span class="line">    tv_name.setText(student.getName());</span><br><span class="line">    tv_age.setText(String.valueOf(student.getAge()));</span><br><span class="line">    <span class="keyword">return</span> view;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="显示结果-1"><a href="#显示结果-1" class="headerlink" title="显示结果"></a>显示结果</h4><img src="/2019/07/07/安卓爬坑（三）——listView的使用/7.png">
+<p>jizhi生活要结束了，，加油。。。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1376,7 +1573,7 @@
         
           
             <p> <br></p>
-<h1 id="起步："><a href="#起步：" class="headerlink" title="起步："></a>起步：</h1><h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a><a href="https://v3.bootcss.com/css/" target="_blank" rel="noopener">官方文档</a></h4><h4 id="需要引入的js文件"><a href="#需要引入的js文件" class="headerlink" title="需要引入的js文件"></a>需要引入的js文件</h4> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"js/jquery-3.4.0.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"js/bootstrap.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"css/bootstrap.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="起步："><a href="#起步：" class="headerlink" title="起步："></a>起步：</h1><h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a><a href="https://v3.bootcss.com/css/" target="_blank" rel="noopener">官方文档</a></h4><h4 id="需要引入的js文件"><a href="#需要引入的js文件" class="headerlink" title="需要引入的js文件"></a>需要引入的js文件</h4> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"js/jquery-3.4.0.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"js/bootstrap.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"css/bootstrap.css"</span>&gt;</span><br></pre></td></tr></table></figure>
 <h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><h4 id="1-布局容器"><a href="#1-布局容器" class="headerlink" title="1.布局容器"></a>1.布局容器</h4><p> <code>Bootstrap</code>需要为页面内容和栅格系统包裹一个 <code>.container</code> 容器。我们提供了两个作此用处的类。注意，由于 padding 等属性的原因，这两种 容器类不能互相嵌套。</p>
 <p><code>.container</code> 类用于固定宽度并支持响应式布局的容器。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p><code>.container-fluid</code> 类用于 100% 宽度，占据全部视口（viewport）的容器。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
@@ -1390,139 +1587,6 @@
 <h4 id="实例：手机、平板、桌面"><a href="#实例：手机、平板、桌面" class="headerlink" title="实例：手机、平板、桌面"></a>实例：手机、平板、桌面</h4><p>在上面案例的基础上，通过使用针对平板设备的 .col-sm-* 类，我们来创建更加动态和强大的布局吧。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-12 col-sm-6 col-md-8"</span>&gt;</span>.col-xs-12 .col-sm-6 .col-md-8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-md-4"</span>&gt;</span>.col-xs-6 .col-md-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-sm-4"</span>&gt;</span>.col-xs-6 .col-sm-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-sm-4"</span>&gt;</span>.col-xs-6 .col-sm-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Optional: clear the XS cols if their content doesn't match in height --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfix visible-xs-block"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-sm-4"</span>&gt;</span>.col-xs-6 .col-sm-4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>具体的就不记了可以去官网看，加油</p>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/微信小程序弹性布局/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王树波">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王树波的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/13/微信小程序弹性布局/" itemprop="url">微信小程序弹性布局</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-13T22:25:28+08:00">
-                2019-04-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><br><br>本帖作为我个人学习整理笔记。非原创。转自：<a href="https://www.jianshu.com/p/c375f1f9720d" target="_blank" rel="noopener">https://www.jianshu.com/p/c375f1f9720d</a></p>
-<h1 id="一、Flex-布局是什么？"><a href="#一、Flex-布局是什么？" class="headerlink" title="一、Flex 布局是什么？"></a>一、Flex 布局是什么？</h1><h4 id="Flex-是-Flexible-Box-的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为-Flex-布局。行内元素也可以使用-Flex-布局。Webkit-内核的浏览器，必须加上-webkit前缀。注意，设为-Flex-布局以后，子元素的float、clear和vertical-align属性将失效。"><a href="#Flex-是-Flexible-Box-的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为-Flex-布局。行内元素也可以使用-Flex-布局。Webkit-内核的浏览器，必须加上-webkit前缀。注意，设为-Flex-布局以后，子元素的float、clear和vertical-align属性将失效。" class="headerlink" title="Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为 Flex 布局。行内元素也可以使用 Flex 布局。Webkit 内核的浏览器，必须加上-webkit前缀。注意，设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效。"></a>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为 Flex 布局。行内元素也可以使用 Flex 布局。Webkit 内核的浏览器，必须加上-webkit前缀。注意，设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效。</h4><h1 id="二、基本概念采用-Flex-布局的元素，称为-Flex-容器（flex-container），简称”容器”。它的所有子元素自动成为容器成员，称为-Flex-项目（flex-item），简称”项目”。"><a href="#二、基本概念采用-Flex-布局的元素，称为-Flex-容器（flex-container），简称”容器”。它的所有子元素自动成为容器成员，称为-Flex-项目（flex-item），简称”项目”。" class="headerlink" title="二、基本概念采用 Flex 布局的元素，称为 Flex 容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”项目”。"></a>二、基本概念采用 Flex 布局的元素，称为 Flex 容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”项目”。</h1><img src="/2019/04/13/微信小程序弹性布局/1.png">
-<h4 id="容器默认存在两根轴：水平的主轴（main-axis）和垂直的交叉轴（cross-axis）。主轴的开始位置（与边框的交叉点）叫做main-start，结束位置叫做main-end；交叉轴的开始位置叫做cross-start，结束位置叫做cross-end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main-size，占据的交叉轴空间叫做cross-size。"><a href="#容器默认存在两根轴：水平的主轴（main-axis）和垂直的交叉轴（cross-axis）。主轴的开始位置（与边框的交叉点）叫做main-start，结束位置叫做main-end；交叉轴的开始位置叫做cross-start，结束位置叫做cross-end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main-size，占据的交叉轴空间叫做cross-size。" class="headerlink" title="容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。"></a>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。</h4><h1 id="三、容器的属性"><a href="#三、容器的属性" class="headerlink" title="三、容器的属性"></a>三、容器的属性</h1><h2 id="以下6个属性设置在容器上。"><a href="#以下6个属性设置在容器上。" class="headerlink" title="以下6个属性设置在容器上。"></a>以下6个属性设置在容器上。</h2><h3 id="3-1-flex-direction属性"><a href="#3-1-flex-direction属性" class="headerlink" title="3.1 flex-direction属性"></a>3.1 flex-direction属性</h3><h4 id="flex-direction属性决定主轴的方向（即项目的排列方向）。"><a href="#flex-direction属性决定主轴的方向（即项目的排列方向）。" class="headerlink" title="flex-direction属性决定主轴的方向（即项目的排列方向）。"></a>flex-direction属性决定主轴的方向（即项目的排列方向）。</h4><img src="/2019/04/13/微信小程序弹性布局/2.png">
-<h4 id="它可能有4个值。"><a href="#它可能有4个值。" class="headerlink" title="它可能有4个值。"></a>它可能有4个值。</h4><h2 id="3-2-flex-wrap属性"><a href="#3-2-flex-wrap属性" class="headerlink" title="3.2 flex-wrap属性"></a>3.2 flex-wrap属性</h2><h4 id="默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。"><a href="#默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。" class="headerlink" title="默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。"></a>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。</h4><img src="/2019/04/13/微信小程序弹性布局/3.png">
-<h4 id="它可能取三个值。"><a href="#它可能取三个值。" class="headerlink" title="它可能取三个值。"></a>它可能取三个值。</h4><h3 id="（1）nowrap（默认）：不换行。"><a href="#（1）nowrap（默认）：不换行。" class="headerlink" title="（1）nowrap（默认）：不换行。"></a>（1）nowrap（默认）：不换行。</h3><img src="/2019/04/13/微信小程序弹性布局/4.png">
-<h3 id="（2）wrap：换行，第一行在上方。"><a href="#（2）wrap：换行，第一行在上方。" class="headerlink" title="（2）wrap：换行，第一行在上方。"></a>（2）wrap：换行，第一行在上方。</h3><img src="/2019/04/13/微信小程序弹性布局/5.jpg">
-<h3 id="（3）wrap-reverse：换行，第一行在下方。"><a href="#（3）wrap-reverse：换行，第一行在下方。" class="headerlink" title="（3）wrap-reverse：换行，第一行在下方。"></a>（3）wrap-reverse：换行，第一行在下方。</h3><img src="/2019/04/13/微信小程序弹性布局/6.jpg">
-<h2 id="3-3-flex-flow"><a href="#3-3-flex-flow" class="headerlink" title="3.3 flex-flow"></a>3.3 flex-flow</h2><h4 id="flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row-nowrap。"><a href="#flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row-nowrap。" class="headerlink" title="flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。"></a>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</h4><h2 id="3-4-justify-content属性"><a href="#3-4-justify-content属性" class="headerlink" title="3.4 justify-content属性"></a>3.4 justify-content属性</h2><h4 id="justify-content属性定义了项目在主轴上的对齐方式。"><a href="#justify-content属性定义了项目在主轴上的对齐方式。" class="headerlink" title="justify-content属性定义了项目在主轴上的对齐方式。"></a>justify-content属性定义了项目在主轴上的对齐方式。</h4><img src="/2019/04/13/微信小程序弹性布局/7.png">
-<h4 id="它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。"><a href="#它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。" class="headerlink" title="它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。"></a>它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。</h4><h2 id="3-5-align-items属性"><a href="#3-5-align-items属性" class="headerlink" title="3.5 align-items属性"></a>3.5 align-items属性</h2><h4 id="align-items属性定义项目在交叉轴上如何对齐。"><a href="#align-items属性定义项目在交叉轴上如何对齐。" class="headerlink" title="align-items属性定义项目在交叉轴上如何对齐。"></a>align-items属性定义项目在交叉轴上如何对齐。</h4><img src="/2019/04/13/微信小程序弹性布局/8.png">
-<h4 id="它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。"><a href="#它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。" class="headerlink" title="它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。"></a>它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。</h4><h2 id="3-6-align-content属性"><a href="#3-6-align-content属性" class="headerlink" title="3.6 align-content属性"></a>3.6 align-content属性</h2><h4 id="align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。"><a href="#align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。" class="headerlink" title="align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。"></a>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</h4><img src="/2019/04/13/微信小程序弹性布局/9.png">
-<h4 id="该属性可能取6个值。"><a href="#该属性可能取6个值。" class="headerlink" title="该属性可能取6个值。"></a>该属性可能取6个值。</h4><h1 id="四、项目的属性"><a href="#四、项目的属性" class="headerlink" title="四、项目的属性"></a>四、项目的属性</h1><h4 id="以下6个属性设置在项目上。"><a href="#以下6个属性设置在项目上。" class="headerlink" title="以下6个属性设置在项目上。"></a>以下6个属性设置在项目上。</h4><h2 id="4-1-order属性"><a href="#4-1-order属性" class="headerlink" title="4.1 order属性"></a>4.1 order属性</h2><h4 id="order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"><a href="#order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。" class="headerlink" title="order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"></a>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</h4><img src="/2019/04/13/微信小程序弹性布局/10.png">
-<h1 id="4-2-flex-grow属性"><a href="#4-2-flex-grow属性" class="headerlink" title="4.2 flex-grow属性"></a>4.2 flex-grow属性</h1><h4 id="flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。"><a href="#flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。" class="headerlink" title="flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。"></a>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</h4><img src="/2019/04/13/微信小程序弹性布局/11.png">
-<h4 id="如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。"><a href="#如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。" class="headerlink" title="如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。"></a>如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。</h4><h4 id="如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。"><a href="#如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。" class="headerlink" title="如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。"></a>如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</h4><h1 id="4-3-flex-shrink属性flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。"><a href="#4-3-flex-shrink属性flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。" class="headerlink" title="4.3 flex-shrink属性flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。"></a>4.3 flex-shrink属性flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</h1><img src="/2019/04/13/微信小程序弹性布局/12.jpg">
-<h4 id="如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效。"><a href="#如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效。" class="headerlink" title="如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效。"></a>如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效。</h4><h1 id="4-4-flex-basis"><a href="#4-4-flex-basis" class="headerlink" title="4.4 flex-basis"></a>4.4 flex-basis</h1><h4 id="属性flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main-size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。"><a href="#属性flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main-size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。" class="headerlink" title="属性flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。"></a>属性flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</h4><h1 id="4-5-flex属性"><a href="#4-5-flex属性" class="headerlink" title="4.5 flex属性"></a>4.5 flex属性</h1><h4 id="flex属性是flex-grow-flex-shrink-和-flex-basis的简写，默认值为0-1-auto。后两个属性可选。该属性有两个快捷值：auto-1-1-auto-和-none-0-0-auto-。建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。"><a href="#flex属性是flex-grow-flex-shrink-和-flex-basis的简写，默认值为0-1-auto。后两个属性可选。该属性有两个快捷值：auto-1-1-auto-和-none-0-0-auto-。建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。" class="headerlink" title="flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。"></a>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</h4><h1 id="4-6-align-self属性"><a href="#4-6-align-self属性" class="headerlink" title="4.6 align-self属性"></a>4.6 align-self属性</h1><h4 id="align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"><a href="#align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。" class="headerlink" title="align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"></a>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</h4><img src="/2019/04/13/微信小程序弹性布局/13.png">
-<h4 id="该属性可能取6个值，除了auto，其他都与align-items属性完全一致。"><a href="#该属性可能取6个值，除了auto，其他都与align-items属性完全一致。" class="headerlink" title="该属性可能取6个值，除了auto，其他都与align-items属性完全一致。"></a>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。</h4>
           
         
       
@@ -1609,7 +1673,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
