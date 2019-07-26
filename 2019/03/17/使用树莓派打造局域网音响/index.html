@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="在学校实验室里有一台功放，手里正好有一台树莓派，便萌生了这个想法。安装1.安装git1apt install git 2.下载并编译配置源1234567wget http://www.chiark.greenend.org.uk/~christi/debian/christi@coraline.org.gpg.keyvim /etc/apt/sources.list.d/upnprender.l">
+<meta name="description" content="在学校实验室里有一台功放，手里正好有一台树莓派，便萌生了这个想法。安装1.安装git1apt install git  2.下载并编译配置源1234567wget http://www.chiark.greenend.org.uk/~christi/debian/christi@coraline.org.gpg.keyvim /etc/apt/sources.list.d/upnprender">
 <meta name="keywords" content="Raspberry Pi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用树莓派打造局域网音响">
 <meta property="og:url" content="http://yoursite.com/2019/03/17/使用树莓派打造局域网音响/index.html">
 <meta property="og:site_name" content="王树波的博客">
-<meta property="og:description" content="在学校实验室里有一台功放，手里正好有一台树莓派，便萌生了这个想法。安装1.安装git1apt install git 2.下载并编译配置源1234567wget http://www.chiark.greenend.org.uk/~christi/debian/christi@coraline.org.gpg.keyvim /etc/apt/sources.list.d/upnprender.l">
+<meta property="og:description" content="在学校实验室里有一台功放，手里正好有一台树莓派，便萌生了这个想法。安装1.安装git1apt install git  2.下载并编译配置源1234567wget http://www.chiark.greenend.org.uk/~christi/debian/christi@coraline.org.gpg.keyvim /etc/apt/sources.list.d/upnprender">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/17/使用树莓派打造局域网音响/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/17/使用树莓派打造局域网音响/2.jpg">
 <meta property="og:updated_time" content="2019-06-29T16:07:37.439Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用树莓派打造局域网音响">
-<meta name="twitter:description" content="在学校实验室里有一台功放，手里正好有一台树莓派，便萌生了这个想法。安装1.安装git1apt install git 2.下载并编译配置源1234567wget http://www.chiark.greenend.org.uk/~christi/debian/christi@coraline.org.gpg.keyvim /etc/apt/sources.list.d/upnprender.l">
+<meta name="twitter:description" content="在学校实验室里有一台功放，手里正好有一台树莓派，便萌生了这个想法。安装1.安装git1apt install git  2.下载并编译配置源1234567wget http://www.chiark.greenend.org.uk/~christi/debian/christi@coraline.org.gpg.keyvim /etc/apt/sources.list.d/upnprender">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/17/使用树莓派打造局域网音响/1.png">
 
 
@@ -333,19 +333,29 @@
       
 
       
-        <p><br></p>
+        <br>
+
 <h3 id="在学校实验室里有一台功放，手里正好有一台树莓派，便萌生了这个想法。"><a href="#在学校实验室里有一台功放，手里正好有一台树莓派，便萌生了这个想法。" class="headerlink" title="在学校实验室里有一台功放，手里正好有一台树莓派，便萌生了这个想法。"></a>在学校实验室里有一台功放，手里正好有一台树莓派，便萌生了这个想法。</h3><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install git</span><br></pre></td></tr></table></figure>
+
 <h2 id="2-下载并编译"><a href="#2-下载并编译" class="headerlink" title="2.下载并编译"></a>2.下载并编译</h2><h3 id="配置源"><a href="#配置源" class="headerlink" title="配置源"></a>配置源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.chiark.greenend.org.uk/~christi/debian/christi@coraline.org.gpg.key</span><br><span class="line"></span><br><span class="line">vim /etc/apt/sources.list.d/upnprender.list</span><br><span class="line"></span><br><span class="line">deb http://www.chiark.greenend.org.uk/~christi/debian/ wheezy main</span><br><span class="line"></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+
 <h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install libupnp-dev libgstreamer1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-alsa</span><br></pre></td></tr></table></figure>
+
 <h3 id="下载github项目"><a href="#下载github项目" class="headerlink" title="下载github项目"></a>下载github项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/hzeller/gmrender-resurrect.git</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> gmrender-resurrect</span><br></pre></td></tr></table></figure>
+
 <h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt-get install autoconf</span><br><span class="line"></span><br><span class="line">./autogen.sh</span><br><span class="line"></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
 <h3 id="安装gmediarender"><a href="#安装gmediarender" class="headerlink" title="安装gmediarender"></a>安装gmediarender</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install gmediarender</span><br></pre></td></tr></table></figure>
+
 <h3 id="至此安装完成"><a href="#至此安装完成" class="headerlink" title="至此安装完成"></a>至此安装完成</h3><h3 id="启动命令："><a href="#启动命令：" class="headerlink" title="启动命令："></a>启动命令：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gmediarender -I 192.168.1.146 -f <span class="string">"Pi"</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="添加开机自启-（注意：要写在exit-0前一行）"><a href="#添加开机自启-（注意：要写在exit-0前一行）" class="headerlink" title="添加开机自启 （注意：要写在exit 0前一行）"></a>添加开机自启 （注意：要写在exit 0前一行）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local</span><br></pre></td></tr></table></figure>
+
 <p>接下来让我们high起来</p>
 <h1 id="使用截图"><a href="#使用截图" class="headerlink" title="使用截图"></a>使用截图</h1><img src="/2019/03/17/使用树莓派打造局域网音响/1.png">
 <h1 id="附上一张高清无码的实物图"><a href="#附上一张高清无码的实物图" class="headerlink" title="附上一张高清无码的实物图"></a>附上一张高清无码的实物图</h1><img src="/2019/03/17/使用树莓派打造局域网音响/2.jpg">
 <h1 id="一些测试树莓派音频的命令"><a href="#一些测试树莓派音频的命令" class="headerlink" title="一些测试树莓派音频的命令"></a>一些测试树莓派音频的命令</h1><h3 id="测试树莓派音频输出"><a href="#测试树莓派音频输出" class="headerlink" title="测试树莓派音频输出"></a>测试树莓派音频输出</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo speaker-test -t sine</span><br></pre></td></tr></table></figure>
+
 <h3 id="如果听到-嘟嘟嘟嘟……-表示音频输出正常，音量大小可以通过alsamixer来调节，使用上下键来调节。"><a href="#如果听到-嘟嘟嘟嘟……-表示音频输出正常，音量大小可以通过alsamixer来调节，使用上下键来调节。" class="headerlink" title="如果听到 嘟嘟嘟嘟…….. 表示音频输出正常，音量大小可以通过alsamixer来调节，使用上下键来调节。"></a>如果听到 嘟嘟嘟嘟…….. 表示音频输出正常，音量大小可以通过alsamixer来调节，使用上下键来调节。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alsamixer</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -474,7 +484,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

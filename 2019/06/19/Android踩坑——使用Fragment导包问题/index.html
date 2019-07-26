@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="今天使用fragment时，抛出了ClassCastException异常。顺手记录下解决方法。  android.support.v4.app.Fragment和android.app.Fragment区别,原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。解决方法是导入相同的包。以下摘自CSDN博客作者：巨大蟹原文：https://blog.cs">
+<meta name="description" content="今天使用fragment时，抛出了ClassCastException异常。顺手记录下解决方法。    android.support.v4.app.Fragment和android.app.Fragment区别,原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。解决方法是导入相同的包。以下摘自CSDN博客作者：巨大蟹原文：https://blog">
 <meta name="keywords" content="Android,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android踩坑——使用Fragment导包问题">
 <meta property="og:url" content="http://yoursite.com/2019/06/19/Android踩坑——使用Fragment导包问题/index.html">
 <meta property="og:site_name" content="王树波的博客">
-<meta property="og:description" content="今天使用fragment时，抛出了ClassCastException异常。顺手记录下解决方法。  android.support.v4.app.Fragment和android.app.Fragment区别,原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。解决方法是导入相同的包。以下摘自CSDN博客作者：巨大蟹原文：https://blog.cs">
+<meta property="og:description" content="今天使用fragment时，抛出了ClassCastException异常。顺手记录下解决方法。    android.support.v4.app.Fragment和android.app.Fragment区别,原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。解决方法是导入相同的包。以下摘自CSDN博客作者：巨大蟹原文：https://blog">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/06/19/Android踩坑——使用Fragment导包问题/1.png">
 <meta property="og:updated_time" content="2019-06-19T04:19:48.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android踩坑——使用Fragment导包问题">
-<meta name="twitter:description" content="今天使用fragment时，抛出了ClassCastException异常。顺手记录下解决方法。  android.support.v4.app.Fragment和android.app.Fragment区别,原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。解决方法是导入相同的包。以下摘自CSDN博客作者：巨大蟹原文：https://blog.cs">
+<meta name="twitter:description" content="今天使用fragment时，抛出了ClassCastException异常。顺手记录下解决方法。    android.support.v4.app.Fragment和android.app.Fragment区别,原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。解决方法是导入相同的包。以下摘自CSDN博客作者：巨大蟹原文：https://blog">
 <meta name="twitter:image" content="http://yoursite.com/2019/06/19/Android踩坑——使用Fragment导包问题/1.png">
 
 
@@ -332,10 +332,13 @@
       
 
       
-        <p><br></p>
+        <br>
+
 <blockquote>
-<p>今天使用fragment时，抛出了ClassCastException异常。顺手记录下解决方法。<br><img src="/2019/06/19/Android踩坑——使用Fragment导包问题/1.png"></p>
+<p>今天使用fragment时，抛出了ClassCastException异常。顺手记录下解决方法。</p>
 </blockquote>
+<img src="/2019/06/19/Android踩坑——使用Fragment导包问题/1.png">
+
 <h2 id="android-support-v4-app-Fragment和android-app-Fragment区别-原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。"><a href="#android-support-v4-app-Fragment和android-app-Fragment区别-原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。" class="headerlink" title="android.support.v4.app.Fragment和android.app.Fragment区别,原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。"></a><code>android.support.v4.app.Fragment</code>和<code>android.app.Fragment</code>区别,原因是因为使用的<code>module</code>中的<code>Fragment</code>与我自己创建的<code>Fragment</code>导入的包不一致。</h2><h2 id="解决方法是导入相同的包。"><a href="#解决方法是导入相同的包。" class="headerlink" title="解决方法是导入相同的包。"></a>解决方法是导入相同的包。</h2><p>以下摘自CSDN博客作者：巨大蟹<br>原文：<a href="https://blog.csdn.net/lin353809836/article/details/53717153" target="_blank" rel="noopener">https://blog.csdn.net/lin353809836/article/details/53717153</a> </p>
 <h3 id="1-最低支持版本不同"><a href="#1-最低支持版本不同" class="headerlink" title="1.最低支持版本不同"></a>1.最低支持版本不同</h3><p><code>android.app.Fragment</code> 兼容的最低版本是<code>android:minSdkVersion=&quot;11&quot;</code> 即3.0版</p>
 <p><code>android.support.v4.app.Fragment</code> 兼容的最低版本是<code>android:minSdkVersion=&quot;4&quot;</code> 即1.6版</p>
@@ -483,7 +486,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

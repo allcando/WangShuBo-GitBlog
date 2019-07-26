@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="记录一些树莓派的初始配置操作刷写树莓派官网刷写工具： Ether  开启远程连接树莓派默认开机后是pi用户，在图形界面设置pi用户的密码。使用sudo passwd root为root用户设置密码启动ssh服务12sudo systemctl start sshsudo systemctl enable ssh 开启vnc功能sudo raspi-config 选择“5 Interfacing">
+<meta name="description" content="记录一些树莓派的初始配置操作刷写树莓派官网刷写工具： Ether  开启远程连接树莓派默认开机后是pi用户，在图形界面设置pi用户的密码。使用sudo passwd root为root用户设置密码启动ssh服务12sudo systemctl start sshsudo systemctl enable ssh  开启vnc功能sudo raspi-config 选择“5 Interfacin">
 <meta name="keywords" content="Raspberry Pi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派的第一步">
 <meta property="og:url" content="http://yoursite.com/2019/03/17/树莓派的第一步/index.html">
 <meta property="og:site_name" content="王树波的博客">
-<meta property="og:description" content="记录一些树莓派的初始配置操作刷写树莓派官网刷写工具： Ether  开启远程连接树莓派默认开机后是pi用户，在图形界面设置pi用户的密码。使用sudo passwd root为root用户设置密码启动ssh服务12sudo systemctl start sshsudo systemctl enable ssh 开启vnc功能sudo raspi-config 选择“5 Interfacing">
+<meta property="og:description" content="记录一些树莓派的初始配置操作刷写树莓派官网刷写工具： Ether  开启远程连接树莓派默认开机后是pi用户，在图形界面设置pi用户的密码。使用sudo passwd root为root用户设置密码启动ssh服务12sudo systemctl start sshsudo systemctl enable ssh  开启vnc功能sudo raspi-config 选择“5 Interfacin">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/17/树莓派的第一步/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/17/树莓派的第一步/2.png">
@@ -95,7 +95,7 @@
 <meta property="og:updated_time" content="2019-06-29T16:07:43.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派的第一步">
-<meta name="twitter:description" content="记录一些树莓派的初始配置操作刷写树莓派官网刷写工具： Ether  开启远程连接树莓派默认开机后是pi用户，在图形界面设置pi用户的密码。使用sudo passwd root为root用户设置密码启动ssh服务12sudo systemctl start sshsudo systemctl enable ssh 开启vnc功能sudo raspi-config 选择“5 Interfacing">
+<meta name="twitter:description" content="记录一些树莓派的初始配置操作刷写树莓派官网刷写工具： Ether  开启远程连接树莓派默认开机后是pi用户，在图形界面设置pi用户的密码。使用sudo passwd root为root用户设置密码启动ssh服务12sudo systemctl start sshsudo systemctl enable ssh  开启vnc功能sudo raspi-config 选择“5 Interfacin">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/17/树莓派的第一步/1.png">
 
 
@@ -336,14 +336,17 @@
       
 
       
-        <p><br></p>
+        <br>
+
 <h3 id="记录一些树莓派的初始配置操作"><a href="#记录一些树莓派的初始配置操作" class="headerlink" title="记录一些树莓派的初始配置操作"></a>记录一些树莓派的初始配置操作</h3><h1 id="刷写"><a href="#刷写" class="headerlink" title="刷写"></a>刷写</h1><h2 id="树莓派官网"><a href="#树莓派官网" class="headerlink" title="树莓派官网"></a><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="noopener">树莓派官网</a></h2><h2 id="刷写工具：-Ether"><a href="#刷写工具：-Ether" class="headerlink" title="刷写工具： Ether"></a><a href="https://www.balena.io/etcher/" target="_blank" rel="noopener">刷写工具： Ether</a></h2><img src="/2019/03/17/树莓派的第一步/1.png">
 <img src="/2019/03/17/树莓派的第一步/2.png">
 <h1 id="开启远程连接"><a href="#开启远程连接" class="headerlink" title="开启远程连接"></a>开启远程连接</h1><h2 id="树莓派默认开机后是pi用户，在图形界面设置pi用户的密码。"><a href="#树莓派默认开机后是pi用户，在图形界面设置pi用户的密码。" class="headerlink" title="树莓派默认开机后是pi用户，在图形界面设置pi用户的密码。"></a>树莓派默认开机后是pi用户，在图形界面设置pi用户的密码。</h2><h2 id="使用sudo-passwd-root为root用户设置密码"><a href="#使用sudo-passwd-root为root用户设置密码" class="headerlink" title="使用sudo passwd root为root用户设置密码"></a>使用<code>sudo passwd root</code>为root用户设置密码</h2><h2 id="启动ssh服务"><a href="#启动ssh服务" class="headerlink" title="启动ssh服务"></a>启动ssh服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start ssh</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> ssh</span><br></pre></td></tr></table></figure>
+
 <h2 id="开启vnc功能"><a href="#开启vnc功能" class="headerlink" title="开启vnc功能"></a>开启vnc功能</h2><h3 id="sudo-raspi-config"><a href="#sudo-raspi-config" class="headerlink" title="sudo raspi-config"></a><code>sudo raspi-config</code></h3><img src="/2019/03/17/树莓派的第一步/3.png">
 <h3 id="选择“5-Interfacing-Options”，回车"><a href="#选择“5-Interfacing-Options”，回车" class="headerlink" title="选择“5 Interfacing Options”，回车"></a>选择“5 Interfacing Options”，回车</h3><img src="/2019/03/17/树莓派的第一步/4.png">
 <h3 id="选择是-连接即可"><a href="#选择是-连接即可" class="headerlink" title="选择是 连接即可"></a>选择是 连接即可</h3><img src="/2019/03/17/树莓派的第一步/5.png">
 <h1 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h1><h2 id="配置国内软件源（stretch）-修改-etc-apt-sources-list-d-raspi-list"><a href="#配置国内软件源（stretch）-修改-etc-apt-sources-list-d-raspi-list" class="headerlink" title="配置国内软件源（stretch） 修改/etc/apt/sources.list.d/raspi.list"></a>配置国内软件源（stretch） 修改<code>/etc/apt/sources.list.d/raspi.list</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main non-free contrib</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main non-free contrib</span><br></pre></td></tr></table></figure>
+
 <h2 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -472,7 +475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

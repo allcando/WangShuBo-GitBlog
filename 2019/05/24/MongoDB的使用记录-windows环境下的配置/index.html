@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="Window 下配置MongoDB运行安装程序将MongoDB安装到d:\mongodb目录下创建文件夹d:\mongodb\data\db、d:\mongodb\data\log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB.log，即d:\mongodb\data\log\MongoDB.log  在D:\MongoDB\bin文件处打开命令行窗口（按住shif">
+<meta name="description" content="Window 下配置MongoDB运行安装程序将MongoDB安装到d:\mongodb目录下创建文件夹d:\mongodb\data\db、d:\mongodb\data\log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB.log，即d:\mongodb\data\log\MongoDB.log    在D:\MongoDB\bin文件处打开命令行窗口（按住s">
 <meta name="keywords" content="MongoDB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB的使用记录(windows环境下的配置)">
 <meta property="og:url" content="http://yoursite.com/2019/05/24/MongoDB的使用记录-windows环境下的配置/index.html">
 <meta property="og:site_name" content="王树波的博客">
-<meta property="og:description" content="Window 下配置MongoDB运行安装程序将MongoDB安装到d:\mongodb目录下创建文件夹d:\mongodb\data\db、d:\mongodb\data\log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB.log，即d:\mongodb\data\log\MongoDB.log  在D:\MongoDB\bin文件处打开命令行窗口（按住shif">
+<meta property="og:description" content="Window 下配置MongoDB运行安装程序将MongoDB安装到d:\mongodb目录下创建文件夹d:\mongodb\data\db、d:\mongodb\data\log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB.log，即d:\mongodb\data\log\MongoDB.log    在D:\MongoDB\bin文件处打开命令行窗口（按住s">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/05/24/MongoDB的使用记录-windows环境下的配置/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/24/MongoDB的使用记录-windows环境下的配置/2.png">
@@ -95,7 +95,7 @@
 <meta property="og:updated_time" content="2019-06-29T16:07:24.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB的使用记录(windows环境下的配置)">
-<meta name="twitter:description" content="Window 下配置MongoDB运行安装程序将MongoDB安装到d:\mongodb目录下创建文件夹d:\mongodb\data\db、d:\mongodb\data\log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB.log，即d:\mongodb\data\log\MongoDB.log  在D:\MongoDB\bin文件处打开命令行窗口（按住shif">
+<meta name="twitter:description" content="Window 下配置MongoDB运行安装程序将MongoDB安装到d:\mongodb目录下创建文件夹d:\mongodb\data\db、d:\mongodb\data\log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB.log，即d:\mongodb\data\log\MongoDB.log    在D:\MongoDB\bin文件处打开命令行窗口（按住s">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/24/MongoDB的使用记录-windows环境下的配置/1.png">
 
 
@@ -336,19 +336,26 @@
       
 
       
-        <p><br></p>
+        <br>
+
 <h1 id="Window-下配置MongoDB"><a href="#Window-下配置MongoDB" class="headerlink" title="Window 下配置MongoDB"></a>Window 下配置MongoDB</h1><h2 id="运行安装程序将MongoDB安装到d-mongodb目录下"><a href="#运行安装程序将MongoDB安装到d-mongodb目录下" class="headerlink" title="运行安装程序将MongoDB安装到d:\mongodb目录下"></a>运行安装程序将MongoDB安装到d:\mongodb目录下</h2><h3 id="创建文件夹d-mongodb-data-db、d-mongodb-data-log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB-log，即d-mongodb-data-log-MongoDB-log"><a href="#创建文件夹d-mongodb-data-db、d-mongodb-data-log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB-log，即d-mongodb-data-log-MongoDB-log" class="headerlink" title="创建文件夹d:\mongodb\data\db、d:\mongodb\data\log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB.log，即d:\mongodb\data\log\MongoDB.log"></a>创建文件夹d:\mongodb\data\db、d:\mongodb\data\log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB.log，即d:\mongodb\data\log\MongoDB.log</h3><img src="/2019/05/24/MongoDB的使用记录-windows环境下的配置/1.png">
+
 <img src="/2019/05/24/MongoDB的使用记录-windows环境下的配置/2.png">
+
 <h3 id="在D-MongoDB-bin文件处打开命令行窗口（按住shift点击鼠标右键，选择打开）"><a href="#在D-MongoDB-bin文件处打开命令行窗口（按住shift点击鼠标右键，选择打开）" class="headerlink" title="在D:\MongoDB\bin文件处打开命令行窗口（按住shift点击鼠标右键，选择打开）"></a>在D:\MongoDB\bin文件处打开命令行窗口（按住shift点击鼠标右键，选择打开）</h3><p>输入： <code>mongod -dbpath &quot;d:\mongodb\data\db&quot;</code> 初始化启动服务并指定db数据存放在<code>d:\mongodb\data\db</code>下</p>
 <img src="/2019/05/24/MongoDB的使用记录-windows环境下的配置/3.png">
+
 <h3 id="这个时候不要关闭窗口，默认MongoDB监听的端口是27017，此窗口是MongoDB临时启动的一个进程。"><a href="#这个时候不要关闭窗口，默认MongoDB监听的端口是27017，此窗口是MongoDB临时启动的一个进程。" class="headerlink" title="这个时候不要关闭窗口，默认MongoDB监听的端口是27017，此窗口是MongoDB临时启动的一个进程。"></a>这个时候不要关闭窗口，默认MongoDB监听的端口是27017，此窗口是MongoDB临时启动的一个进程。</h3><p>此时再打开一个窗口 执行<code>mongo.exe</code> 即可进入MongoDB的交互模式</p>
 <img src="/2019/05/24/MongoDB的使用记录-windows环境下的配置/4.png">
-<h3 id="当刚才的mongod窗口被关闭时，mongo-exe-就无法连接到数据库了，因此每次想使用mongodb数据库都要开启mongod-exe程序，所以比较麻烦，此时我们可以将MongoDB安装为windows服务"><a href="#当刚才的mongod窗口被关闭时，mongo-exe-就无法连接到数据库了，因此每次想使用mongodb数据库都要开启mongod-exe程序，所以比较麻烦，此时我们可以将MongoDB安装为windows服务" class="headerlink" title="当刚才的mongod窗口被关闭时，mongo.exe 就无法连接到数据库了，因此每次想使用mongodb数据库都要开启mongod.exe程序，所以比较麻烦，此时我们可以将MongoDB安装为windows服务"></a>当刚才的mongod窗口被关闭时，mongo.exe 就无法连接到数据库了，因此每次想使用mongodb数据库都要开启mongod.exe程序，所以比较麻烦，此时我们可以将MongoDB安装为windows服务</h3><p>　还是运行cmd，进入bin文件夹，执行下列命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d:\mongodb\bin&gt;</span><br><span class="line">mongod --dbpath <span class="string">"d:\mongodb\data\db"</span> --logpath <span class="string">"d:\mongodb\data\log\MongoDB.log"</span> --install --serviceName <span class="string">"MongoDB"</span></span><br></pre></td></tr></table></figure></p>
-<p>　这里MongoDB.log就是开始建立的日志文件，—serviceName “MongoDB” 服务名为MongoDB</p>
-<h3 id="启动、暂停、卸载服务"><a href="#启动、暂停、卸载服务" class="headerlink" title="启动、暂停、卸载服务"></a>启动、暂停、卸载服务</h3><h4 id="启动-net-start-MongoDB"><a href="#启动-net-start-MongoDB" class="headerlink" title="启动 net start MongoDB"></a>启动 <code>net start MongoDB</code></h4><h4 id="停止-net-stop-MongoDB"><a href="#停止-net-stop-MongoDB" class="headerlink" title="停止 net stop MongoDB"></a>停止 <code>net stop MongoDB</code></h4><h4 id="卸载服务"><a href="#卸载服务" class="headerlink" title="卸载服务"></a>卸载服务</h4><pre><code class="lang-bash">    d:\mongodb\bin&gt;mongod --dbpath &quot;d:\mongodb\data\db&quot; --logpath &quot;d:\mongodb\data\log\MongoDB.log&quot; --remove --serviceName &quot;MongoDB&quot;
-</code></pre>
+
+<h3 id="当刚才的mongod窗口被关闭时，mongo-exe-就无法连接到数据库了，因此每次想使用mongodb数据库都要开启mongod-exe程序，所以比较麻烦，此时我们可以将MongoDB安装为windows服务"><a href="#当刚才的mongod窗口被关闭时，mongo-exe-就无法连接到数据库了，因此每次想使用mongodb数据库都要开启mongod-exe程序，所以比较麻烦，此时我们可以将MongoDB安装为windows服务" class="headerlink" title="当刚才的mongod窗口被关闭时，mongo.exe 就无法连接到数据库了，因此每次想使用mongodb数据库都要开启mongod.exe程序，所以比较麻烦，此时我们可以将MongoDB安装为windows服务"></a>当刚才的mongod窗口被关闭时，mongo.exe 就无法连接到数据库了，因此每次想使用mongodb数据库都要开启mongod.exe程序，所以比较麻烦，此时我们可以将MongoDB安装为windows服务</h3><p>　还是运行cmd，进入bin文件夹，执行下列命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d:\mongodb\bin&gt;</span><br><span class="line">mongod --dbpath <span class="string">"d:\mongodb\data\db"</span> --logpath <span class="string">"d:\mongodb\data\log\MongoDB.log"</span> --install --serviceName <span class="string">"MongoDB"</span></span><br></pre></td></tr></table></figure>
+
+<p>　这里MongoDB.log就是开始建立的日志文件，–serviceName “MongoDB” 服务名为MongoDB</p>
+<h3 id="启动、暂停、卸载服务"><a href="#启动、暂停、卸载服务" class="headerlink" title="启动、暂停、卸载服务"></a>启动、暂停、卸载服务</h3><h4 id="启动-net-start-MongoDB"><a href="#启动-net-start-MongoDB" class="headerlink" title="启动 net start MongoDB"></a>启动 <code>net start MongoDB</code></h4><h4 id="停止-net-stop-MongoDB"><a href="#停止-net-stop-MongoDB" class="headerlink" title="停止 net stop MongoDB"></a>停止 <code>net stop MongoDB</code></h4><h4 id="卸载服务"><a href="#卸载服务" class="headerlink" title="卸载服务"></a>卸载服务</h4><pre><code class="bash">d:\mongodb\bin&gt;mongod --dbpath <span class="string">"d:\mongodb\data\db"</span> --logpath <span class="string">"d:\mongodb\data\log\MongoDB.log"</span> --remove --serviceName <span class="string">"MongoDB"</span>      </code></pre>
 <h3 id="MongoDB导入数据"><a href="#MongoDB导入数据" class="headerlink" title="MongoDB导入数据"></a>MongoDB导入数据</h3><h4 id="例"><a href="#例" class="headerlink" title="例:"></a>例:</h4><p><code>mongorestore -h 127.0.0.1 -d employ --dir D:\dbbackup\employ\</code></p>
 <img src="/2019/05/24/MongoDB的使用记录-windows环境下的配置/5.png">
+
 
       
     </div>
@@ -477,7 +484,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

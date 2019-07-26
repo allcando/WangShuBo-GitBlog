@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="转自https://www.cnblogs.com/hh9601/p/6404728.html 异常信息：1Caused by: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SU">
+<meta name="description" content="转自https://www.cnblogs.com/hh9601/p/6404728.html # 异常信息： 1Caused by: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATUR">
 <meta name="keywords" content="Android,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安卓爬坑（二）——Toolbar使用事项">
 <meta property="og:url" content="http://yoursite.com/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/index.html">
 <meta property="og:site_name" content="王树波的博客">
-<meta property="og:description" content="转自https://www.cnblogs.com/hh9601/p/6404728.html 异常信息：1Caused by: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SU">
+<meta property="og:description" content="转自https://www.cnblogs.com/hh9601/p/6404728.html # 异常信息： 1Caused by: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATUR">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/2.png">
@@ -94,7 +94,7 @@
 <meta property="og:updated_time" content="2019-06-29T16:07:40.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓爬坑（二）——Toolbar使用事项">
-<meta name="twitter:description" content="转自https://www.cnblogs.com/hh9601/p/6404728.html 异常信息：1Caused by: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SU">
+<meta name="twitter:description" content="转自https://www.cnblogs.com/hh9601/p/6404728.html # 异常信息： 1Caused by: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATUR">
 <meta name="twitter:image" content="http://yoursite.com/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/1.png">
 
 
@@ -335,16 +335,25 @@
       
 
       
-        <p><br><br>转自<a href="https://www.cnblogs.com/hh9601/p/6404728.html" target="_blank" rel="noopener">https://www.cnblogs.com/hh9601/p/6404728.html</a></p>
-<h1 id="异常信息："><a href="#异常信息：" class="headerlink" title="异常信息："></a>异常信息：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.</span><br></pre></td></tr></table></figure>
-<h1 id="问题原因："><a href="#问题原因：" class="headerlink" title="问题原因："></a>问题原因：</h1><p>当在有<code>activity</code>中调用了<code>setSupportActionBar(toolbar);</code><br>而当前使用的主题为默认，或者带默认<code>ActionBar</code>的主题<br><img src="/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/1.png"></p>
+        <br>
+转自https://www.cnblogs.com/hh9601/p/6404728.html
+# 异常信息：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.IllegalStateException: This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题原因："><a href="#问题原因：" class="headerlink" title="问题原因："></a>问题原因：</h1><p>当在有<code>activity</code>中调用了<code>setSupportActionBar(toolbar);</code><br>而当前使用的主题为默认，或者带默认<code>ActionBar</code>的主题</p>
+<img src="/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/1.png">
+
+
 <p>当在<code>activity</code>中调用了<code>setSupportActionBar(toolbar)</code>; </p>
 <p>同时，<code>AndroidManifest.xml</code>对应的<code>Activity</code>标签的<code>android:theme</code>为</p>
 <p><code>&lt;android:theme=&quot;@style/AppTheme&quot; &gt;</code></p>
-<p>且，style资源文件中的parent为<code>parent=&quot;Theme.AppCompat.Light.DarkActionBar</code><br><img src="/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/2.png"></p>
+<p>且，style资源文件中的parent为<code>parent=&quot;Theme.AppCompat.Light.DarkActionBar</code></p>
+<img src="/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/2.png">
+
 <p>就会报这个异常。</p>
 <h1 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h1><p>在<code>style.xm</code>l中加入：</p>
 <img src="/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/3.png">
+
 <p>在<code>Manifest.xml</code>中，修改theme</p>
 <img src="/2019/06/29/安卓爬坑2019-6-29——Toolbar使用事项/4.png">
       
@@ -476,7 +485,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -526,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#异常信息："><span class="nav-number">1.</span> <span class="nav-text">异常信息：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题原因："><span class="nav-number">2.</span> <span class="nav-text">问题原因：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法："><span class="nav-number">3.</span> <span class="nav-text">解决方法：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题原因："><span class="nav-number">1.</span> <span class="nav-text">问题原因：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法："><span class="nav-number">2.</span> <span class="nav-text">解决方法：</span></a></li></ol></div>
             
 
           </div>
