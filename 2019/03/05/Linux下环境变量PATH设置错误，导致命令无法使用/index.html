@@ -6,7 +6,7 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -143,7 +143,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -153,7 +153,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 <a href="https://github.com/allcando" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -253,20 +253,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王树波">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/touxiang.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="王树波的博客">
     </span>
 
@@ -339,19 +339,19 @@
 <h3 id="今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。"><a href="#今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。" class="headerlink" title="今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。"></a>今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。</h3><img src="/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p2.png" title="p2">
 <h3 id="下图是我的-etc-profile文件中的环境变量配置"><a href="#下图是我的-etc-profile文件中的环境变量配置" class="headerlink" title="下图是我的 /etc/profile文件中的环境变量配置"></a>下图是我的 /etc/profile文件中的环境变量配置</h3><img src="/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p3.png" title="p3">
 <h3 id="可以看到-图中PATH-JAVA-HOME-bin-JRE-HOME-bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。"><a href="#可以看到-图中PATH-JAVA-HOME-bin-JRE-HOME-bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。" class="headerlink" title="可以看到 图中PATH=$JAVA_HOME/bin:$JRE_HOME/bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。"></a>可以看到 图中<code>PATH=$JAVA_HOME/bin:$JRE_HOME/bin</code>中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。</h3><h1 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h1><h3 id="1-使用export-手动导入以下目录后手动将path纠正。"><a href="#1-使用export-手动导入以下目录后手动将path纠正。" class="headerlink" title="1.使用export 手动导入以下目录后手动将path纠正。"></a>1.使用export 手动导入以下目录后手动将path纠正。</h3> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/sbin:/bin:/usr/sbin:/usr/bin</span><br></pre></td></tr></table></figure>
-<h3 id="2-进入vi或vim的安装目录，再使用命令，手动将path中的-path添加进去。"><a href="#2-进入vi或vim的安装目录，再使用命令，手动将path中的-path添加进去。" class="headerlink" title="2.进入vi或vim的安装目录，再使用命令，手动将path中的$path添加进去。"></a>2.进入vi或vim的安装目录，再使用命令，手动将path中的$path添加进去。</h3><pre><code class="bash"> [root@master bin]<span class="comment"># pwd</span>
+<h3 id="2-进入vi或vim的安装目录，再使用命令，手动将path中的-path添加进去。"><a href="#2-进入vi或vim的安装目录，再使用命令，手动将path中的-path添加进去。" class="headerlink" title="2.进入vi或vim的安装目录，再使用命令，手动将path中的$path添加进去。"></a>2.进入vi或vim的安装目录，再使用命令，手动将path中的$path添加进去。</h3><pre><code class="lang-bash"> [root@master bin]# pwd
 /usr/bin
-[root@master bin]<span class="comment"># ./vim</span>
+[root@master bin]# ./vim
 vim       vimdiff   vimtutor  
-[root@master bin]<span class="comment"># ./vi</span>
+[root@master bin]# ./vi
 vi        view      vim       vimdiff   vimtutor  
-[root@master bin]<span class="comment"># ./vi /etc/profile</span>
+[root@master bin]# ./vi /etc/profile
 或者
-[root@master bin]<span class="comment"># ./vim /etc/profile</span>
+[root@master bin]# ./vim /etc/profile
 </code></pre>
  <img src="/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p4.png" title="p4">
 <h3 id="3-正确的PATH填写方式"><a href="#3-正确的PATH填写方式" class="headerlink" title="3.正确的PATH填写方式"></a>3.正确的PATH填写方式</h3>  <img src="/2019/03/05/Linux下环境变量PATH设置错误，导致命令无法使用/p1.png" title="p1">
-<h3 id="4-使用source-命令更新配置文件。"><a href="#4-使用source-命令更新配置文件。" class="headerlink" title="4.使用source 命令更新配置文件。"></a>4.使用<code>source</code> 命令更新配置文件。</h3><h2 id=""><a href="#" class="headerlink" title=""></a><br></h2><h5 id="开学第二天。"><a href="#开学第二天。" class="headerlink" title="开学第二天。"></a>开学第二天。</h5>
+<h3 id="4-使用source-命令更新配置文件。"><a href="#4-使用source-命令更新配置文件。" class="headerlink" title="4.使用source 命令更新配置文件。"></a>4.使用<code>source</code> 命令更新配置文件。</h3><h2 id><a href="#" class="headerlink" title></a><br></h2><h5 id="开学第二天。"><a href="#开学第二天。" class="headerlink" title="开学第二天。"></a>开学第二天。</h5>
       
     </div>
     
@@ -464,7 +464,7 @@ vi        view      vim       vimdiff   vimtutor
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="王树波">
             
@@ -479,7 +479,7 @@ vi        view      vim       vimdiff   vimtutor
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -529,7 +529,7 @@ vi        view      vim       vimdiff   vimtutor
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。"><span class="nav-number">1.</span> <span class="nav-text">今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下图是我的-etc-profile文件中的环境变量配置"><span class="nav-number">2.</span> <span class="nav-text">下图是我的 /etc/profile文件中的环境变量配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以看到-图中PATH-JAVA-HOME-bin-JRE-HOME-bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。"><span class="nav-number">3.</span> <span class="nav-text">可以看到 图中PATH=$JAVA_HOME/bin:$JRE_HOME/bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法："><span class="nav-number"></span> <span class="nav-text">解决方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用export-手动导入以下目录后手动将path纠正。"><span class="nav-number">1.</span> <span class="nav-text">1.使用export 手动导入以下目录后手动将path纠正。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-进入vi或vim的安装目录，再使用命令，手动将path中的-path添加进去。"><span class="nav-number">2.</span> <span class="nav-text">2.进入vi或vim的安装目录，再使用命令，手动将path中的$path添加进去。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-正确的PATH填写方式"><span class="nav-number">3.</span> <span class="nav-text">3.正确的PATH填写方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用source-命令更新配置文件。"><span class="nav-number">4.</span> <span class="nav-text">4.使用source 命令更新配置文件。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#开学第二天。"><span class="nav-number">0.0.1.</span> <span class="nav-text">开学第二天。</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。"><span class="nav-number">1.</span> <span class="nav-text">今天在配置jdk过程中遇见了，java命令能用，其他命令全部失效的情况。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下图是我的-etc-profile文件中的环境变量配置"><span class="nav-number">2.</span> <span class="nav-text">下图是我的 /etc/profile文件中的环境变量配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以看到-图中PATH-JAVA-HOME-bin-JRE-HOME-bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。"><span class="nav-number">3.</span> <span class="nav-text">可以看到 图中PATH=$JAVA_HOME/bin:$JRE_HOME/bin中，只指定了jdk的环境变量，并没有引入原有的PATH，故分析原因为PATH被覆盖导致命令失效。</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法："><span class="nav-number"></span> <span class="nav-text">解决方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用export-手动导入以下目录后手动将path纠正。"><span class="nav-number">1.</span> <span class="nav-text">1.使用export 手动导入以下目录后手动将path纠正。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-进入vi或vim的安装目录，再使用命令，手动将path中的-path添加进去。"><span class="nav-number">2.</span> <span class="nav-text">2.进入vi或vim的安装目录，再使用命令，手动将path中的$path添加进去。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-正确的PATH填写方式"><span class="nav-number">3.</span> <span class="nav-text">3.正确的PATH填写方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用source-命令更新配置文件。"><span class="nav-number">4.</span> <span class="nav-text">4.使用source 命令更新配置文件。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#开学第二天。"><span class="nav-number">0.0.1.</span> <span class="nav-text">开学第二天。</span></a></li></ol></li></div>
             
 
           </div>
@@ -780,6 +780,8 @@ vi        view      vim       vimdiff   vimtutor
   
 
   
+  
+
 
   
 
