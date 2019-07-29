@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -68,29 +68,31 @@
 
 
 
-  <meta name="keywords" content="Linux,Hadoop,">
+  <meta name="keywords" content="Hadoop,Linux,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="王树波的博客" type="application/atom+xml">
 
 
 
 
 
 
-
-
-
-
-<meta name="description" content="FS Shell  调用文件系统(FS)Shell命令应使用 bin/hadoop fs &amp;lt;args&amp;gt;的形式。  所有的的FS shell命令使用URI路径作为参数。  URI格式是scheme://authority/path。  对HDFS文件系统，scheme是hdfs，对本地文件系统，scheme是file。  其中scheme和authority参数都是可选的，如果未加指">
-<meta name="keywords" content="Linux,Hadoop">
+<meta name="description" content="FS Shell  调用文件系统(FS)Shell命令应使用 bin/hadoop fs &amp;lt;args&amp;gt;的形式。  所有的的FS shell命令使用URI路径作为参数。  URI格式是scheme://authority/path。  对HDFS文件系统，scheme是hdfs，对本地文件系统，scheme是file。  其中scheme和authority参数都是可选的，如果未加指定">
+<meta name="keywords" content="Hadoop,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDFS常用命令">
 <meta property="og:url" content="http://yoursite.com/2019/03/22/HDFS常用命令/index.html">
 <meta property="og:site_name" content="王树波的博客">
-<meta property="og:description" content="FS Shell  调用文件系统(FS)Shell命令应使用 bin/hadoop fs &amp;lt;args&amp;gt;的形式。  所有的的FS shell命令使用URI路径作为参数。  URI格式是scheme://authority/path。  对HDFS文件系统，scheme是hdfs，对本地文件系统，scheme是file。  其中scheme和authority参数都是可选的，如果未加指">
+<meta property="og:description" content="FS Shell  调用文件系统(FS)Shell命令应使用 bin/hadoop fs &amp;lt;args&amp;gt;的形式。  所有的的FS shell命令使用URI路径作为参数。  URI格式是scheme://authority/path。  对HDFS文件系统，scheme是hdfs，对本地文件系统，scheme是file。  其中scheme和authority参数都是可选的，如果未加指定">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-04-23T15:35:03.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDFS常用命令">
-<meta name="twitter:description" content="FS Shell  调用文件系统(FS)Shell命令应使用 bin/hadoop fs &amp;lt;args&amp;gt;的形式。  所有的的FS shell命令使用URI路径作为参数。  URI格式是scheme://authority/path。  对HDFS文件系统，scheme是hdfs，对本地文件系统，scheme是file。  其中scheme和authority参数都是可选的，如果未加指">
+<meta name="twitter:description" content="FS Shell  调用文件系统(FS)Shell命令应使用 bin/hadoop fs &amp;lt;args&amp;gt;的形式。  所有的的FS shell命令使用URI路径作为参数。  URI格式是scheme://authority/path。  对HDFS文件系统，scheme是hdfs，对本地文件系统，scheme是file。  其中scheme和authority参数都是可选的，如果未加指定">
 
 
 
@@ -126,7 +128,7 @@
 
 
 
-  <title>HDFS常用命令 | 王树波的博客</title>
+  <title>HDFS常用命令 | 王树波的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -145,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 <a href="https://github.com/allcando" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -330,92 +332,61 @@
       
 
       
-        <br>
-
+        <p><br></p>
 <h1 id="FS-Shell"><a href="#FS-Shell" class="headerlink" title="FS Shell"></a>FS Shell</h1><p>  调用文件系统(FS)Shell命令应使用 <code>bin/hadoop fs &lt;args&gt;</code>的形式。<br>  所有的的FS shell命令使用URI路径作为参数。<br>  URI格式是<code>scheme://authority/path</code>。<br>  对HDFS文件系统，scheme是hdfs，对本地文件系统，scheme是file。<br>  其中scheme和authority参数都是可选的，如果未加指定，就会使用配置中指定的默认scheme。<br>  一个HDFS文件或目录比如<code>/parent/child</code>可以表示成<code>hdfs://namenode:namenodeport/parent/child</code>，或者更简单的<code>/parent/child（假设你配置文件中的默认值是namenode:namenodeport）</code>。<br>  大多数FS Shell命令的行为和对应的Unix Shell命令类似，不同之处会在下面介绍各命令使用详情时指出。出错信息会输出到stderr，其他信息输出到stdout。</p>
 <h1 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h1><h2 id="使用方法：hadoop-fs-cat-URI-URI-…"><a href="#使用方法：hadoop-fs-cat-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -cat URI [URI …]"></a>使用方法：<code>hadoop fs -cat URI [URI …]</code></h2><p>  将路径指定文件的内容输出到stdout。</p>
-<p>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -cat hdfs://host1:port1/file1 hdfs://host2:port2/file2</span><br><span class="line">hadoop fs -cat file:///file3 /user/hadoop/file4</span><br></pre></td></tr></table></figure>
-
+<p>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -cat hdfs://host1:port1/file1 hdfs://host2:port2/file2</span><br><span class="line">hadoop fs -cat file:///file3 /user/hadoop/file4</span><br></pre></td></tr></table></figure></p>
 <p> 返回值：<br> 成功返回0，失败返回-1。</p>
 <h1 id="chgrp"><a href="#chgrp" class="headerlink" title="chgrp"></a>chgrp</h1><h2 id="使用方法：hadoop-fs-chgrp-R-GROUP-URI-URI-…"><a href="#使用方法：hadoop-fs-chgrp-R-GROUP-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -chgrp [-R] GROUP URI [URI …]"></a>使用方法：<code>hadoop fs -chgrp [-R] GROUP URI [URI …]</code></h2><p> 改变文件所属的组。使用-R将使改变在目录结构下递归进行。命令的使用者必须是文件的所有者或者超级用户。更多的信息请参见HDFS权限用户指南。</p>
 <h1 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h1><h2 id="使用方法：hadoop-fs-chmod-R-lt-MODE-MODE-OCTALMODE-gt-URI-URI-…"><a href="#使用方法：hadoop-fs-chmod-R-lt-MODE-MODE-OCTALMODE-gt-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -chmod [-R] &lt;MODE[,MODE]... | OCTALMODE&gt; URI [URI …]"></a>使用方法：<code>hadoop fs -chmod [-R] &lt;MODE[,MODE]... | OCTALMODE&gt; URI [URI …]</code></h2><p> 改变文件的权限。使用-R将使改变在目录结构下递归进行。命令的使用者必须是文件的所有者或者超级用户。更多的信息请参见HDFS权限用户指南。</p>
 <h1 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h1><h2 id="使用方法：hadoop-fs-chown-R-OWNER-GROUP-URI-URI"><a href="#使用方法：hadoop-fs-chown-R-OWNER-GROUP-URI-URI" class="headerlink" title="使用方法：hadoop fs -chown [-R] [OWNER][:[GROUP]] URI [URI ]"></a>使用方法：<code>hadoop fs -chown [-R] [OWNER][:[GROUP]] URI [URI ]</code></h2><p> 改变文件的拥有者。使用<code>-R</code>将使改变在目录结构下递归进行。命令的使用者必须是超级用户。更多的信息请参见HDFS权限用户指南。</p>
 <h1 id="copyFromLocal"><a href="#copyFromLocal" class="headerlink" title="copyFromLocal"></a>copyFromLocal</h1><h2 id="使用方法：hadoop-fs-copyFromLocal-lt-localsrc-gt-URI"><a href="#使用方法：hadoop-fs-copyFromLocal-lt-localsrc-gt-URI" class="headerlink" title="使用方法：hadoop fs -copyFromLocal &lt;localsrc&gt; URI"></a>使用方法：<code>hadoop fs -copyFromLocal &lt;localsrc&gt; URI</code></h2><p> 除了限定源路径是一个本地文件外，和<code>put</code>命令相似。</p>
 <h1 id="copyToLocal"><a href="#copyToLocal" class="headerlink" title="copyToLocal"></a>copyToLocal</h1><h2 id="使用方法：hadoop-fs-copyToLocal-ignorecrc-crc-URI-lt-localdst-gt"><a href="#使用方法：hadoop-fs-copyToLocal-ignorecrc-crc-URI-lt-localdst-gt" class="headerlink" title="使用方法：hadoop fs -copyToLocal [-ignorecrc] [-crc] URI &lt;localdst&gt;"></a>使用方法：<code>hadoop fs -copyToLocal [-ignorecrc] [-crc] URI &lt;localdst&gt;</code></h2><p> 除了限定目标路径是一个本地文件外，和<code>get</code>命令类似。</p>
-<h1 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h1><h2 id="使用方法：hadoop-fs-cp-URI-URI-…-lt-dest-gt"><a href="#使用方法：hadoop-fs-cp-URI-URI-…-lt-dest-gt" class="headerlink" title="使用方法：hadoop fs -cp URI [URI …] &lt;dest&gt;"></a>使用方法：<code>hadoop fs -cp URI [URI …] &lt;dest&gt;</code></h2><p> 将文件从源路径复制到目标路径。这个命令允许有多个源路径，此时目标路径必须是一个目录。<br>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2</span><br><span class="line">hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2 /user/hadoop/dir</span><br></pre></td></tr></table></figure>
-
+<h1 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h1><h2 id="使用方法：hadoop-fs-cp-URI-URI-…-lt-dest-gt"><a href="#使用方法：hadoop-fs-cp-URI-URI-…-lt-dest-gt" class="headerlink" title="使用方法：hadoop fs -cp URI [URI …] &lt;dest&gt;"></a>使用方法：<code>hadoop fs -cp URI [URI …] &lt;dest&gt;</code></h2><p> 将文件从源路径复制到目标路径。这个命令允许有多个源路径，此时目标路径必须是一个目录。<br>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2</span><br><span class="line">hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2 /user/hadoop/dir</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：</p>
 <p>  成功返回0，失败返回-1。</p>
-<h1 id="du"><a href="#du" class="headerlink" title="du"></a>du</h1><h2 id="使用方法：hadoop-fs-du-URI-URI-…"><a href="#使用方法：hadoop-fs-du-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -du URI [URI …]"></a>使用方法：<code>hadoop fs -du URI [URI …]</code></h2><p>  显示目录中所有文件的大小，或者当只指定一个文件时，显示此文件的大小。<br>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -du /user/hadoop/dir1 /user/hadoop/file1 hdfs://host:port/user/hadoop/dir1</span><br></pre></td></tr></table></figure>
-
+<h1 id="du"><a href="#du" class="headerlink" title="du"></a>du</h1><h2 id="使用方法：hadoop-fs-du-URI-URI-…"><a href="#使用方法：hadoop-fs-du-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -du URI [URI …]"></a>使用方法：<code>hadoop fs -du URI [URI …]</code></h2><p>  显示目录中所有文件的大小，或者当只指定一个文件时，显示此文件的大小。<br>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -du /user/hadoop/dir1 /user/hadoop/file1 hdfs://host:port/user/hadoop/dir1</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：<br>  成功返回0，失败返回-1。 </p>
 <h1 id="dus"><a href="#dus" class="headerlink" title="dus"></a>dus</h1><h2 id="使用方法：hadoop-fs-dus-lt-args-gt"><a href="#使用方法：hadoop-fs-dus-lt-args-gt" class="headerlink" title="使用方法：hadoop fs -dus &lt;args&gt;"></a>使用方法：<code>hadoop fs -dus &lt;args&gt;</code></h2><p>  显示文件的大小。</p>
 <h1 id="expunge"><a href="#expunge" class="headerlink" title="expunge"></a>expunge</h1><h2 id="使用方法：hadoop-fs-expunge"><a href="#使用方法：hadoop-fs-expunge" class="headerlink" title="使用方法：hadoop fs -expunge"></a>使用方法：<code>hadoop fs -expunge</code></h2><p>  清空回收站。请参考HDFS设计文档以获取更多关于回收站特性的信息。</p>
 <h1 id="get"><a href="#get" class="headerlink" title="get"></a>get</h1><h2 id="使用方法：hadoop-fs-get-ignorecrc-crc-lt-src-gt-lt-localdst-gt"><a href="#使用方法：hadoop-fs-get-ignorecrc-crc-lt-src-gt-lt-localdst-gt" class="headerlink" title="使用方法：hadoop fs -get [-ignorecrc] [-crc] &lt;src&gt; &lt;localdst&gt;"></a>使用方法：<code>hadoop fs -get [-ignorecrc] [-crc] &lt;src&gt; &lt;localdst&gt;</code></h2><p>  复制文件到本地文件系统。可用<code>-ignorecrc</code>选项复制CRC校验失败的文件。使用-crc选项复制文件以及CRC信息。</p>
-<p>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -get /user/hadoop/file localfile</span><br><span class="line">hadoop fs -get hdfs://host:port/user/hadoop/file localfile</span><br></pre></td></tr></table></figure>
-
+<p>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -get /user/hadoop/file localfile</span><br><span class="line">hadoop fs -get hdfs://host:port/user/hadoop/file localfile</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：</p>
 <p>  成功返回0，失败返回-1。</p>
 <h1 id="getmerge"><a href="#getmerge" class="headerlink" title="getmerge"></a>getmerge</h1><h2 id="使用方法：hadoop-fs-getmerge-lt-src-gt-lt-localdst-gt-addnl"><a href="#使用方法：hadoop-fs-getmerge-lt-src-gt-lt-localdst-gt-addnl" class="headerlink" title="使用方法：hadoop fs -getmerge &lt;src&gt; &lt;localdst&gt; [addnl]"></a>使用方法：<code>hadoop fs -getmerge &lt;src&gt; &lt;localdst&gt; [addnl]</code></h2><p>  接受一个源目录和一个目标文件作为输入，并且将源目录中所有的文件连接成本地目标文件。addnl是可选的，用于指定在每个文件结尾添加一个换行符。</p>
-<h1 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h1><h2 id="使用方法：hadoop-fs-ls-lt-args-gt"><a href="#使用方法：hadoop-fs-ls-lt-args-gt" class="headerlink" title="使用方法：hadoop fs -ls &lt;args&gt;"></a>使用方法：<code>hadoop fs -ls &lt;args&gt;</code></h2><p>  如果是文件，则按照如下格式返回文件信息：<br>  <code>文件名 &lt;副本数&gt; 文件大小 修改日期 修改时间 权限 用户ID 组ID</code><br>  如果是目录，则返回它直接子文件的一个列表，就像在Unix中一样。目录返回列表的信息如下：<br>  <code>目录名 &lt;dir&gt; 修改日期 修改时间 权限 用户ID 组ID</code><br>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -ls /user/hadoop/file1 /user/hadoop/file2 hdfs://host:port/user/hadoop/dir1 /nonexistentfile</span><br></pre></td></tr></table></figure>
-
+<h1 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h1><h2 id="使用方法：hadoop-fs-ls-lt-args-gt"><a href="#使用方法：hadoop-fs-ls-lt-args-gt" class="headerlink" title="使用方法：hadoop fs -ls &lt;args&gt;"></a>使用方法：<code>hadoop fs -ls &lt;args&gt;</code></h2><p>  如果是文件，则按照如下格式返回文件信息：<br>  <code>文件名 &lt;副本数&gt; 文件大小 修改日期 修改时间 权限 用户ID 组ID</code><br>  如果是目录，则返回它直接子文件的一个列表，就像在Unix中一样。目录返回列表的信息如下：<br>  <code>目录名 &lt;dir&gt; 修改日期 修改时间 权限 用户ID 组ID</code><br>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -ls /user/hadoop/file1 /user/hadoop/file2 hdfs://host:port/user/hadoop/dir1 /nonexistentfile</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：<br>  成功返回0，失败返回-1。 </p>
 <h1 id="lsr"><a href="#lsr" class="headerlink" title="lsr"></a>lsr</h1><h2 id="使用方法：hadoop-fs-lsr-lt-args-gt"><a href="#使用方法：hadoop-fs-lsr-lt-args-gt" class="headerlink" title="使用方法：hadoop fs -lsr &lt;args&gt;"></a>使用方法：<code>hadoop fs -lsr &lt;args&gt;</code></h2><p>  ls命令的递归版本。类似于Unix中的<code>ls -R</code>。</p>
 <h1 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h1><h2 id="使用方法：hadoop-fs-mkdir-lt-paths-gt"><a href="#使用方法：hadoop-fs-mkdir-lt-paths-gt" class="headerlink" title="使用方法：hadoop fs -mkdir &lt;paths&gt;"></a>使用方法：<code>hadoop fs -mkdir &lt;paths&gt;</code></h2><p>  接受路径指定的uri作为参数，创建这些目录。其行为类似于Unix的<code>mkdir -p</code>，它会创建路径中的各级父目录。</p>
-<p>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mkdir /user/hadoop/dir1 /user/hadoop/dir2</span><br><span class="line">hadoop fs -mkdir hdfs://host1:port1/user/hadoop/dir hdfs://host2:port2/user/hadoop/dir</span><br></pre></td></tr></table></figure>
-
+<p>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mkdir /user/hadoop/dir1 /user/hadoop/dir2</span><br><span class="line">hadoop fs -mkdir hdfs://host1:port1/user/hadoop/dir hdfs://host2:port2/user/hadoop/dir</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：</p>
 <p>  成功返回0，失败返回-1。</p>
 <h1 id="movefromLocal"><a href="#movefromLocal" class="headerlink" title="movefromLocal"></a>movefromLocal</h1><h2 id="使用方法：dfs-moveFromLocal-lt-src-gt-lt-dst-gt"><a href="#使用方法：dfs-moveFromLocal-lt-src-gt-lt-dst-gt" class="headerlink" title="使用方法：dfs -moveFromLocal &lt;src&gt; &lt;dst&gt;"></a>使用方法：<code>dfs -moveFromLocal &lt;src&gt; &lt;dst&gt;</code></h2><p>  输出一个”not implemented“信息。</p>
-<h1 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h1><h2 id="使用方法：hadoop-fs-mv-URI-URI-…-lt-dest-gt"><a href="#使用方法：hadoop-fs-mv-URI-URI-…-lt-dest-gt" class="headerlink" title="使用方法：hadoop fs -mv URI [URI …] &lt;dest&gt;"></a>使用方法：<code>hadoop fs -mv URI [URI …] &lt;dest&gt;</code></h2><p>  将文件从源路径移动到目标路径。这个命令允许有多个源路径，此时目标路径必须是一个目录。不允许在不同的文件系统间移动文件。<br>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mv /user/hadoop/file1 /user/hadoop/file2</span><br><span class="line">hadoop fs -mv hdfs://host:port/file1 hdfs://host:port/file2 hdfs://host:port/file3 hdfs://host:port/dir1</span><br></pre></td></tr></table></figure>
-
+<h1 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h1><h2 id="使用方法：hadoop-fs-mv-URI-URI-…-lt-dest-gt"><a href="#使用方法：hadoop-fs-mv-URI-URI-…-lt-dest-gt" class="headerlink" title="使用方法：hadoop fs -mv URI [URI …] &lt;dest&gt;"></a>使用方法：<code>hadoop fs -mv URI [URI …] &lt;dest&gt;</code></h2><p>  将文件从源路径移动到目标路径。这个命令允许有多个源路径，此时目标路径必须是一个目录。不允许在不同的文件系统间移动文件。<br>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mv /user/hadoop/file1 /user/hadoop/file2</span><br><span class="line">hadoop fs -mv hdfs://host:port/file1 hdfs://host:port/file2 hdfs://host:port/file3 hdfs://host:port/dir1</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：</p>
 <p>  成功返回0，失败返回-1。</p>
-<h1 id="put"><a href="#put" class="headerlink" title="put"></a>put</h1><h2 id="使用方法：hadoop-fs-put-lt-localsrc-gt-lt-dst-gt"><a href="#使用方法：hadoop-fs-put-lt-localsrc-gt-lt-dst-gt" class="headerlink" title="使用方法：hadoop fs -put &lt;localsrc&gt; ... &lt;dst&gt;"></a>使用方法：<code>hadoop fs -put &lt;localsrc&gt; ... &lt;dst&gt;</code></h2><p>  从本地文件系统中复制单个或多个源路径到目标文件系统。也支持从标准输入中读取输入写入目标文件系统。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -put localfile /user/hadoop/hadoopfile</span><br><span class="line">hadoop fs -put localfile1 localfile2 /user/hadoop/hadoopdir</span><br><span class="line">hadoop fs -put localfile hdfs://host:port/hadoop/hadoopfile</span><br><span class="line">hadoop fs -put - hdfs://host:port/hadoop/hadoopfile</span><br></pre></td></tr></table></figure>
-
+<h1 id="put"><a href="#put" class="headerlink" title="put"></a>put</h1><h2 id="使用方法：hadoop-fs-put-lt-localsrc-gt-lt-dst-gt"><a href="#使用方法：hadoop-fs-put-lt-localsrc-gt-lt-dst-gt" class="headerlink" title="使用方法：hadoop fs -put &lt;localsrc&gt; ... &lt;dst&gt;"></a>使用方法：<code>hadoop fs -put &lt;localsrc&gt; ... &lt;dst&gt;</code></h2><p>  从本地文件系统中复制单个或多个源路径到目标文件系统。也支持从标准输入中读取输入写入目标文件系统。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -put localfile /user/hadoop/hadoopfile</span><br><span class="line">hadoop fs -put localfile1 localfile2 /user/hadoop/hadoopdir</span><br><span class="line">hadoop fs -put localfile hdfs://host:port/hadoop/hadoopfile</span><br><span class="line">hadoop fs -put - hdfs://host:port/hadoop/hadoopfile</span><br></pre></td></tr></table></figure></p>
 <p>  从标准输入中读取输入。<br>  返回值：</p>
 <p>  成功返回0，失败返回-1。</p>
-<h1 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h1><h2 id="使用方法：hadoop-fs-rm-URI-URI-…"><a href="#使用方法：hadoop-fs-rm-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -rm URI [URI …]"></a>使用方法：<code>hadoop fs -rm URI [URI …]</code></h2><p>  删除指定的文件。只删除非空目录和文件。请参考<code>rmr</code>命令了解递归删除。<br>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -rm hdfs://host:port/file /user/hadoop/emptydir</span><br></pre></td></tr></table></figure>
-
+<h1 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h1><h2 id="使用方法：hadoop-fs-rm-URI-URI-…"><a href="#使用方法：hadoop-fs-rm-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -rm URI [URI …]"></a>使用方法：<code>hadoop fs -rm URI [URI …]</code></h2><p>  删除指定的文件。只删除非空目录和文件。请参考<code>rmr</code>命令了解递归删除。<br>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -rm hdfs://host:port/file /user/hadoop/emptydir</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：</p>
 <p>  成功返回0，失败返回-1。</p>
-<h1 id="rmr"><a href="#rmr" class="headerlink" title="rmr"></a>rmr</h1><h2 id="使用方法：hadoop-fs-rmr-URI-URI-…"><a href="#使用方法：hadoop-fs-rmr-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -rmr URI [URI …]"></a>使用方法：<code>hadoop fs -rmr URI [URI …]</code></h2><p>  <code>delete</code>的递归版本。<br>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -rmr /user/hadoop/dir</span><br><span class="line">hadoop fs -rmr hdfs://host:port/user/hadoop/dir</span><br></pre></td></tr></table></figure>
-
+<h1 id="rmr"><a href="#rmr" class="headerlink" title="rmr"></a>rmr</h1><h2 id="使用方法：hadoop-fs-rmr-URI-URI-…"><a href="#使用方法：hadoop-fs-rmr-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -rmr URI [URI …]"></a>使用方法：<code>hadoop fs -rmr URI [URI …]</code></h2><p>  <code>delete</code>的递归版本。<br>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -rmr /user/hadoop/dir</span><br><span class="line">hadoop fs -rmr hdfs://host:port/user/hadoop/dir</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：</p>
 <p>  成功返回0，失败返回-1。</p>
 <h1 id="setrep"><a href="#setrep" class="headerlink" title="setrep"></a>setrep</h1><h2 id="使用方法：hadoop-fs-setrep-R-lt-path-gt"><a href="#使用方法：hadoop-fs-setrep-R-lt-path-gt" class="headerlink" title="使用方法：hadoop fs -setrep [-R] &lt;path&gt;"></a>使用方法：<code>hadoop fs -setrep [-R] &lt;path&gt;</code></h2><p>  改变一个文件的副本系数。<code>-R</code>选项用于递归改变目录下所有文件的副本系数。</p>
-<p>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -setrep -w 3 -R /user/hadoop/dir1</span><br></pre></td></tr></table></figure>
-
+<p>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -setrep -w 3 -R /user/hadoop/dir1</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：</p>
 <p>  成功返回0，失败返回-1。</p>
 <h1 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h1><h2 id="使用方法：hadoop-fs-stat-URI-URI-…"><a href="#使用方法：hadoop-fs-stat-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -stat URI [URI …]"></a>使用方法：<code>hadoop fs -stat URI [URI …]</code></h2><p>  返回指定路径的统计信息。</p>
-<p>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -stat path</span><br></pre></td></tr></table></figure>
-
+<p>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -stat path</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：<br>  成功返回0，失败返回-1。</p>
 <h1 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h1><h2 id="使用方法：hadoop-fs-tail-f-URI"><a href="#使用方法：hadoop-fs-tail-f-URI" class="headerlink" title="使用方法：hadoop fs -tail [-f] URI"></a>使用方法：<code>hadoop fs -tail [-f] URI</code></h2><p>  将文件尾部1K字节的内容输出到stdout。支持<code>-f</code>选项，行为和Unix中一致。</p>
-<p>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -tail pathname</span><br></pre></td></tr></table></figure>
-
+<p>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -tail pathname</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：<br>  成功返回0，失败返回-1。</p>
-<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><h2 id="使用方法：hadoop-fs-test-ezd-URI"><a href="#使用方法：hadoop-fs-test-ezd-URI" class="headerlink" title="使用方法：hadoop fs -test -[ezd] URI"></a>使用方法：<code>hadoop fs -test -[ezd] URI</code></h2><p>  选项：<br>  -e 检查文件是否存在。如果存在则返回0。<br>  -z 检查文件是否是0字节。如果是则返回0。<br>  -d 如果路径是个目录，则返回1，否则返回0。<br>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -test -e filename</span><br></pre></td></tr></table></figure>
-
+<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><h2 id="使用方法：hadoop-fs-test-ezd-URI"><a href="#使用方法：hadoop-fs-test-ezd-URI" class="headerlink" title="使用方法：hadoop fs -test -[ezd] URI"></a>使用方法：<code>hadoop fs -test -[ezd] URI</code></h2><p>  选项：<br>  -e 检查文件是否存在。如果存在则返回0。<br>  -z 检查文件是否是0字节。如果是则返回0。<br>  -d 如果路径是个目录，则返回1，否则返回0。<br>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -test -e filename</span><br></pre></td></tr></table></figure></p>
 <h1 id="text"><a href="#text" class="headerlink" title="text"></a>text</h1><h2 id="使用方法：hadoop-fs-text-lt-src-gt"><a href="#使用方法：hadoop-fs-text-lt-src-gt" class="headerlink" title="使用方法：hadoop fs -text &lt;src&gt;"></a>使用方法：<code>hadoop fs -text &lt;src&gt;</code></h2><p>  将源文件输出为文本格式。允许的格式是<code>zip</code>和<code>TextRecordInputStream</code>。</p>
-<h1 id="touchz"><a href="#touchz" class="headerlink" title="touchz"></a>touchz</h1><h2 id="使用方法：hadoop-fs-touchz-URI-URI-…"><a href="#使用方法：hadoop-fs-touchz-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -touchz URI [URI …]"></a>使用方法：<code>hadoop fs -touchz URI [URI …]</code></h2><p>  创建一个0字节的空文件。<br>  示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop -touchz pathname</span><br></pre></td></tr></table></figure>
-
+<h1 id="touchz"><a href="#touchz" class="headerlink" title="touchz"></a>touchz</h1><h2 id="使用方法：hadoop-fs-touchz-URI-URI-…"><a href="#使用方法：hadoop-fs-touchz-URI-URI-…" class="headerlink" title="使用方法：hadoop fs -touchz URI [URI …]"></a>使用方法：<code>hadoop fs -touchz URI [URI …]</code></h2><p>  创建一个0字节的空文件。<br>  示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop -touchz pathname</span><br></pre></td></tr></table></figure></p>
 <p>  返回值：</p>
 <h2 id="成功返回0，失败返回-1。"><a href="#成功返回0，失败返回-1。" class="headerlink" title="  成功返回0，失败返回-1。"></a>  成功返回0，失败返回-1。</h2><p>  转自<a href="http://hadoop.apache.org/docs/r1.0.4/cn/hdfs_shell.html" target="_blank" rel="noopener">http://hadoop.apache.org/docs/r1.0.4/cn/hdfs_shell.html</a></p>
 
@@ -435,9 +406,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
             <a href="/tags/Hadoop/" rel="tag"># Hadoop</a>
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
         </div>
       
@@ -548,7 +519,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -561,7 +532,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -569,6 +540,13 @@
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -868,7 +846,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src></script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -878,7 +856,24 @@
 
 
   
-  <script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  <script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 <script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
