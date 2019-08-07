@@ -254,6 +254,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/汉字区位码、国标码（交换码）和机内码转换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王树波">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王树波的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/07/汉字区位码、国标码（交换码）和机内码转换/" itemprop="url">汉字区位码、国标码（交换码）和机内码转换</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T18:13:58+08:00">
+                2019-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><br><br>摘自：<br><a href="https://cloud.tencent.com/info/2913b4ee92510eaf6988435e3a70e442.html" target="_blank" rel="noopener">https://cloud.tencent.com/info/2913b4ee92510eaf6988435e3a70e442.html</a></p>
+<h2 id="一、区位码"><a href="#一、区位码" class="headerlink" title="一、区位码"></a>一、区位码</h2><p>为了适应计算机处理汉字信息的需要，1981年我国颁布了GB2312国家标准。该标准选出6763个常用汉字（其中，一级常用汉字3755个，二级汉字3008个）和682个非汉字字符，并为每个字符规定了标准代码，以便在不同的计算机系统之间进行汉字文本交换。</p>
+<p>GB2312字符集构成一个94行、94列的二维表，行号称为区号，列号称为位号，每一个汉字或符号在码表中的位置用它所在的区号和位号来表示。</p>
+<p>为了处理与存储的方便，每个汉字的区号和位号在计算机内部分别用一个字节来表示。例如，”学”字的区号为49，位号为07，它的区位码即为4907，用2个字节的二进制数表示为：</p>
+<blockquote>
+<p>00110001 00000111</p>
+</blockquote>
+<img src="/2019/08/07/汉字区位码、国标码（交换码）和机内码转换/1.jpg">
+<h2 id="二、国标交换码"><a href="#二、国标交换码" class="headerlink" title="二、国标交换码"></a>二、国标交换码</h2><p>区位码无法用于汉字通信，因为它可能与通信使用的控制码（00H~1FH）（即0~31）发生冲突。（因为ASCII码编码中分控制信号编码和有型字符编码，前32个是控制码，如回车、换行、退格等，为避开这些控制码，国标码规定在区位码的基础上加20H，即32的16进制数）ISO2022规定每个汉字的区号和位号必须分别加上32（即二进制数00100000），经过这样的处理而得的代码称为国标交换码，简称交换码或国际码，因此，”学”字的国标交换码计算为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">00110001 00000111</span><br><span class="line"></span><br><span class="line">+00100000 +00100000</span><br><span class="line"></span><br><span class="line">______________________</span><br><span class="line"></span><br><span class="line">01010001 00100111</span><br></pre></td></tr></table></figure></p>
+<p>用十六进制数表示即为<code>5127H</code>。</p>
+<h2 id="三、机内码"><a href="#三、机内码" class="headerlink" title="三、机内码"></a>三、机内码</h2><p>由于文本中通常混合使用汉字和西文字符，汉字信息如果不予以特别标识，就会与单字节的ASCII码混淆。此问题的解决方法之一是将一个汉字看成是两个扩展ASCII码，使表示GB2312汉字的两个字节的最高位都为1。这种高位为1的双字节汉字编码即为GB2312汉字的机内码，简称为内码。</p>
+<p>因此，”学”字的机内码为：</p>
+<blockquote>
+<p>11010001 10100111</p>
+</blockquote>
+<p>用16进制表示即为<code>D1A7H</code>。</p>
+<p>最后要指出的是，汉字的输入编码与汉字的机内码是不同范畴的概念。不管采用什么样的编码输入法（例如拼音、五笔字型等）来输入一个汉字，其机内码都是相同的。</p>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>区位码、国标码与机内码的转换关系</p>
+<p>方法：</p>
+<p>（1）区位码先转换成十六进制数表示</p>
+<p>（2）（区位码的十六进制表示）＋2020H＝国标码；</p>
+<p>（3）国标码＋8080H＝机内码</p>
+<p>举例：以汉字”大”为例，”大”字的区内码为2083</p>
+<p>示例解析：</p>
+<p>1、区号为20，位号为83</p>
+<p>2、将区位号2083转换为十六进制表示为<code>1453H</code></p>
+<p>3、1453H＋2020H＝3473H，得到国标码<code>3473H</code></p>
+<p>4、3473H＋8080H＝B4F3H，得到机内码为<code>B4F3H</code></p>
+<p>5、1453H＋A0A0H＝B4F3H，得到机内码为<code>B4F3H</code></p>
+<p>6、机内码B4F3H－A0A0H＝1453H的区位码</p>
+<p>大字的区码是<code>20H</code>（32区，83位）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/高等数学求导公式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1960,146 +2110,6 @@ $sinx \sim x$ -->
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/Android踩坑——使用Fragment导包问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王树波">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王树波的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/19/Android踩坑——使用Fragment导包问题/" itemprop="url">Android踩坑——使用Fragment导包问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-19T11:37:44+08:00">
-                2019-06-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><br></p>
-<blockquote>
-<p>今天使用fragment时，抛出了ClassCastException异常。顺手记录下解决方法。<br><img src="/2019/06/19/Android踩坑——使用Fragment导包问题/1.png"></p>
-</blockquote>
-<h2 id="android-support-v4-app-Fragment和android-app-Fragment区别-原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。"><a href="#android-support-v4-app-Fragment和android-app-Fragment区别-原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。" class="headerlink" title="android.support.v4.app.Fragment和android.app.Fragment区别,原因是因为使用的module中的Fragment与我自己创建的Fragment导入的包不一致。"></a><code>android.support.v4.app.Fragment</code>和<code>android.app.Fragment</code>区别,原因是因为使用的<code>module</code>中的<code>Fragment</code>与我自己创建的<code>Fragment</code>导入的包不一致。</h2><h2 id="解决方法是导入相同的包。"><a href="#解决方法是导入相同的包。" class="headerlink" title="解决方法是导入相同的包。"></a>解决方法是导入相同的包。</h2><p>以下摘自CSDN博客作者：巨大蟹<br>原文：<a href="https://blog.csdn.net/lin353809836/article/details/53717153" target="_blank" rel="noopener">https://blog.csdn.net/lin353809836/article/details/53717153</a> </p>
-<h3 id="1-最低支持版本不同"><a href="#1-最低支持版本不同" class="headerlink" title="1.最低支持版本不同"></a>1.最低支持版本不同</h3><p><code>android.app.Fragment</code> 兼容的最低版本是<code>android:minSdkVersion=&quot;11&quot;</code> 即3.0版</p>
-<p><code>android.support.v4.app.Fragment</code> 兼容的最低版本是<code>android:minSdkVersion=&quot;4&quot;</code> 即1.6版</p>
-<h3 id="2-需要导jar包"><a href="#2-需要导jar包" class="headerlink" title="2.需要导jar包"></a>2.需要导jar包</h3><p>fragment 在定义的时候，要导入的包不同</p>
-<p><code>android.support.v4.app.Fragment</code> 需要引入包<code>android-support-v4.jar</code></p>
-<p><code>android.app.Fragment</code> 需要导入的是<code>android-app.jar</code></p>
-<h3 id="3-继承的父类不同，在fragmentManager和在Activity中取的方法不同"><a href="#3-继承的父类不同，在fragmentManager和在Activity中取的方法不同" class="headerlink" title="3.继承的父类不同，在fragmentManager和在Activity中取的方法不同"></a>3.继承的父类不同，在<code>fragmentManager</code>和在<code>Activity</code>中取的方法不同</h3><p><code>android.support.v4.app.Fragment</code>使用  <code>fragmentManager=getSupportFragmentManager()</code>获得 ，并且当前的类必须继<code>FragmentActivity</code></p>
-<p><code>android.app.Fragment</code>使用 <code>fragmentManager=getFragmentManager()</code> 获得  ，继承<code>Activity</code>即可。</p>
-<h3 id="4-标签的使用情况（这点最重要了，也是决定你到底使用v4包中的Fragment还是app包的fragment）"><a href="#4-标签的使用情况（这点最重要了，也是决定你到底使用v4包中的Fragment还是app包的fragment）" class="headerlink" title="4.标签的使用情况（这点最重要了，也是决定你到底使用v4包中的Fragment还是app包的fragment）"></a>4.<fragment>标签的使用情况（这点最重要了，也是决定你到底使用<code>v4</code>包中的<code>Fragment</code>还是<code>app</code>包的<code>fragment</code>）</fragment></h3><p><code>v4</code>包中的<code>Fragment</code>在<code>Activity</code>的布局中是可以使用<code>&lt;fragment&gt;</code>标签的，有些博客中也叫静态地载入<code>fragment</code>。</p>
-<p>android.app.Fragment在<code>Activity</code>布局中是不可以使用<code>&lt;fragment&gt;</code>标签的，需要在程序中通过<code>add</code>或者<code>replace</code>的方式添加。</p>
-<p>总结起来就是：当这个<code>Activity</code>的布局中有<code>fragment</code>标签的时候，这个<code>Activity</code>必须继承<code>FragmentActivity</code>，也就是使用<code>V4</code>包的<code>fragment</code>，否则就会抛出<code>android.view.InflateException: Binary XML file line #69: Error inflating class fragment</code>异常。</p>
-<p>题外话：</p>
-<p>我们使用<code>Fragment</code>的时候，选择哪个包下的<code>Fragment</code>呢？</p>
-<p>到底是用<code>Android.app</code>下的<code>Fragment</code>还是用的<code>android.support.v4.app</code>包下的<code>Fragment</code>?</p>
-<p>我们都知道<code>Fragment</code>是<code>3.0(API 11)</code>后引入的，那么如果开发的app需要在3.0以下的版本运行呢?比如还有一点点市场份额的2.3!</p>
-<p>于是乎,v4包就这样应运而生了,而最低可以兼容到1.6版本!</p>
-<p>至于使用哪个包看你的需求了,现在3.0下手机市场份额其实已经不多了,随街都是4.0以上的,所以这个时候,你可以直接使用<code>app</code>包下的<code>Fragment</code>,然后调用相关的方法<br>通常都是不会有什么问题的;如果你<code>Fragment</code>用了<code>app</code>包的,FragmentManager和<code>FragmentTransaction</code>都必须是app包的</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2152,7 +2162,7 @@ $sinx \sim x$ -->
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2165,7 +2175,7 @@ $sinx \sim x$ -->
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2445,10 +2455,7 @@ $sinx \sim x$ -->
 
 
   
-  <script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" color="0,0,255" opacity="0.7" zindex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -2465,5 +2472,8 @@ $sinx \sim x$ -->
 <script type="text/javascript" src="">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>
