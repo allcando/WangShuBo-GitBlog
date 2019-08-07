@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/08/07/%E6%B1%89%E8%AF%91%E8%8B%B1%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/</loc>
+    
+    <lastmod>2019-08-07T10:50:06.191Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/08/07/%E6%B1%89%E5%AD%97%E5%8C%BA%E4%BD%8D%E7%A0%81%E3%80%81%E5%9B%BD%E6%A0%87%E7%A0%81%EF%BC%88%E4%BA%A4%E6%8D%A2%E7%A0%81%EF%BC%89%E5%92%8C%E6%9C%BA%E5%86%85%E7%A0%81%E8%BD%AC%E6%8D%A2/</loc>
     
     <lastmod>2019-08-07T10:25:03.077Z</lastmod>
@@ -282,14 +289,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/Ubuntu/index.html</loc>
-    
-    <lastmod>2019-02-22T12:53:54.257Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/git/index.html</loc>
+    <loc>http://yoursite.com/tags/WAMP/index.html</loc>
     
     <lastmod>2019-02-22T12:53:54.257Z</lastmod>
     
@@ -303,7 +303,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/WAMP/index.html</loc>
+    <loc>http://yoursite.com/tags/Ubuntu/index.html</loc>
+    
+    <lastmod>2019-02-22T12:53:54.257Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/git/index.html</loc>
     
     <lastmod>2019-02-22T12:53:54.257Z</lastmod>
     
