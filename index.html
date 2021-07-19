@@ -24,14 +24,14 @@
   <meta name="description" content="庆幸我还年轻，我要记录我的成长之路。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="王树波的博客">
-<meta property="og:url" content="https://blog.shubo6.cn/index.html">
+<meta property="og:url" content="http://blog.shubo6.cn/index.html">
 <meta property="og:site_name" content="王树波的博客">
 <meta property="og:description" content="庆幸我还年轻，我要记录我的成长之路。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="王树波">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.shubo6.cn/">
+<link rel="canonical" href="http://blog.shubo6.cn/">
 
 
 <script id="page-configurations">
@@ -160,7 +160,96 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2021/07/12/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2021/07/18/%E9%93%BE%E8%A1%A8%E7%BF%BB%E8%BD%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="王树波">
+      <meta itemprop="description" content="庆幸我还年轻，我要记录我的成长之路。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王树波的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/18/%E9%93%BE%E8%A1%A8%E7%BF%BB%E8%BD%AC/" class="post-title-link" itemprop="url">链表翻转</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-07-19 01:38:43 / 修改时间：09:53:10" itemprop="dateCreated datePublished" datetime="2021-07-19T01:38:43+08:00">2021-07-19</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>797</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>前几天面试中提到了这个题目。虽然简单，可是写起来还是花了二十分钟，在这里记录一下。</p>
+<h2 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h2><p>例如给定一个链表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1-&gt;2-&gt;3-&gt;4</span><br></pre></td></tr></table></figure>
+<p>翻转后返回</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4-&gt;3-&gt;2-&gt;1</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><pre><code>稍微画图就可以很直观的想出链表翻转过程中，需要保存：
+    上一个节点  （prev）
+    当前节点    （cur）
+    后继节点    （next）
+</code></pre>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>（迭代法）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head)</span></span>&#123;</span><br><span class="line">    ListNode prev=<span class="keyword">null</span>;</span><br><span class="line">    ListNode next= head.next;</span><br><span class="line">    <span class="keyword">while</span> (next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">        head.next=prev;</span><br><span class="line">        prev=head;</span><br><span class="line">        head=next;</span><br><span class="line">        next=next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    head.next=prev;</span><br><span class="line">    prev=head;</span><br><span class="line">    <span class="keyword">return</span> prev;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(迭代法优化)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode prev = <span class="keyword">null</span>;</span><br><span class="line">    ListNode curr = head;</span><br><span class="line">    <span class="keyword">while</span> (curr != <span class="keyword">null</span>) &#123;</span><br><span class="line">        ListNode next = curr.next;</span><br><span class="line">        curr.next = prev;</span><br><span class="line">        prev = curr;</span><br><span class="line">        curr = next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> prev;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>(递归法)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">    ListNode newHead = reverseList(head.next);</span><br><span class="line">    head.next.next = head;</span><br><span class="line">    head.next = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">return</span> newHead;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2021/07/12/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -191,7 +280,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-13 00:40:00" itemprop="dateModified" datetime="2021-07-13T00:40:00+08:00">2021-07-13</time>
+                <time title="修改时间：2021-07-13 00:52:18" itemprop="dateModified" datetime="2021-07-13T00:52:18+08:00">2021-07-13</time>
               </span>
 
           <br>
@@ -234,13 +323,9 @@
 <p>后序遍历顺序：左、右、根。立即推=&gt;根节点就是序列的最后一个元素。</p>
 </blockquote>
 <h3 id="递归："><a href="#递归：" class="headerlink" title="递归："></a>递归：</h3><pre><code>设本次递归序列的左右边界为i,j。
-
 递归结束条件：
     如果i&gt;=j，立即推=&gt;当前子树的节点数&lt;=1,直接返回true。
-
 递推过程：
-
-
     1.从左向右找第一个大于根节点的值，索引记作m。
     2.则可以将序列划分为两个区间 `[i,m-1]` `[m,j]`
     3.此时经过了一次升序和降序的扫描，如果扫描到最后则返回true；
@@ -265,7 +350,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2021/07/12/%E5%88%A4%E6%96%AD%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2021/07/12/%E5%88%A4%E6%96%AD%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -355,7 +440,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2021/07/11/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2021/07/11/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -487,7 +572,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2020/10/20/%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E5%92%8C%E7%A7%BB%E7%A0%81/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2020/10/20/%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E5%92%8C%E7%A7%BB%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -627,7 +712,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2020/09/29/%E5%8D%81%E4%BB%A3%E9%BB%91%E8%8B%B9%E6%9E%9COC%E5%BC%95%E5%AF%BC%E7%9B%B8%E5%85%B3%E6%AD%A5%E9%AA%A4/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2020/09/29/%E5%8D%81%E4%BB%A3%E9%BB%91%E8%8B%B9%E6%9E%9COC%E5%BC%95%E5%AF%BC%E7%9B%B8%E5%85%B3%E6%AD%A5%E9%AA%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -741,7 +826,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2020/05/08/Python%E5%AE%9E%E7%8E%B0Excel%E5%B7%A5%E4%BD%9C%E8%A1%A8%E7%9A%84%E5%88%86%E5%89%B2/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2020/05/08/Python%E5%AE%9E%E7%8E%B0Excel%E5%B7%A5%E4%BD%9C%E8%A1%A8%E7%9A%84%E5%88%86%E5%89%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -819,7 +904,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2020/05/01/Python%E5%AE%9E%E7%8E%B0%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2020/05/01/Python%E5%AE%9E%E7%8E%B0%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -905,7 +990,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2020/04/30/%E7%82%B9%E5%88%B0%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2020/04/30/%E7%82%B9%E5%88%B0%E7%9B%B4%E7%BA%BF%E7%9A%84%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -978,7 +1063,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2020/02/14/%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A%E5%AE%B6%E5%BA%AD%E6%99%BA%E8%83%BD%E7%BD%91%E5%85%B3-EPON-4-1-WiFi-2-4G-%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2020/02/14/%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A%E5%AE%B6%E5%BA%AD%E6%99%BA%E8%83%BD%E7%BD%91%E5%85%B3-EPON-4-1-WiFi-2-4G-%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1055,144 +1140,6 @@
 <p>所以我实际做的事情就是，删除js中的所有的验证代码，以及修改选择器中的值为CUAdmin<br>如图</p>
 <img src="/2020/02/14/%E4%B8%AD%E5%9B%BD%E8%81%94%E9%80%9A%E5%AE%B6%E5%BA%AD%E6%99%BA%E8%83%BD%E7%BD%91%E5%85%B3-EPON-4-1-WiFi-2-4G-%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3/8.png" class="">
 <p>直接输入想要设置的密码然后点击保存就可以了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2020/02/05/%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="王树波">
-      <meta itemprop="description" content="庆幸我还年轻，我要记录我的成长之路。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王树波的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/05/%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/" class="post-title-link" itemprop="url">无穷级数笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-05 15:34:29" itemprop="dateCreated datePublished" datetime="2020-02-05T15:34:29+08:00">2020-02-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-01 13:51:05" itemprop="dateModified" datetime="2020-05-01T13:51:05+08:00">2020-05-01</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一、讨论等比级数（也称几何级数）"><a href="#一、讨论等比级数（也称几何级数）" class="headerlink" title="一、讨论等比级数（也称几何级数）"></a>一、讨论等比级数（也称几何级数）</h1><p>$$\sum_{i=1}^{\infty} aq^{n-1} =a+aq+aq^2+…+aq^n-1+…\$$<br>的敛散性，其中$$a$$ $$\not=$$ $$0,q$$是级数的公比<br><br></p>
-<p>解：<br><br><br>$$<br>S_n=a+aq+aq^2+…+aq^n-1\<br>=\begin{cases}</p>
-<p>na&amp; \text{q=1}\\</p>
-<p>\frac{a(1-q^{n-1})}{1-q}&amp; \text{q!=1}</p>
-<p>\end{cases}<br>$$</p>
-<br>
-
-<p>$$<br>\lim_{x\rightarrow\infty} Sn=<br>\begin{cases}</p>
-<p>\lim_{x\rightarrow\infty} a_n=\infty&amp; \text{q=1}\\</p>
-<p>\lim_{x\rightarrow\infty} \frac{a(1-q^{n})}{1-q}&amp; \text{q!=1}</p>
-<p>\end{cases}<br>$$<br><br><br>综上：<br><br></p>
-<p>$$|q|&lt;1时,\lim_{x\rightarrow\infty} Sn=\frac{a}{1-q}\$$<br>$$|q|\geq1时,\lim_{x\rightarrow\infty} Sn不存在\$$</p>
-<p>结论：</p>
-<p>$$当|q|&lt;1时,\sum_{i=1}^{\infty} aq^{n-1}=\frac{a}{1-q}，\$$<br>$$当|q|\geq1时,\sum_{i=1}^{\infty} aq^{n-1}发散。<br>$$</p>
-<h1 id="二、P——级数"><a href="#二、P——级数" class="headerlink" title="二、P——级数"></a>二、P——级数</h1><p>$$<br>P——级数：<br>\sum_{i=1}^{\infty} \frac{1}{n^P}<br>=\begin{cases}</p>
-<p>收敛&amp; \text{P&gt;1时}\\</p>
-<p>发散&amp; \text{P&lt;=1时}</p>
-<p>\end{cases}<br>$$</p>
-<h2 id="调和级数（发散）"><a href="#调和级数（发散）" class="headerlink" title="调和级数（发散）"></a>调和级数（发散）</h2><p>当P——级数中P=1时，称为调和级数<br>$$\sum_{i=1}^{\infty} \frac{1}{n}=1+\frac{1}{2}+\frac{1}{3}+…+\frac{1}{n}+…$$</p>
-<h1 id="三、级数相加的敛散性变化"><a href="#三、级数相加的敛散性变化" class="headerlink" title="三、级数相加的敛散性变化"></a>三、级数相加的敛散性变化</h1><p>$$1.若\sum_{i=1}^{\infty}u_n收敛，而\sum_{i=1}^{\infty}v_n发散，\则\sum_{i=1}^{\infty}（u_n+v_n）发散$$</p>
-<p>$$2.若\sum_{i=1}^{\infty}u_n，\sum_{i=1}^{\infty}v_n都收敛，\则\sum_{i=1}^{\infty}（u_n+v_n）收敛$$</p>
-<p>$$3.若\sum_{i=1}^{\infty}u_n，\sum_{i=1}^{\infty}v_n都发散，\则\sum_{i=1}^{\infty}（u_n+v_n）有可能收敛$$</p>
-<h1 id="四、正项级数"><a href="#四、正项级数" class="headerlink" title="四、正项级数"></a>四、正项级数</h1><p>$$若u_n&gt;0,n=1,2,3…,则称\sum_{i=1}^{\infty}u_n为正项级数$$</p>
-<h2 id="正项级数的敛散性判别法"><a href="#正项级数的敛散性判别法" class="headerlink" title="正项级数的敛散性判别法"></a>正项级数的敛散性判别法</h2><h3 id="1-定义法："><a href="#1-定义法：" class="headerlink" title="1.定义法："></a>1.定义法：</h3><p>$$若正项级数\sum_{i=1}^{\infty}u_n收敛\longleftrightarrow \lim_{x\rightarrow\infty} S_n=s$$</p>
-<h3 id="2-基本定理法："><a href="#2-基本定理法：" class="headerlink" title="2.基本定理法："></a>2.基本定理法：</h3><p>$$若正项级数\sum_{i=1}^{\infty}u_n的前n项和数列{S_n}有上界，\则\sum_{i=1}^{\infty}u_n收敛。$$</p>
-<h3 id="3-正项级数比较审敛法："><a href="#3-正项级数比较审敛法：" class="headerlink" title="3.正项级数比较审敛法："></a>3.正项级数比较审敛法：</h3><h4 id="Th1-（比较审敛法）"><a href="#Th1-（比较审敛法）" class="headerlink" title="Th1:（比较审敛法）"></a>Th1:（比较审敛法）</h4><p>$$设正项级数\sum_{i=1}^{\infty}u_n和\sum_{i=1}^{\infty}v_n$$</p>
-<p>$$（1）若u_n\leq v_n(n=1,2,…)且\sum_{i=1}^{\infty}v_n收敛，\则\longrightarrow \sum_{i=1}^{\infty}u_n收敛$$</p>
-<p>证明：</p>
-<p>$$\because \sum_{i=1}^{\infty}v_n 收敛 \longrightarrow \lim_{x\rightarrow\infty} S_n^{(1)}=s \longrightarrow {S_n^{(1)}} 有界 $$</p>
-<p>$$即\exists M&gt;0,\forall n \in N^*,有0&lt;S_n^{(1)}&lt;M$$</p>
-<p>$$S_n^{(2)}=u_1+u_2+…+u_n\leq \v_1+v_2+…+v_n=S_n^{(1)}\leq M$$<br>$$\therefore 由2.基本定理知\sum_{i=1}^{\infty}u_n收敛$$</p>
-<p>$$（2）若u_n\geq v_n(n=1,2,…)且\sum_{i=1}^{\infty}v_n发散，\则\longrightarrow \sum_{i=1}^{\infty}u_n发散$$</p>
-<h4 id="Th2-比较审敛法的极限形式"><a href="#Th2-比较审敛法的极限形式" class="headerlink" title="Th2:比较审敛法的极限形式"></a>Th2:比较审敛法的极限形式</h4><p>$$设正项级数\sum_{i=1}^{\infty}u_n和\sum_{i=1}^{\infty}v_n，且\lim_{n\to\infty} \frac{u_n}{v_n}=l$$<br>$$(1)0&lt;l&lt;+\infty时,则\sum_{i=1}^{\infty}u_n和\sum_{i=1}^{\infty}v_n\具有相同的敛散性。$$<br>$$(2)l=0时,若\sum_{i=1}^{\infty}u_n收敛，则\sum_{i=1}^{\infty}v_n收敛$$<br>$$(3)l=+\infty时,若\sum_{i=1}^{\infty}u_n发散，则\sum_{i=1}^{\infty}v_n发散$$<br>以上“比较审敛法的极限形式”的方法需要自行构造合适的$v_n$以求$u_n$敛散性</p>
-<h4 id="Th3-（比值审敛法）"><a href="#Th3-（比值审敛法）" class="headerlink" title="Th3:（比值审敛法）"></a>Th3:（比值审敛法）</h4><p>$$正项级数\sum_{i=1}^{\infty}u_n,若p=\lim_{n\to\infty} \frac{u_{n+1}}{u_n},则$$<br>$$(1)0\leq p&lt;1时,则\sum_{i=1}^{\infty}u_n收敛$$<br>$$(2)p&gt;1时,则\sum_{i=1}^{\infty}u_n发散$$<br>$$(3)p=1时,可能收敛，可能发散$$</p>
-<blockquote>
-<p>一般情况用比值审敛法来求带阶乘级数的敛散性</p>
-</blockquote>
-<h4 id="Th4-根植审敛法"><a href="#Th4-根植审敛法" class="headerlink" title="Th4:(根植审敛法)"></a>Th4:(根植审敛法)</h4><p>$$正项级数\sum_{i=1}^{\infty}u_n,若p=\lim_{n\to\infty} \sqrt[n]{u_n},则$$<br>$$(1)0\leq p&lt;1时,则\sum_{i=1}^{\infty}u_n收敛$$<br>$$(2)p&gt;1时,则\sum_{i=1}^{\infty}u_n发散$$<br>$$(3)p=1时,可能收敛，可能发散$$<br>$$根值审敛法一般用于求带u_n=\frac{\alpha^n}{n^s}的这种形式$$</p>
-<h1 id="五、交错级数"><a href="#五、交错级数" class="headerlink" title="五、交错级数"></a>五、交错级数</h1><p>$$定义：若u_n&gt;0,\称\sum_{i=1}^{\infty}(-1)^nu_n或\sum_{i=1}^{\infty}(-1)^{n-1}u_n为交错级数$$</p>
-<h2 id="莱布尼兹判别法："><a href="#莱布尼兹判别法：" class="headerlink" title="莱布尼兹判别法："></a>莱布尼兹判别法：</h2><p>$$若交错级数满足：\<br>(1){u_n}单调减少\<br>(2)\lim_{n\to\infty} u_n= 0\<br>则该交错级数收敛<br>$$</p>
-<h2 id="绝对收敛和条件收敛"><a href="#绝对收敛和条件收敛" class="headerlink" title="绝对收敛和条件收敛"></a>绝对收敛和条件收敛</h2><p>$$<br>定义：若|u_n|收敛，则称\sum_{i=1}^{\infty}u_n绝对收敛\<br>若\sum_{i=1}^{\infty}u_n收敛，但\sum_{i=1}^{\infty}|u_n|发散，\则称为条件收敛\</p>
-<p>\star 绝对收敛的级数必定收敛<br>$$</p>
-<h1 id="六、幂级数（函数项级数）："><a href="#六、幂级数（函数项级数）：" class="headerlink" title="六、幂级数（函数项级数）："></a>六、幂级数（函数项级数）：</h1><p>$${u_n(x)}函数列\\sum_{i=1}^{\infty}u_n(x)=u_1(x)+u_2(x)+…+u_n(x)+…$$</p>
-<h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><p>$$(1)\forall x_0\in D 若\sum_{i=1}^{\infty}u_n(x_0)收敛，\<br>则称x_0为函数项级数\sum_{i=1}^{\infty}u_n(x)的收敛点，\<br>否则x_0为\sum_{i=1}^{\infty}u_n(x)的发散点。\<br>(2)收敛域：\所有收敛点的集合称为函数项级数\\sum_{i=1}^{\infty}u_n(x)的收敛域。<br>$$</p>
-<h2 id="不缺项幂函数收敛域、收敛区间求法："><a href="#不缺项幂函数收敛域、收敛区间求法：" class="headerlink" title="不缺项幂函数收敛域、收敛区间求法："></a>不缺项幂函数收敛域、收敛区间求法：</h2><p>$$\sum_{n=0}^{\infty}a_n(x-x_n)^n$$<br>$$记作：\a_0+a_1(x-x_0)+a_2(x-x_0)^2+…+a_n(x-x_0)^n+…$$<br>$$\star \sum_{n=0}^{\infty}a_nx^n=a_0+a_1x+a_2x^2+…+a_nx^n+…$$</p>
-<p>$$Th:如果\lim_{n\to\infty} |\frac{a_{n+1}}{a_n}|= l\<br>其中a_n,a_{n+1}是幂级数\\sum_{n=0}^{\infty}a_nx^n相邻两项的系数，\则此幂级数的收敛半径为R\<br>\<br>\</p>
-<p>R<br>=\begin{cases}</p>
-<p>\frac{1}{l}&amp; \text{l!=0}\</p>
-<p>\infty&amp; \text{l=0}\</p>
-<p>0&amp; \text{l=∞}<br>\end{cases}</p>
-<p>\<br>\sum_{n=0}^{\infty}a_nx^n在(-R,R)内收敛。\<br>收敛域则通过带入验证，收敛域可能为：\<br>[-R,R],[-R,R),(-R,R),(-R,R]</p>
-<p>$$</p>
-<h2 id="缺项的幂函数收敛域、收敛区间求法："><a href="#缺项的幂函数收敛域、收敛区间求法：" class="headerlink" title="缺项的幂函数收敛域、收敛区间求法："></a>缺项的幂函数收敛域、收敛区间求法：</h2><p>$$\sum_{n=0}^{\infty}a_nx^{2n}和\sum_{n=0}^{\infty}a_nx^{2n+1}\<br>p=\lim_{n\to\infty} |\frac{u_{n+1}(x)}{u_{n}(x)}|\= \lim_{n\to\infty} |\frac{a_{n+1}x^{2n+2}}{a_{n}x^{2n}}|\\=\lim_{n\to\infty} |\frac{a_{n+1}}{a_{n+1}}x^2|&lt;1\<br>x^2&lt;\frac{1}{l},\<br>R=\frac{1}{l}=\frac{1}{\sqrt{l}}<br>收敛区间（-R,R）,\<br>收敛域，同不缺项的幂级数求法相同。<br>$$</p>
-<h1 id="幂级数和函数的性质"><a href="#幂级数和函数的性质" class="headerlink" title="幂级数和函数的性质"></a>幂级数和函数的性质</h1><p>$$\sum_{n=0}^{\infty}a_nx^n=s(x)\<br>x\in收敛域，收敛半径为R\<br>$$</p>
-<h2 id="性质："><a href="#性质：" class="headerlink" title="性质："></a>性质：</h2><p>$$（1）和函数s(x)在(-R,R)内连续\<br>(2)逐项积分：\int_0^x s(t)dt\<br>=\int_0^x \sum_{n=0}^{\infty}a_nt^n dt\<br>=\sum_{n=0}^{\infty}\int_0^x a_nt^n dt\<br>=\sum_{n=0}^{\infty}a_n\frac{x^{n+1}}{n+1}\<br>(3)逐项求导：s(x)在(-R,R)内可导，逐项都可导\<br>即s’(x)=\int_0^x s(t)dt\<br>=(\sum_{n=1}^{\infty} a_nx^n)’\<br>=\sum_{n=1}^{\infty}(a_nx^n)’\<br>=\sum_{n=1}^{\infty}na_nx^{n-1}<br>$$</p>
-<h1 id="幂级数-和函数的求法"><a href="#幂级数-和函数的求法" class="headerlink" title="幂级数 和函数的求法"></a>幂级数 和函数的求法</h1><p>$$<br>（1）当幂级数的一般项形式\<br>如\frac{x^n}{n(n+1)}时，\<br>可先用求导后求积分的方法求其和函数。\<br>(2)当幂级数的一般项形式如\<br>(2n+1)x^{2n},n(x)^{n-1}等时\<br>可“先积后导”\<br>(3)常用的幂级数展开式\</p>
-<p>\star \frac{1}{1-x}=\sum_{n=0}^{\infty}x^n\<br>=1+x+x^2+…+x^n+…(-1&lt;x&lt;1)\<br>\star \frac{1}{1+x}=\sum_{n=0}^{\infty}(-1)^nx^n\<br>=1-x+x^2-…+x^n+…(-1&lt;x&lt;1)\<br>$$</p>
-<h1 id="函数展开成幂级数"><a href="#函数展开成幂级数" class="headerlink" title="函数展开成幂级数"></a>函数展开成幂级数</h1><p>$$<br>y=f(x)在x=x_0的邻域内，\<br>（任意阶可导）具有充分的光滑性\<br>泰勒级数：\<br>f(x)=f(x_0)+\frac{f’(x_0)}{1!}(x-x_0)\<br>+\frac{f’’(x_0)}{2!}(x-x_0)^2+…\<br>+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+…\<br>当x_0=0时,\<br>即为麦克劳林级数：\<br>f(x)=f(0)+\frac{f’(0)}{1!}x\<br>+\frac{f’’(0)}{2!}x^2+…+\frac{f^{(n)}(0)}{n!}x^n+…\</p>
-<p>$$</p>
-<h2 id="常用的几个函数展开"><a href="#常用的几个函数展开" class="headerlink" title="常用的几个函数展开"></a>常用的几个函数展开</h2><p>$$<br>(1)e^x=1+x+\frac{1}{2!}x^2+…+\frac{1}{n!}x^n+… \<br>x\in (-\infty,+\infty)\<br>(2)sinx=x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-\frac{1}{7!}x^7\<br>+…+\frac{(-1)^{n-1}}{(2n-1)!}x^{2n-1}+…\<br>x\in (-\infty,+\infty)\<br>(3)cosx=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^4}{6!}\<br>+…+\frac{(-1)^{n-1}}{(2n)!}x^{2n}+…\<br>x\in (-\infty,+\infty)\<br>(4)ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-…\+(-1)^n\frac{x^{n+1}}{n+1}+… \<br>x\in(-1,1]<br>$$</p>
 
       
     </div>
@@ -1317,7 +1264,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:08</span>
+    <span title="站点阅读时长">1:09</span>
 </div>
 
         

@@ -24,14 +24,14 @@
   <meta name="description" content="庆幸我还年轻，我要记录我的成长之路。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="王树波的博客">
-<meta property="og:url" content="https://blog.shubo6.cn/page/4/index.html">
+<meta property="og:url" content="http://blog.shubo6.cn/page/4/index.html">
 <meta property="og:site_name" content="王树波的博客">
 <meta property="og:description" content="庆幸我还年轻，我要记录我的成长之路。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="王树波">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.shubo6.cn/page/4/">
+<link rel="canonical" href="http://blog.shubo6.cn/page/4/">
 
 
 <script id="page-configurations">
@@ -160,7 +160,104 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2019/05/24/MongoDB%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95-windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="王树波">
+      <meta itemprop="description" content="庆幸我还年轻，我要记录我的成长之路。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王树波的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/" class="post-title-link" itemprop="url">c语言文件之间变量的定义和声明</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-02 12:41:56" itemprop="dateCreated datePublished" datetime="2019-06-02T12:41:56+08:00">2019-06-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-06-30 00:07:45" itemprop="dateModified" datetime="2019-06-30T00:07:45+08:00">2019-06-30</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <br>
+最近review了大一时候的期末实训学籍管理系统的代码。
+发现自己并不明白多文件之间的变量定义和声明，在这里做个记录。
+<img src="/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/1.png" class="">
+建议使用codeblocks
+
+<h2 id="让我们来看看程序是咋写的"><a href="#让我们来看看程序是咋写的" class="headerlink" title="让我们来看看程序是咋写的"></a>让我们来看看程序是咋写的</h2><h3 id="文件目录结构"><a href="#文件目录结构" class="headerlink" title="文件目录结构"></a>文件目录结构</h3><img src="/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/2.png" class="">
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">主菜单   menu.c</span><br><span class="line">成绩输入 stu1.c ：在文件stu.dat中增加一个或多个新的学生和相应的成绩；</span><br><span class="line">成绩修改 stu2.c ：对已有学生的成绩进行修改；</span><br><span class="line">查询成绩 stu3.c ：根据学号或者姓名查询成绩；</span><br><span class="line">显示成绩 stu4.c ：显示所有学生的成绩（每页10个）；</span><br><span class="line">统计成绩 stu5.c ：对所有学生的成绩，可以按照某一科进行升序排序；</span><br><span class="line">注销学生 stu6.c ：注销某学生及其相关记录；</span><br><span class="line">成绩导入 stu7.c ：将已经在其他文件里的学生成绩，导入到学生成绩数据文件； </span><br><span class="line">整个系统  mscore.c</span><br></pre></td></tr></table></figure>
+<h2 id="mscore-c-main"><a href="#mscore-c-main" class="headerlink" title="mscore.c (main)"></a>mscore.c (main)</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;my.h&quot;</span></span></span><br><span class="line"><span class="keyword">int</span> BFUN=<span class="number">0</span>;<span class="comment">/* 定义全局变量，用来显示学籍信息个数 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	system(<span class="string">&quot;color 3f&quot;</span>);</span><br><span class="line">	OI();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="my-h"><a href="#my-h" class="headerlink" title="my.h"></a>my.h</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MY_H_INCLUDED</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_H_INCLUDED</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NUMBER 200</span></span><br><span class="line"><span class="keyword">extern</span>  <span class="keyword">int</span> BFUN;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stu</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> name[<span class="number">50</span>];<span class="comment">/* 姓名 */</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">long</span> num;<span class="comment">/* 学号 */</span></span><br><span class="line">	<span class="keyword">int</span> math;<span class="comment">/* 数学 */</span></span><br><span class="line">	<span class="keyword">int</span> physical;<span class="comment">/* 物理 */</span></span><br><span class="line">	<span class="keyword">int</span> english;<span class="comment">/* 英语 */</span></span><br><span class="line">	<span class="keyword">int</span> count; <span class="comment">/* 总分 */</span></span><br><span class="line"></span><br><span class="line">&#125;boy[NUMBER],Temp;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 定义函数说明（全局说明） */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">INPUT</span><span class="params">()</span></span>;<span class="comment">/* 1.输入学生信息 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">QUERY</span><span class="params">(<span class="keyword">int</span> q)</span></span>;<span class="comment">/* 2 查询学生信息 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CHANGE</span><span class="params">()</span></span>;<span class="comment">/* 3 修改学生信息 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DELETION</span><span class="params">()</span></span>;<span class="comment">/* 4 删除学生信息 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SEQUENCE</span><span class="params">()</span></span>;<span class="comment">/* 5 排列学生信息 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SHOW</span><span class="params">()</span></span>;<span class="comment">/* 6 显示学生信息 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SAVE</span><span class="params">()</span></span>;<span class="comment">/* 7 保存学生信息 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LAYIN</span><span class="params">()</span></span>;<span class="comment">/* 9 导入信息 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LOGOUT</span><span class="params">()</span></span>;<span class="comment">/* 退出程序界面 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OI</span><span class="params">()</span></span>;<span class="comment">/* 操作选项 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OUTPUT</span><span class="params">(<span class="keyword">int</span> i)</span></span>;<span class="comment">/* 输出信息 */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">XG</span><span class="params">(<span class="keyword">int</span> k)</span></span>;<span class="comment">/* 修改信息调用 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// MY_H_INCLUDED</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="stu1-c"><a href="#stu1-c" class="headerlink" title="stu1.c"></a>stu1.c</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;my.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">INPUT</span><span class="params">()</span><span class="comment">/* 1.输入学生全部信息 */</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n\t\t* * * * * * * * * * * * * * * * &gt;* * * * *\n&quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n\t\t*      你已进入学生信息录入模块    &gt;     *\n&quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n\t\t* * * * * * * * * * * * * * * * &gt;* * * * *\n&quot;</span>);</span><br><span class="line">	x=BFUN;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)<span class="comment">/* 把全局变量BFUN的值赋给x */</span></span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\t请输入第%d个学生的信息（键入‘0’退出&gt;录入）\n&quot;</span>,++x);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n\t录入信息包含项【学号，姓名，数学，&gt;物理，外语，总成绩】回车键入下一项”\n&quot;</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n学号：&quot;</span>);</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;Temp.num);</span><br><span class="line">		<span class="keyword">if</span>(Temp.num==<span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			system(<span class="string">&quot;cls&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=BFUN;i++)</span><br><span class="line">			<span class="keyword">if</span>(Temp.num==boy[i].num)</span><br><span class="line">			&#123;</span><br><span class="line">				system(<span class="string">&quot;cls&quot;</span>);</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;\n\n\t该学籍已被注册！\n\n&quot;</span>)&gt;;INPUT();</span><br><span class="line">			&#125;</span><br><span class="line">		getchar();</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n姓名：&quot;</span>);</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,&amp;Temp.name);</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">strlen</span>(Temp.name)&gt;<span class="number">20</span>)<span class="comment">/* 限制姓名字符长度&gt;为20 */</span></span><br><span class="line">		&#123;</span><br><span class="line">			system(<span class="string">&quot;cls&quot;</span>);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;\n\n\t姓名输入有误，超出限度。&gt;\n\n&quot;</span>);INPUT();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n数学成绩：&quot;</span>);</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;Temp.math);</span><br><span class="line">		<span class="keyword">if</span>(Temp.math&lt;=<span class="number">0</span>||Temp.math&gt;=<span class="number">150</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			system(<span class="string">&quot;cls&quot;</span>);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;\t成绩输入有误！\n\n\n&quot;</span>);</span><br><span class="line">			INPUT();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n物理成绩：&quot;</span>);</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;Temp.physical);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(Temp.physical&lt;=<span class="number">0</span>||Temp.physical&gt;=<span class="number">100</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			system(<span class="string">&quot;cls&quot;</span>);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;\t成绩输入有误！\n\n\n&quot;</span>);</span><br><span class="line">			INPUT();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n外语成绩：&quot;</span>);</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;Temp.english);</span><br><span class="line">		<span class="keyword">if</span>(Temp.english&lt;=<span class="number">0</span>||Temp.english&gt;=<span class="number">150</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			system(<span class="string">&quot;cls&quot;</span>);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;\t成绩输入有误！\n\n\n&quot;</span>);</span><br><span class="line">			INPUT();</span><br><span class="line">		&#125;</span><br><span class="line">		getchar();</span><br><span class="line">		BFUN=x;<span class="comment">/* 上面函数完全正确执行后，才会把现在的&gt;x值赋给BFUN */</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n\n\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">		boy[BFUN<span class="number">-1</span>]=Temp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>到这里就能直观的看出来 多个文件之间的调用关系：将结构体声明，函数声明，常量定义都写在一个自定义头文件里；然后在每一个文件中都<code>include</code>这个头文件就可以将功能模块化的分成多个文件啦。</p>
+</blockquote>
+<h4 id="还有一个问题就是extern的用法"><a href="#还有一个问题就是extern的用法" class="headerlink" title="还有一个问题就是extern的用法:"></a>还有一个问题就是<code>extern</code>的用法:</h4><blockquote>
+<p>在主文件中定义了一个BFUN的全局变量，用来计算系统中学生的数量。<br>而在当头文件，或者其他文件中想要访问这个变量就不需要再次定义了。这时候在别的地方需要声明的时候，只需要使用<code>extern</code>就ok了</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/allcando/StudentManagementSystem">项目源码下载</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2019/05/24/MongoDB%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95-windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -257,7 +354,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2019/05/03/jquery-%E6%98%9F%E7%BA%A7%E8%AF%84%E4%BB%B7%E6%8F%92%E4%BB%B6jquery-Raty%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2019/05/03/jquery-%E6%98%9F%E7%BA%A7%E8%AF%84%E4%BB%B7%E6%8F%92%E4%BB%B6jquery-Raty%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -337,7 +434,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2019/04/25/%E8%B8%A9%E5%9D%91-PHP-json-encode-%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%98%E5%8A%A8/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2019/04/25/%E8%B8%A9%E5%9D%91-PHP-json-encode-%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%98%E5%8A%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -424,7 +521,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2019/04/23/%E8%AE%B0%E5%BD%95Bootstrap%E6%A0%85%E6%A0%BC%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2019/04/23/%E8%AE%B0%E5%BD%95Bootstrap%E6%A0%85%E6%A0%BC%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -527,7 +624,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2019/04/13/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2019/04/13/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -620,7 +717,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2019/04/12/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%ADcanvas%E7%BB%84%E4%BB%B6%E6%97%A0%E6%B3%95%E8%A2%AB%E8%A6%86%E7%9B%96%E7%9A%84%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2019/04/12/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%ADcanvas%E7%BB%84%E4%BB%B6%E6%97%A0%E6%B3%95%E8%A2%AB%E8%A6%86%E7%9B%96%E7%9A%84%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -702,7 +799,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2019/04/12/echarts%E5%9B%BE%E8%A1%A8%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2019/04/12/echarts%E5%9B%BE%E8%A1%A8%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -783,7 +880,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2019/04/12/%E6%9C%80%E8%BF%91%E5%AD%A6%E4%B9%A0java%E9%81%87%E8%A7%81%E7%9A%84%E5%9D%91/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2019/04/12/%E6%9C%80%E8%BF%91%E5%AD%A6%E4%B9%A0java%E9%81%87%E8%A7%81%E7%9A%84%E5%9D%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -863,7 +960,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2019/04/02/Jquery-JSONstr%E5%92%8CJSONobj%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%92%8C%E5%88%A4%E6%96%AD/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2019/04/02/Jquery-JSONstr%E5%92%8CJSONobj%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%92%8C%E5%88%A4%E6%96%AD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -934,95 +1031,6 @@
 <p>注：ie8(兼容模式),ie7和ie6没有JSON对象，需要引入 json.js 或 json2.js。</p>
 <h1 id="3：Javascript支持的转换方式"><a href="#3：Javascript支持的转换方式" class="headerlink" title="3：Javascript支持的转换方式"></a>3：Javascript支持的转换方式</h1><h3 id="String→Object-2"><a href="#String→Object-2" class="headerlink" title="String→Object"></a>String→Object</h3><p><code>eval(&#39;(&#39; + jsonstr + &#39;)&#39;); //可以将json字符串转换成json对象,注意需要在json字符外包裹一对小括号 </code></p>
 <p>注：ie8(兼容模式),ie7和ie6也可以使用eval()将字符串转为JSON对象</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2019/03/23/hive%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="王树波">
-      <meta itemprop="description" content="庆幸我还年轻，我要记录我的成长之路。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王树波的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/03/23/hive%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Hive安装与配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-03-23 16:28:21" itemprop="dateCreated datePublished" datetime="2019-03-23T16:28:21+08:00">2019-03-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-06-30 00:07:19" itemprop="dateModified" datetime="2019-06-30T00:07:19+08:00">2019-06-30</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <br>
-
-<h2 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h2><p>Hive是基于Hadoop构建的一套数据仓库分析系统，它提供了丰富的SQL查询方式来分析存储在Hadoop 分布式文件系统中的数据。其在Hadoop的架构体系中承担了一个SQL解析的过程，它提供了对外的入口来获取用户的指令然后对指令进行分析，解析出一个MapReduce程序组成可执行计划，并按照该计划生成对应的MapReduce任务提交给Hadoop集群处理，获取最终的结果。元数据——如表模式——存储在名为metastore的数据库中。</p>
-<h2 id="Metastore"><a href="#Metastore" class="headerlink" title="Metastore"></a>Metastore</h2><p>metastore是Hive元数据集中存放地。它包括两部分：服务和后台数据存储。有三种方式配置metastore：内嵌metastore、本地metastore以及远程metastore。<br>本次搭建中采用MySQL作为远程仓库，部署在master节点上，hive服务端也安装在master上，hive客户端即hadoop-slave访问hive服务器。</p>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><h3 id="hive：可以选择国内apache镜像站下载hive"><a href="#hive：可以选择国内apache镜像站下载hive" class="headerlink" title="hive：可以选择国内apache镜像站下载hive"></a>hive：可以选择国内apache镜像站下载hive</h3><h3 id="mysql数据库java驱动：mysql官网下载"><a href="#mysql数据库java驱动：mysql官网下载" class="headerlink" title="mysql数据库java驱动：mysql官网下载"></a>mysql数据库java驱动：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/connector/j/">mysql官网下载</a></h3><h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h3 id="1-安装mysql-mariadb数据库，启动并建立hive数据库。"><a href="#1-安装mysql-mariadb数据库，启动并建立hive数据库。" class="headerlink" title="1.安装mysql/mariadb数据库，启动并建立hive数据库。"></a>1.安装mysql/mariadb数据库，启动并建立hive数据库。</h3><h3 id="2-开启远程连接权限"><a href="#2-开启远程连接权限" class="headerlink" title="2.开启远程连接权限"></a>2.开启远程连接权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; GRANT ALL PRIVILEGES ON *.* TO <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span>IDENTIFIED BY <span class="string">&#x27;000000&#x27;</span> WITH GRANT OPTION;</span><br><span class="line">&gt; flush privileges;</span><br></pre></td></tr></table></figure>
-<h3 id="3-复制hive目录下的conf-hive-default-xml-template改名为conf-hive-site-xml"><a href="#3-复制hive目录下的conf-hive-default-xml-template改名为conf-hive-site-xml" class="headerlink" title="3.复制hive目录下的conf/hive-default.xml.template改名为conf/hive-site.xml"></a>3.复制hive目录下的<code>conf/hive-default.xml.template</code>改名为<code>conf/hive-site.xml</code></h3><h3 id="4-编辑conf-hive-site-xml文件"><a href="#4-编辑conf-hive-site-xml文件" class="headerlink" title="4.编辑conf/hive-site.xml文件"></a>4.编辑<code>conf/hive-site.xml</code>文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;hive.metastore.local&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;jdbc:mysql://master:3306/hive?characterEncoding=UTF-8&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;hive&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;javax.jdo.option.ConnectionPassword&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;000000&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;hive.server2.authentication&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;NONE&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;hive.server2.thrift.client.user&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;root&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;hive.server2.thrift.client.password&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;000000&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="5-配置环境变量"><a href="#5-配置环境变量" class="headerlink" title="5.配置环境变量"></a>5.配置环境变量</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/share/jdk</span><br><span class="line">JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">HADOOP_HOME=/usr/share/hadoop</span><br><span class="line">HIVE_HOME=$HADOOP_HOME/apache-hive-2.3.4-bin</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin:$HADOOP_HOME/bin:$HIVE_HOME/bin</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">export JAVA_HOME JRE_HOME PATH CLASSPATH HADOOP_HOME HIVE_HOME</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="6-格式化数据库（如果漏掉这一步，hive启动会报错）"><a href="#6-格式化数据库（如果漏掉这一步，hive启动会报错）" class="headerlink" title="6.格式化数据库（如果漏掉这一步，hive启动会报错）"></a>6.格式化数据库（如果漏掉这一步，hive启动会报错）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./schematool --dbType mysql --initSchema</span><br></pre></td></tr></table></figure>
-<h3 id="7-启动Hive-CLI"><a href="#7-启动Hive-CLI" class="headerlink" title="7.启动Hive CLI"></a>7.启动Hive CLI</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hive</span><br></pre></td></tr></table></figure>
-<h3 id="8-将hive传输到slave节点"><a href="#8-将hive传输到slave节点" class="headerlink" title="8.将hive传输到slave节点"></a>8.将hive传输到slave节点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r /usr/share/hadoop/apache-hive-2.3.4-bin/ slave:/usr/share/hadoop</span><br></pre></td></tr></table></figure>
-<h3 id="9-修改slave节点的conf-hive-site-xml文件"><a href="#9-修改slave节点的conf-hive-site-xml文件" class="headerlink" title="9.修改slave节点的conf/hive-site.xml文件"></a>9.修改slave节点的<code>conf/hive-site.xml</code>文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">        &lt;property&gt;</span><br><span class="line">                &lt;name&gt;hive.metastore.uris&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;thrift://master:9083&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;            </span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1147,7 +1155,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:08</span>
+    <span title="站点阅读时长">1:09</span>
 </div>
 
         

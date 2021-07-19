@@ -24,20 +24,20 @@
   <meta name="description" content="最近review了大一时候的期末实训学籍管理系统的代码。 发现自己并不明白多文件之间的变量定义和声明，在这里做个记录。  建议使用codeblocks  让我们来看看程序是咋写的文件目录结构 123456789主菜单   menu.c成绩输入 stu1.c ：在文件stu.dat中增加一个或多个新的学生和相应的成绩；成绩修改 stu2.c ：对已有学生的成绩进行修改；查询成绩 stu3.c ：根">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c语言文件之间变量的定义和声明">
-<meta property="og:url" content="https://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/index.html">
+<meta property="og:url" content="http://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/index.html">
 <meta property="og:site_name" content="王树波的博客">
 <meta property="og:description" content="最近review了大一时候的期末实训学籍管理系统的代码。 发现自己并不明白多文件之间的变量定义和声明，在这里做个记录。  建议使用codeblocks  让我们来看看程序是咋写的文件目录结构 123456789主菜单   menu.c成绩输入 stu1.c ：在文件stu.dat中增加一个或多个新的学生和相应的成绩；成绩修改 stu2.c ：对已有学生的成绩进行修改；查询成绩 stu3.c ：根">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/1.png">
-<meta property="og:image" content="https://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/2.png">
+<meta property="og:image" content="http://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/1.png">
+<meta property="og:image" content="http://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/2.png">
 <meta property="article:published_time" content="2019-06-02T04:41:56.000Z">
 <meta property="article:modified_time" content="2019-06-29T16:07:45.000Z">
 <meta property="article:author" content="王树波">
 <meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/1.png">
+<meta name="twitter:image" content="http://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/1.png">
 
-<link rel="canonical" href="https://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/">
+<link rel="canonical" href="http://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/">
 
 
 <script id="page-configurations">
@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/">
+    <link itemprop="mainEntityOfPage" href="http://blog.shubo6.cn/2019/06/02/%E8%AE%B0%E5%BD%95c%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -381,7 +381,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:08</span>
+    <span title="站点阅读时长">1:09</span>
 </div>
 
         
